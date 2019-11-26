@@ -1,0 +1,36 @@
+name: mne3
+channels:
+  - defaults
+dependencies:
+  - scikit-learn
+  - pytest-mock
+  - traits
+  - pip
+  - xlrd
+  - numexpr
+  - cython
+  - seaborn
+  - mkl
+  - pyqt
+  - traitsui
+  - pytest
+  - testpath
+  - numpy
+  - pandas
+  - flake8
+  - statsmodels
+  - python[version='<3.7']
+  - matplotlib
+  - h5py
+  - scipy
+  - pyface
+  - jupyter
+  - pytest-timeout
+  - pytest-cov
+  - numpydoc
+  - spyder
+  - psutil
+  - joblib
+  - pillow
+prefix: /anaconda2/envs/mne3
+
