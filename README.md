@@ -1,8 +1,7 @@
 # python-scientific
 Quick guide and tutorial to scientific data python programming
 
-do this and then
- 
+
 * Install Git Bash
   https://git-scm.com/downloads
   
