@@ -1,6 +1,8 @@
 # python-scientific
 Quick guide and tutorial to scientific data python programming
 
+do this and then
+ 
 * Install Git Bash
   https://git-scm.com/downloads
   
@@ -13,7 +15,9 @@ Quick guide and tutorial to scientific data python programming
  
   From the Git Bash console, run
   
-  git clone https://github.com/faturita/python-scientific.git
+ ```bash
+ git clone https://github.com/faturita/python-scientific.git
+ ```
  
  * Run an Anaconda Prompt
  * Create the environment with:
