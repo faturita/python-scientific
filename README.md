@@ -22,9 +22,15 @@ do this and then
  * Run an Anaconda Prompt
  * Create the environment with:
  
-  conda env update --name mne3 --file environmentw.yml
+ ```bash 
+ conda env update --name mne3 --file environmentw.yml
+ ```
+ 
+  * Activate the newly created environment
+  ```bash
+  conda activate mne3
+  ```
   
-  * conda activate mne3
   
   
  
