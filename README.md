@@ -10,6 +10,10 @@ Quick guide and tutorial to scientific data python programming
   Download Anaconda 3.7 for your platform and install it.
   https://www.anaconda.com/distribution/
  
+ * Install Visual Studio Code
+ 
+  Download and install it from https://code.visualstudio.com/download
+  
  * Clone this repository
  
   From the Git Bash console, run
