@@ -28,7 +28,6 @@ eeg = data[:,2]
 
 
 
-
 #t = np.linspace(-0.02, 0.05, 1000)
 #plt.plot(t, 325 * np.sin(2*np.pi*50*t));
 plt.plot(eeg,'r', label='EEG')
