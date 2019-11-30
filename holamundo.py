@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Frecuencia de sampleo 128 Hz
+
 print('Hello Python Scientific World')
 
 print('Objetivo: leer tensores y poder plotear sus valores...')
