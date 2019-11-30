@@ -64,16 +64,7 @@ plt.show()
 # que es un pestañeo de qué no lo es.
 signalthreshold = 420
 
-def crest_factor(x):
-    return np.max(np.abs(x))/np.sqrt(np.mean(np.square(x)))
 
-ptp = abs(np.max(eeg)) + abs(np.min(eeg))
-rms = np.sqrt(np.mean(eeg**2))
-cf = crest_factor(eeg)
-
-print (ptp)
-print (rms)
-print (cf)
 
 boolpeaks = np.where( eeg > signalthreshold  )
 print (boolpeaks)
