@@ -17,7 +17,7 @@ print('Estructura de la informacion:')
 signals.head()
 
 print('Filtrar segun informacion especifica:')
-signals[signals.counter > 60]
+signals[signals.counter > 45]
 
 data = signals.values
 
