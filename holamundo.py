@@ -44,3 +44,10 @@ sns.set(style="darkgrid")
 sns.lineplot(x="timestamp", y="eeg", hue="attention", data=signals)
 import matplotlib.pyplot as plt
 plt.show()
+
+# ¿ Qué pueden hacer ? 
+
+# 1- Verifiquen que el campo counter en el archivo es consecutivo.  Este campo está asociado
+# a la frecuencia de sampleo del dispositivo.  Si todos los número están presentes entonces está ok.
+
+# 2- Traten de identificar los picos.
