@@ -34,7 +34,7 @@ Quick guide and tutorial to scientific data python programming
   conda activate mne3
   ```
   
-  # Como actualizar el repo con nuevos cambios?
+# Como actualizar el repo con nuevos cambios?
   
   Desde gitbash (windows) o desde una consola en Mac o Linux
   
@@ -52,6 +52,9 @@ Quick guide and tutorial to scientific data python programming
   
   Si tienen cambios este comando va a forzar un merge automático.  Si el merge esta ok les abre una consola de VI u otro editor (para salir de vi apreten ':' y después 'x').  Si hay conflictos, revisen los archivos que están con conflicto (se van a dar cuenta) y después marcan el conflicto resuelto con 'git add nombrearchivo' y luego 'git commit-m"Conflicto resuelto"'
   
+# ¿ Querés aprender python de cero ?
+
+https://online-learning.harvard.edu/course/using-python-research
  
  
  
