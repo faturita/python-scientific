@@ -204,6 +204,7 @@ def psd(y):
 N = 128
 T = 1.0 / 128.0
 
+# Al tomar la FFT, le agrego una señal oscilatoria adicional para verificar que está haciendo lo que creo.
 x= np.linspace(0.0, 1.0, len(eeg))
 eeg = eeg + 100*np.sin(10.0 * 2.0*np.pi*x)
 yf = fft(eeg)
