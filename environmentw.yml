@@ -5,6 +5,7 @@ dependencies:
   - scikit-learn
   - pytest-mock
   - traits
+  - gevent
   - pip
   - xlrd
   - numexpr
@@ -21,7 +22,8 @@ dependencies:
   - statsmodels
   - python[version='<3.7']
   - matplotlib
-  - h5py
+  - joblib
+  - umap-learn
   - scipy
   - pyface
   - jupyter
@@ -30,7 +32,7 @@ dependencies:
   - numpydoc
   - spyder
   - psutil
-  - joblib
+  - h5py
   - pillow
 prefix: /anaconda2/envs/mne3
 

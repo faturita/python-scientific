@@ -12,11 +12,12 @@ def quicksort(arr):
     right = [x for x in arr if x > pivot]
     return quicksort(left) + middle + quicksort(right)
 
-print ('Quicksort in action...')
+print ('Quicksort es un algoritmo bastante eficiente para ordenar elementos.')
 print ([3,6,8,10,1,2,1])
 print(quicksort([3,6,8,10,1,2,1]))
 
 
+print ('Existen muchas situaciones donde es necesario formatear texto.  El 3 indica la cantidad de digitos a utlizar y d que son enteros.')
 a=3
 print ('AT'+'{:3d}'.format(a))
 
@@ -46,7 +47,7 @@ print(not t)   # Logical NOT; prints "False"
 print(t != f)  # Logical XOR; prints "True"
 
 
-print('Strings handling in python')
+print('Manejo de cadenas en python....')
 hello = 'hello'    # String literals can use single quotes
 world = "world"    # or double quotes; it does not matter.
 print(hello)       # Prints "hello"

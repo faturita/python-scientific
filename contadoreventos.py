@@ -78,3 +78,12 @@ print (a)
 blinkings = a.sum()
 
 print ('Blinkings: %d' % blinkings)
+
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
+
+peaks, _ = find_peaks(eeg, height=200)
+plt.plot(eeg)
+plt.plot(peaks, eeg[peaks], "x")
+plt.plot(np.zeros_like(eeg), "--", color="gray")
+plt.show()
