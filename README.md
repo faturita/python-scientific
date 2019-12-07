@@ -55,6 +55,5 @@ Quick guide and tutorial to scientific data python programming
 # ¿ Querés aprender python de cero ?
 
 https://online-learning.harvard.edu/course/using-python-research
- 
- 
+  
  
