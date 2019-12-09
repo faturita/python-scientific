@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 print('Este ejercicio tiene dos maneras de resolverse.')
-print('Lo tiene que tener listo para el Miercoles 18 de Diciembre.')
+print('Lo tiene que tener listo para el Lunes 23 de Diciembre.')
 
 print('Opción A: contestan preguntas directamente en relación a cómo resolverían el problema.  Es decir explicando por qué lo que plantean podría funcionar.')
 print('Opción B: elijan una pregunta e intentan implementar una solución, codificando en R, Java o python.')
