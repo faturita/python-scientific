@@ -26,30 +26,28 @@ print('5 - ¿Que feature utilizarian para mejorar la clasificacion que ofrece Ke
 El formato de los datos es
 
         "COUNTER",
-        "BATTERY",
-        "FC6",
-        "F8",
-        "T8",
-        "PO4",
-        "F4",
-        "AF4",
-        "FP2",
-        "OZ",
-        "P8",
-        "FP1",
         "AF3",
-        "F3",
-        "P7",
-        "T7",
         "F7",
+        "F3",
         "FC5",
+        "T7",
+        "P7",
+        "O1",
+        "O2",
+        "P8",
+        "T8",
+        "FC6",
+        "F4",
+        "F8",
+        "AF4",
         "GYRO_X",
         "GYRO_Y",
         "RESERVED",
-        "ETE1",
-        "ETE2",
-        "ETE3",
+        "RESERVED",
+        "RESERVED",
+        "RESERVED",
+        "RESERVED"
 
-Los datos buenos que tomamos son F6 y F7, GYRO_X y GYRO_Y.
+Los datos buenos que tomamos deberían ser F6 y F7, GYRO_X y GYRO_Y.
 
 '''

@@ -1,3 +1,9 @@
+# coding: latin-1
+'''
+Excelente explicación del método: https://towardsdatascience.com/t-sne-python-example-1ded9953f26
+
+'''
+
 import numpy as np
 from sklearn.datasets import load_digits
 from scipy.spatial.distance import pdist
