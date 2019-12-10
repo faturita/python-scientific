@@ -48,6 +48,6 @@ El formato de los datos es
         "RESERVED",
         "RESERVED"
 
-Los datos buenos que tomamos deberían ser F6 y F7, GYRO_X y GYRO_Y.
+Los datos buenos que tomamos deberían ser F7 y F8, GYRO_X y GYRO_Y.
 
 '''
