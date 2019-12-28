@@ -1,6 +1,6 @@
 # python-scientific
-Quick guide and tutorial to scientific data python programming
 
+Nowadays, python is ruling the world.  Hence, lets rule python....
 
 * Install Git Bash
   https://git-scm.com/downloads
@@ -34,26 +34,32 @@ Quick guide and tutorial to scientific data python programming
   conda activate mne3
   ```
   
-# Como actualizar el repo con nuevos cambios?
+# How to update your own repository with new changes from the server repository ?
   
-  Desde gitbash (windows) o desde una consola en Mac o Linux
-  
-  Primero hay que subir los cambios que cada uno haya hecho
+  Run gitbash (windows) or start a new Console on Mac or Linux.
+
+  First you need to upload your own changes to your OWN repository.
   
   ```bash
-  git commit -m"ESCRIBAN ACA EL DETALLE DE LO QUE MODIFICARON PARA QUE QUEDE REGISTRADO" .
+  git commit -m"Just write down whatever comes to your mind here" .
   ```
   
-  Después traigan los cambios desde el servidor a su repo local.
+  After that you need to PULL fresh changes from the server repository at github.
   
   ```bash
   git pull origin master
   ```
   
-  Si tienen cambios este comando va a forzar un merge automático.  Si el merge esta ok les abre una consola de VI u otro editor (para salir de vi apreten ':' y después 'x').  Si hay conflictos, revisen los archivos que están con conflicto (se van a dar cuenta) y después marcan el conflicto resuelto con 'git add nombrearchivo' y luego 'git commit-m"Conflicto resuelto"'
+  If you have modified some file, this will trigger an automatic merge.  If the merge is successful it will open a VI console (just press ':' and 'x') to add a merging comment.
+  If there is any conflict, check the modified files looking for any sign of conflict (you will clearly notice it).  After you fix the merging, mark it as resolved with 'git add filename' and finish the operation with 'git commit -m"Merge fixed"'
   
-# ¿ Querés aprender python de cero ?
+# Do you want to learn python from scratch ?
 
 https://online-learning.harvard.edu/course/using-python-research
   
- 
+# References and sources
+
+* https://towardsdatascience.com/t-sne-python-example-1ded9953f26
+* https://github.com/lmcinnes/umap
+* More info an references [here](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
+

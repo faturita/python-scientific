@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+print('ECD2019')
 print('Este ejercicio tiene dos maneras de resolverse.')
 print('Lo tiene que tener listo para el Lunes 23 de Diciembre.')
 
