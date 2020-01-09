@@ -20,7 +20,7 @@ dependencies:
   - pandas
   - flake8
   - statsmodels
-  - python[version='<3.7']
+  - python
   - matplotlib
   - joblib
   - umap-learn
@@ -32,6 +32,7 @@ dependencies:
   - numpydoc
   - spyder
   - psutil
+  - opencv
   - h5py
   - pillow
 prefix: /anaconda2/envs/mne3

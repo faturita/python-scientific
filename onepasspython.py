@@ -182,14 +182,14 @@ print(d[(1, 2)])  # Prints "1"
 
 
 
-def hello(name, loud=False):
+def helloguys(name, loud=False):
     if loud:
         print('HELLO, %s!' % name.upper())
     else:
         print('Hello, %s' % name)
 
-hello('Bob') # Prints "Hello, Bob"
-hello('Fred', loud=True)  # Prints "HELLO, FRED!"
+helloguys('Bob') # Prints "Hello, Bob"
+helloguys('Jenny', loud=True)  # Prints "HELLO, FRED!"
 
 
 class Greeter(object):
@@ -369,7 +369,7 @@ print(a[a > 2])     # Prints "[3 4 5 6]"
 
 
 
-
+# Numpy is more strong typed.
 import numpy as np
 
 x = np.array([1, 2])   # Let numpy choose the datatype
@@ -443,6 +443,7 @@ print(x.dot(y))
 print(np.dot(x, y))
 
 
+print("Summarize matrix values")
 import numpy as np
 
 x = np.array([[1,2],[3,4]])
@@ -453,6 +454,7 @@ print(np.sum(x, axis=1))  # Compute sum of each row; prints "[3 7]"
 
 
 
+print ("Transpose operation...")
 import numpy as np
 
 x = np.array([[1,2], [3,4]])
@@ -465,8 +467,6 @@ print(x.T)  # Prints "[[1 3]
 v = np.array([1,2,3])
 print(v)    # Prints "[1 2 3]"
 print(v.T)  # Prints "[1 2 3]"
-
-
 
 
 import numpy as np
@@ -511,6 +511,7 @@ from scipy.spatial.distance import pdist, squareform
 x = np.array([[0, 1], [1, 0], [2, 0]])
 print(x)
 
+print ("Euclidean Matrix ==================================")
 # Compute the Euclidean distance between all rows of x.
 # d[i, j] is the Euclidean distance between x[i, :] and x[j, :],
 # and d is the following array:
@@ -520,6 +521,8 @@ print(x)
 d = squareform(pdist(x, 'euclidean'))
 print(d)
 
+
+# Check python system.
 import sys
 
 print ('Input line parameters')
@@ -533,10 +536,9 @@ print (sys.path)
 print (sys.version_info)
 print (sys.platform)
 
-
 print (sys.argv[0])
 
-
+# Erase repetead elements from a list.
 def unique(list):
     if len(list)==len(set(list)):
         print("All elements are unique")
@@ -545,13 +547,14 @@ def unique(list):
 unique([1,2,3,4,5]) # All elements are unique
 
 
+# Getting the histogram of elements.
 from collections import Counter
 list = [1, 2, 3, 2, 4, 3, 2, 3]
 count = Counter(list)
 print(count) # {2: 3, 3: 3, 1: 1, 4: 1}
 
 
-
+# Getting the most frequent element
 def most_frequent(list):
     return max(set(list), key = list.count)
 numbers = [1, 2, 3, 2, 4, 3, 1, 3]

@@ -58,3 +58,4 @@ plt.show()
 # a la frecuencia de sampleo del dispositivo.  Si todos los número están presentes entonces está ok.
 
 # 2- Traten de identificar los picos.
+

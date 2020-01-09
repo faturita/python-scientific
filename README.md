@@ -28,6 +28,14 @@ Nowadays, python is ruling the world.  Hence, lets rule python....
  ```bash 
  conda env update --name mne3 --file environmentw.yml
  ```
+
+ (or this one if any error occurs
+ 
+ ```
+ conda env update --prefix ./env --file environmentw.yml 
+ ```
+
+ )
  
   * Activate the newly created environment
   ```bash
