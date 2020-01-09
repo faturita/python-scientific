@@ -21,7 +21,7 @@ print('Python', python_version())
 print('3 / 2 =', 3 / 2)
 print('3 // 2 =', 3 // 2)   # Integer division
 print('3 / 2.0 =', 3 / 2.0)
-print('3 // 2.0 =', 3 // 2.0)
+print('3 // 2.0 =', 3 // 2.0)   # Integer division but the resut is float
 
 
 # Unicode
@@ -58,14 +58,14 @@ print (next(my_generator))
 print (next(my_generator))
 
 
-# In python 2 the variables form blocks LEAK into the global namespace.  This is no longer in python 3
+# In python 2 the variables form blocks LEAK into the global namespace.  
+# This bad practice should not pass any longer in python 3
 print('Python', python_version())
 
+# This also includes lambdas
 i = 1
 print('before: i =', i)
-
 print('comprehension:', [i for i in range(5)])
-
 print('after: i =', i)
 
 # Python 2 allows to do very UGLY things that do not raise exceptions until runtime when it is too late.

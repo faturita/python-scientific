@@ -50,8 +50,6 @@ plt.show()
 
 
 
-
-
 # ¿ Qué pueden hacer ? 
 
 # 1- Verifiquen que el campo counter en el archivo es consecutivo.  Este campo está asociado
