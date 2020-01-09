@@ -12,22 +12,26 @@ print('Objetivo: leer tensores y poder plotear sus valores...')
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 
 print('Estructura de la informacion:')
-signals.head()
+print(signals.head())
 
 print('Filtrar segun informacion especifica:')
-signals[signals.counter > 45]
+print(signals[signals.counter > 45])
 
 data = signals.values
 
-print('Ahora tienen un tensor de numpy.')
+print('Ahora tienen un tensor de numpy (data)')
+print (data)
 
 print('Forma %2d,%2d:' % (signals.shape))
 
 print('Python slicing...[:,].  El \':\' sirve para indicar el rango desde hasta.  Los indices son posiciones segun la forma del tensor.')
 eeg = data[:,2]
 
+print(eeg)
+
+# Ojo con el filtro OR.
 eeg[eeg>50]
-np.logical_or(eeg>10,eeg<-40) 
+eegfiltered = np.logical_or(eeg>10,eeg<-40) 
 
 
 

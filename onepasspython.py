@@ -182,7 +182,7 @@ print(d[(1, 2)])  # Prints "1"
 
 
 
-def helloguys(name, loud=False):
+def helloguys(name='Joe Doe', loud=False):
     if loud:
         print('HELLO, %s!' % name.upper())
     else:
@@ -355,6 +355,7 @@ bool_idx = (a > 2)   # Find the elements of a that are bigger than 2;
                      # shape as a, where each slot of bool_idx tells
                      # whether that element of a is > 2.
 
+
 print(bool_idx)      # Prints "[[False False]
                      #          [ True  True]
                      #          [ True  True]]"
@@ -500,6 +501,7 @@ print(y)  # Prints "[[ 2  2  4]
           #          [ 8  8 10]
           #          [11 11 13]]"
 
+# Sigue mucho mucho mas
 
 import numpy as np
 from scipy.spatial.distance import pdist, squareform

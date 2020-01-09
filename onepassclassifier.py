@@ -25,6 +25,7 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 from matplotlib import pyplot
 
+# These two functions help me to serialize and save to disk the features.
 def pickle_keypoints(keypoints, descriptors):
     i = 0
     temp_array = []
@@ -45,23 +46,26 @@ def unpickle_keypoints(array):
         descriptors.append(temp_descriptor)
     return keypoints, np.array(descriptors)
 
-#Retrieve Keypoint Features
-keypoints_database = pickle.load( open( "keypoints_database.p", "rb" ) )
+#Retrieve Keypoint Features for class 1 (the first picture)
+keypoints_database = pickle.load( open( "data/kd1.p", "rb" ) )
 kp1, desc1 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp1), desc1.shape))
 print ( desc1[1,:])  # There are many 61 lentgh vectors.
 
-
-keypoints_database = pickle.load( open( "keypoints_database2.p", "rb" ) )
+#Retrieve Keypoint Features for Class 2
+keypoints_database = pickle.load( open( "data/kd2.p", "rb" ) )
 kp1, desc2 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp1), desc2.shape))
 print ( desc1[1,:])  # There are many 61 lentgh vectors.
 
+# Featuresize is the dimension of the feature vectors.
 featuresize = desc1.shape[1]
 
+# This is X, and y.  X being the data samples, and y their lables (0 or 1)
 featuredata = np.concatenate ((desc1,desc2))
 featurelabels = np.concatenate( (np.zeros(desc1.shape[0]),(np.zeros(desc2.shape[0])+1) )  )
 
+# This is the boundary where the data will be divided into training and testing.
 boundary = int(featuredata.shape[0]/2.0)
 
 print ('Boundary %d:' % boundary)
@@ -69,16 +73,21 @@ print ('Boundary %d:' % boundary)
 # Reshape and shuffle the features
 reorder = np.random.permutation(featuredata.shape[0])
 
+# You can uncomment this code to shuffle all the labels and see what happens with the classification.
+# Spolier, it should be like random guessing.
+#featurelabels = featurelabels[np.random.permutation(featuredata.shape[0])]
+
 trainingdata = featuredata[reorder[0:boundary]]
 traininglabels = featurelabels[reorder[0:boundary]]
 
+# Reorder is a list of indices, from 0 to the length of the features
 testdata = featuredata[reorder[boundary+1:featuredata.shape[0]]]
 testlabels = featurelabels[reorder[boundary+1:featuredata.shape[0]]]
 
 print ('Training Dataset Size %d,%d' % (trainingdata.shape))
 print ('Test Dataset Size %d,%d' % (testdata.shape))
 
-
+# Classify using SVM lineal.
 clf = svm.SVC(kernel='linear', C = 1.0)
 clf.fit(trainingdata,traininglabels)
 
@@ -92,6 +101,8 @@ target_names = ['Class1', 'Class2']
 report = classification_report(testlabels, predlabels, target_names=target_names)
 print(report)
 
+# Use SVM but instead of guessing the class (0 or 1), configure it to output the
+# probability value to belong to each class (this is needed to calculate ROC curves)
 clf = svm.SVC(kernel='linear', C = 1.0, probability=True)
 clf.fit(trainingdata,traininglabels)
 

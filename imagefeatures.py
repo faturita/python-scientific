@@ -100,7 +100,7 @@ for i in range(1,2):
       break
 
 print ('Done.')
-pickle.dump(temp_array, open("keypoints_database.p", "wb"))
+pickle.dump(temp_array, open("keypoints_database2.p", "wb"))
 
 #When everything done, release the capture
 cap.release()
