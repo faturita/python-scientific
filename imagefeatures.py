@@ -16,7 +16,7 @@ def pickle_keypoints(keypoints, descriptors):
     for point in keypoints:
         temp = (point.pt, point.size, point.angle, point.response, point.octave,
         point.class_id, descriptors[i])     
-        ++i
+        i+=1
         temp_array.append(temp)
     return temp_array
 
@@ -39,7 +39,7 @@ cap = cv2.VideoCapture(0)
 
 print ("Connecting..")
 
-while True:
+for i in range(1,10):
    # Capture frame-by-frame
    ret, frame = cap.read()
 
@@ -73,7 +73,7 @@ for i in range(1,2):
    # Capture frame-by-frame
    ret, frame = cap.read()
 
-   frame = cv2.flip(frame,0)
+   ##frame = cv2.flip(frame,0)
    ##frame = cv2.flip(frame,1)
 
    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -100,7 +100,7 @@ for i in range(1,2):
       break
 
 print ('Done.')
-pickle.dump(temp_array, open("keypoints_database2.p", "wb"))
+pickle.dump(temp_array, open("data/kd1.p", "wb"))
 
 #When everything done, release the capture
 cap.release()
