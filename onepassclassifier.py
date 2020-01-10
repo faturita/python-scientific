@@ -1,7 +1,13 @@
-#coding: latin-1
-#
-#
-# One pass classifier...
+"""
+==================
+OnePassClassifier
+==================
+
+This toy sample get two files of image descriptors (Akaze or whatever you want), build two classes with them and try to classify them with different methods.
+
+
+"""
+print(__doc__)
 
 import cv2
 import numpy as np
@@ -46,7 +52,7 @@ def unpickle_keypoints(array):
     return keypoints, np.array(descriptors)
 
 #Retrieve Keypoint Features for class 1 (the first picture)
-keypoints_database = pickle.load( open( "data/kd2.p", "rb" ) )
+keypoints_database = pickle.load( open( "data/kd3.p", "rb" ) )
 kp1, desc1 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp1), desc1.shape))
 print ( desc1[1,:])  # There are many 61 lentgh vectors.
@@ -57,8 +63,8 @@ kp2, desc2 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp2), desc2.shape))
 print ( desc2[1,:])  # There are many 61 lentgh vectors.
 
-#desc1=desc1[0:600,:]
-#desc2=desc2[0:600,:]
+#desc1=desc1[0:100,:]
+#desc2=desc2[0:100,:]
 
 
 # Featuresize is the dimension of the feature vectors.
@@ -130,6 +136,7 @@ from sklearn.linear_model import LogisticRegression
 logisticRegr = LogisticRegression()
 logisticRegr.fit(trainingdata,traininglabels)
 
+# LDA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 ldaf = LinearDiscriminantAnalysis()
 ldaf.fit(trainingdata,traininglabels)
@@ -180,14 +187,54 @@ lr_fpr, lr_tpr, _ = roc_curve(testlabels, lr_probs)
 dr_fpr, dr_tpr, _ = roc_curve(testlabels, dr_probs)
 
 
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
 # plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+# plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
+# plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
+# plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
 pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
 pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
 pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
 pyplot.plot(dr_fpr, dr_tpr, marker='.', label='LDA')
-
-
+# plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
 pyplot.ylabel('True Positive Rate')
@@ -196,3 +243,26 @@ pyplot.legend()
 # show the plot
 pyplot.show()
 
+# Cross Validation ==========================
+from sklearn.model_selection import KFold
+
+avgaccuracy = []
+kf = KFold(n_splits=10)
+for train, test in kf.split(featuredata):
+    trainingdata = featuredata[train]
+    traininglabels = featurelabels[train]
+
+    # Reorder is a list of indices, from 0 to the length of the features
+    testdata = featuredata[test]
+    testlabels = featurelabels[test]
+
+    clf = svm.SVC(kernel='linear', C = 1.0)
+    clf.fit(trainingdata,traininglabels)
+
+    predlabels = clf.predict(testdata)
+    C = confusion_matrix(testlabels, predlabels)
+    acc = (float(C[0,0])+float(C[1,1])) / ( testdata.shape[0])
+    avgaccuracy.append(acc*1.0)
+
+acc = sum(avgaccuracy)/len(avgaccuracy)
+print ('SVM K-Fold Cross Validated Feature Dim: %d Accuracy: %f' % (featuresize,acc))

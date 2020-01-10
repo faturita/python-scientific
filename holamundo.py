@@ -1,4 +1,17 @@
-# coding: latin-1
+"""
+==================
+HolaMundo
+==================
+
+Un Holamundo de Data Science tiene que tener,
+
+¿ Cómo leer un archivo y cargar un dataset ?
+¿ Cómo ploter la info para arrancar un análisis exploratorio ?
+
+
+"""
+print(__doc__)
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

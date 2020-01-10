@@ -110,3 +110,4 @@ plt.title('Average Reward vs Episodes')
 plt.savefig('rewards.pdf')     
 plt.close()  
   
+print(__doc__)

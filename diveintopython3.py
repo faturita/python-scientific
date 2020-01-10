@@ -1,10 +1,14 @@
-#coding: latin-1
+"""
+==================
+Dive into python 3
+==================
 
-# Python 2.x is not supported by anyone, effective Jan 2020 (this means now)
+Python 2.x is not supported by anyone, effective Jan 2020 (this means now)
+Python 3 is in general a fixed version of python.  So it is MORE RESTRICTIVE.
+Remember the mantra: Syntax error >> pair programmed >> unit test >> runtime exception >> silent bug
 
-# Python 3 is in general a fixed version of python.  So it is MORE RESTRICTIVE.
-
-# Remember the mantra: Syntax error >> pair programmed >> unit test >> runtime exception >> silent bug
+"""
+print(__doc__)
 
 from platform import python_version
 
