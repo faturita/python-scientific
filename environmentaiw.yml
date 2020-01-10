@@ -1,0 +1,9 @@
+name: ai
+channels:
+  - defaults
+dependencies:
+  - python=3.6
+  - gym
+  - matplotlib
+prefix: /anaconda2/envs/ai
+

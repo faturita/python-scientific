@@ -1,3 +1,13 @@
+"""
+==========================================
+Q-Learning toy sample based on OpenAI Gym.
+==========================================
+
+Source: https://towardsdatascience.com/getting-started-with-reinforcement-learning-and-open-ai-gym-c289aca874f
+
+"""
+
+
 import numpy as np
 import gym
 import matplotlib.pyplot as plt
@@ -97,6 +107,6 @@ plt.plot(100*(np.arange(len(rewards)) + 1), rewards)
 plt.xlabel('Episodes')
 plt.ylabel('Average Reward')
 plt.title('Average Reward vs Episodes')
-plt.savefig('rewards.jpg')     
+plt.savefig('rewards.pdf')     
 plt.close()  
   
