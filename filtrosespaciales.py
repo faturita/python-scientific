@@ -105,6 +105,16 @@ plt.subplot(3,1,3)
 plt.plot(S_[:,2], color='orange')
 
 
+import scipy.stats as stats
+r, p = stats.pearsonr(S_[:,0], -X[:,1])
+print(f"ICA 0 vs 1:Pearson r: {r} and p-value: {p}")
+
+r, p = stats.pearsonr(S_[:,1], X[:,2])
+print(f"ICA 1 vs 2:Pearson r: {r} and p-value: {p}")
+
+r, p = stats.pearsonr(S_[:,2], X[:,0])
+print(f"ICA 2 vs 0:Pearson r: {r} and p-value: {p}")
+
 plt.figure(4)
 plt.title('PCA 1')
 plt.subplot(3,1,1)
@@ -115,6 +125,16 @@ plt.plot(H[:,1], color='steelblue')
 plt.title('PCA 3')
 plt.subplot(3,1,3)
 plt.plot(H[:,2], color='orange')
+
+import scipy.stats as stats
+r, p = stats.pearsonr(H[:,0], X[:,1])
+print(f"PCA 0 vs 1:Pearson r: {r} and p-value: {p}")
+
+r, p = stats.pearsonr(H[:,1], X[:,2])
+print(f"PCA 1 vs 2:Pearson r: {r} and p-value: {p}")
+
+r, p = stats.pearsonr(H[:,2], X[:,0])
+print(f"PCA 2 vs 0:Pearson r: {r} and p-value: {p}")
 
 
 plt.figure(5)

@@ -100,6 +100,7 @@ https://online-learning.harvard.edu/course/using-python-research
 * https://blog.goodaudience.com/introduction-to-1d-convolutional-neural-networks-in-keras-for-time-sequences-3a7ff801a2cf
 * https://medium.com/odscjournal/data-scientists-versus-statisticians-8ea146b7a47f
 * https://github.com/healthDataScience/deep-learning-HAR
+* https://towardsdatascience.com/four-ways-to-quantify-synchrony-between-time-series-data-b99136c4a9c9
 * https://www.freecodecamp.org/news/how-to-build-your-first-neural-network-to-predict-house-prices-with-keras-f8db83049159/
 * https://towardsdatascience.com/dcgans-deep-convolutional-generative-adversarial-networks-c7f392c2c8f8
 * https://medium.com/@ODSC/logistic-regression-with-python-ede39f8573c7

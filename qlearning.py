@@ -47,7 +47,7 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
         state_adj = np.round(state_adj, 0).astype(int)
     
         while done != True:   
-            # Render environment for last five episodes
+            # Render environment for last twenty episodes
             if i >= (episodes - 20):
                 env.render()
                 
@@ -107,7 +107,8 @@ plt.plot(100*(np.arange(len(rewards)) + 1), rewards)
 plt.xlabel('Episodes')
 plt.ylabel('Average Reward')
 plt.title('Average Reward vs Episodes')
-plt.savefig('rewards.pdf')     
-plt.close()  
+#plt.savefig('rewards.pdf')     
+#plt.close()  
+plt.show()
   
 print(__doc__)
