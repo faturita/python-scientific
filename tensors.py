@@ -1,4 +1,12 @@
-# coding: latin-1
+"""
+==================
+Tensors
+==================
+
+How to work with numpy tensors.
+
+"""
+print(__doc__)
 
 # Python posee una estructura de datos primaria que se denomina lista
 # NumPy extiende esa estructura para conformar tensores, que son las unidades básicas de procesamiento.

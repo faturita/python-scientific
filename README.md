@@ -41,7 +41,32 @@ Nowadays, python is ruling the world.  Hence, lets rule python....
   ```bash
   conda activate mne3
   ```
-  
+
+# What's on each file
+
+* [holamundo.py](holamundo.py): Basic Python Data Science sample.  Grab a dataset and visualize it.
+* [holamundonotebook.ipynb](holamundonotebook.ipynb): The same, as jupyter notebook.
+* [onepasspython.py](onepasspython.py): Basic python 3.x structures, sentences and control keywords.
+* [diveintopython3.py](diveintopython3.py): Some python stuff particular to python 3.
+* [tensors.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
+* [downloadandcheck.py](downloadandcheck.py): Basic sample to get an online dataset and plot it.
+* [scientificnotation.py](scientificnotation.py): Some nm stuff for python.
+* [imagefeatures.py](imagefeatures.py): Program to extract features from an image using opencv.
+* [onepassclassifier.py](onepassclassifier.py): Program to classify those features using different classifiers.  This contains all the elements to implement a classification model.
+* [InteractiveNotebook.ipynb](InteractiveNotebook.ipynb): Jupyter notebook sample for creating visualizing tools with Altair.
+* [baseline.py](baseline.py): Signal baseline removal sample.
+* [signalfeatures.py](signalfeatures.py): Basic set of feature extraction procedures for signals (time series).
+* [umbralizador.py](umbralizador.py): Otsu method to umbralize a one dimensional time series.
+* [contadoreventos.py](contadoreventos.py): Signal peak counting sample.
+* [filtrosespectrales.py](filtrosespectrales.py): Basic sample to extract spectral characteristics from time series.
+* [filtrosespaciales.py](filtrosespaciales.py): Blind source separation sample.
+* [clustering.py](clustering.py): Clustering sample containing kmeans and dbscan.
+* [ejemploclusteringtsne.py](ejemploclusteringtsne.py): tSNE dimensionality reduction sample on MNIST.
+* [ejemploclusteringumap.py](ejemploclusteringumap.py): UMAP dimensionality reduction sample on MNIST.
+* [signalfeatureclassification.py](signalfeatureclassification.py): Runs on environmentann3w.yml environment. Process an EEG signal and detects alpha suppression with eyes closed.  Classify them using Keras.
+* [qlearning.py](qlearning.py): Works with environmentaiw.yml. Basic OpenAI Gym sample for QLearning.
+
+
 # How to update your own repository with new changes from the server repository ?
   
   Run gitbash (windows) or start a new Console on Mac or Linux.
