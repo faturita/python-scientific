@@ -13,19 +13,21 @@ dependencies:
   - seaborn
   - mkl
   - pyqt
-  - traitsui
+  - altair
   - pytest
   - testpath
   - numpy
   - pandas
   - flake8
   - statsmodels
-  - python
+  - python[version='<3.7']
   - matplotlib
   - joblib
   - umap-learn
   - scipy
+  - vega_datasets
   - pyface
+  - traitsui
   - jupyter
   - pytest-timeout
   - pytest-cov

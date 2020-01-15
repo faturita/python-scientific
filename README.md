@@ -92,6 +92,7 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* Imbalanced Datasets: https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/ and https://link.springer.com/article/10.1186/s40537-018-0151-6
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
 * https://github.com/lmcinnes/umap
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
