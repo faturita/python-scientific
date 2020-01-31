@@ -15,12 +15,18 @@ print(__doc__)
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import requests
+from io import StringIO
 
 # Frecuencia de sampleo 128 Hz
 
 print('Hello Python Scientific World')
 
 print('Objetivo: leer tensores y poder plotear sus valores...')
+
+#url = requests.get('https://drive.google.com/file/d/117pqjcY15qMGY0HlFaEz195_7uuq6LBv/view?usp=sharing')
+#csv_raw = StringIO(url.text)
+#signals = pd.read_csv(csv_raw, delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 

@@ -9,13 +9,17 @@ How to work with numpy tensors.
 print(__doc__)
 
 # Python posee una estructura de datos primaria que se denomina lista
-# NumPy extiende esa estructura para conformar tensores, que son las unidades básicas de procesamiento.
+# NumPy extiende esa estructura para conformar tensores, 
+# que son las unidades básicas de procesamiento.
 
 import numpy as np
 x = np.array([42,47,11], int)
 print (x)
 y = np.array( ((11,12,13), (21,22,23), (31,32,33)) )
 print (y)
+
+z = np.array( ([11,12,13],[21,22,23],[31,32,33]) )
+print (z)
 
 
 
@@ -58,6 +62,15 @@ print (y)
 print (z)
 print (np.concatenate((x,y,z)))
 
+print ('Array concatenation:')
+x = np.array([11,22],[33,22])
+y = np.array([18,6],[23,22])
+z = np.array([1,5],[98,76])
+print (x)
+print (y)
+print (z)
+print (np.concatenate((x,y,z)))
+
 print ('Concatenate according to axis')
 z = np.concatenate((x,y),axis = 0)
 print (z)
@@ -67,6 +80,10 @@ x = np.array([2,5,18,14,4])
 y = x[:, np.newaxis]
 print (x)
 print (y)
+
+# Y has two dimensiones (5,1) while X has only one dimension (5,)
+print (y[2,0])                                                                 
+print (x[2])    
 
 print (np.zeros((30,30)))
 print (np.ones((29,2)))
@@ -265,7 +282,7 @@ print(a[bool_idx])  # Prints "[3 4 5 6]"
 print(a[a > 2])     # Prints "[3 4 5 6]"
 
 
-
+print('Numpy tensors have are typed.')
 
 import numpy as np
 
@@ -279,7 +296,7 @@ x = np.array([1, 2], dtype=np.int64)   # Force a particular datatype
 print(x.dtype)                         # Prints "int64"
 
 
-print('Algebraic operations:')
+print('Elementwise operations:')
 
 import numpy as np
 
@@ -339,7 +356,7 @@ print(np.dot(x, v))
 print(x.dot(y))
 print(np.dot(x, y))
 
-
+print("Summarize matrix values")
 import numpy as np
 
 x = np.array([[1,2],[3,4]])
@@ -348,8 +365,10 @@ print(np.sum(x))  # Compute sum of all elements; prints "10"
 print(np.sum(x, axis=0))  # Compute sum of each column; prints "[4 6]"
 print(np.sum(x, axis=1))  # Compute sum of each row; prints "[3 7]"
 
+print(np.mean(x,axis=0))  # Compute the mean 
 
 
+print ("Transpose operation...")
 import numpy as np
 
 x = np.array([[1,2], [3,4]])
@@ -366,6 +385,7 @@ print(v.T)  # Prints "[1 2 3]"
 
 
 
+print ("Tiling vector into matrices.")
 import numpy as np
 
 # We will add the vector v to each row of the matrix x,
@@ -408,6 +428,7 @@ from scipy.spatial.distance import pdist, squareform
 x = np.array([[0, 1], [1, 0], [2, 0]])
 print(x)
 
+print ("Euclidean Distance Matrix ==================================")
 # Compute the Euclidean distance between all rows of x.
 # d[i, j] is the Euclidean distance between x[i, :] and x[j, :],
 # and d is the following array:
