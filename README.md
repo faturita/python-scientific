@@ -1,6 +1,10 @@
-# python-scientific
+# Python Scientific
 
 Nowadays, python is ruling the world.  Hence, lets rule python....
+This repository allows you to install all the necesary stuff to start working with python on scientific applications, and particularly, to work with neuroscience time-series.  It allows you to install everything you need and start coding with NumPy, SciPy, OpenAI and MNE.
+
+If you don't know anything at all about python, this is the place to be.
+
 
 * Install Git Bash
   https://git-scm.com/downloads
