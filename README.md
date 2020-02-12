@@ -96,11 +96,10 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
-* [https://terpconnect.umd.edu/~toh/spectrum/](Tom O'Haver Pragmatic Introduction to Signal Processing): Awesome guide on tools to tackle signal processing.
+* [Guía Guit](https://rogerdudler.github.io/git-guide/index.es.html)
+* [Tom O'Haver Pragmatic Introduction to Signal Processing](https://terpconnect.umd.edu/~toh/spectrum/): Awesome guide on tools to tackle signal processing.
 * Imbalanced Datasets: https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/ and https://link.springer.com/article/10.1186/s40537-018-0151-6
-
-
-* [https://yugeten.github.io/posts/2019/09/GP/](Gaussian Processes): A tutorial on Gaussian Processes.
+* [Gaussian Processes](https://yugeten.github.io/posts/2019/09/GP/): A tutorial on Gaussian Processes.
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
 * https://github.com/lmcinnes/umap
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
