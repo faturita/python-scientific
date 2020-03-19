@@ -1,12 +1,14 @@
-#coding: latin-1
-#
-# STEM - Blinking Counter
+"""
+==================
+STEM Blinking Counter
+==================
 
-# Este programa es un ejemplo de utilizacion de python para implementar un simple
-# contador de penstaneos basados en una senal de EMG/EMG/EOG.
-#
-# Frecuencia de sampleo Fs = 128
-#
+Contador de pestañeos.
+
+Fs = 128
+
+"""
+print(__doc__)
 
 import csv
 import numpy as np
@@ -38,19 +40,6 @@ eeg = results[1:,1]
 
 print (eeg)
 
-#eeg = np.zeros((64))
-
-#eeg = np.arange(64)
-
-#print eeg.shape
-
-#eeg[32] = -60
-
-#eeg[43] = -130
-
-#eeg = eeg - baseline_als(eeg,10000,0.5)
-
-
 import matplotlib.pyplot as plt
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
@@ -64,18 +53,24 @@ plt.show()
 # que es un pestañeo de qué no lo es.
 signalthreshold = 420
 
-
-
+# Primero filtramos los valores de la señal que superan un umbral hardcoded
 boolpeaks = np.where( eeg > signalthreshold  )
 print (boolpeaks)
+
+# Por otro lado, calculamos la derivada de la señal.
 dpeaks = np.diff( eeg )
 print (dpeaks)
+
+# De la derivada, identificamos los valores positivos que corresponden a las curvas crecientes
 pdpeaks = np.where( dpeaks > 0)
 print (pdpeaks)
 print (pdpeaks != 0)
-a = np.in1d(pdpeaks,boolpeaks)
-print (a)
-blinkings = a.sum()
+
+# boolpeaks y pdpeaks son indices. Por lo tanto vemos cuales de los indices de los picos, 
+# son a su vez valores que superan el umbral.
+finalresult = np.in1d(pdpeaks,boolpeaks)
+print (finalresult)
+blinkings = finalresult.sum()
 
 print ('Blinkings: %d' % blinkings)
 

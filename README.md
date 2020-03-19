@@ -54,7 +54,7 @@ If you don't know anything at all about python, this is the place to be.
 * [diveintopython3.py](diveintopython3.py): Some python stuff particular to python 3.
 * [tensors.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
 * [downloadandcheck.py](downloadandcheck.py): Basic sample to get an online dataset and plot it.
-* [scientificnotation.py](scientificnotation.py): Some nm stuff for python.
+* [scientificnotation.py](scientificnotation.py): Some numerical stuff for python.
 * [imagefeatures.py](imagefeatures.py): Program to extract features from an image using opencv.
 * [onepassclassifier.py](onepassclassifier.py): Program to classify those features using different classifiers.  This contains all the elements to implement a classification model.
 * [InteractiveNotebook.ipynb](InteractiveNotebook.ipynb): Jupyter notebook sample for creating visualizing tools with Altair.

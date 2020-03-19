@@ -1,6 +1,14 @@
-# coding: latin-1
+"""
+==================
+Signal Features
+==================
 
-# Codigo: https://github.com/gilestrolab/pyrem/blob/master/src/pyrem/univariate.py
+Algunos features temporales
+
+Codigo: https://github.com/gilestrolab/pyrem/blob/master/src/pyrem/univariate.py
+
+"""
+print(__doc__)
 
 import pandas as pd
 import numpy as np
@@ -20,8 +28,7 @@ data = signals.values
 print('Forma %2d,%2d:' % (signals.shape))
 eeg = data[:,2]
 
-eeg[eeg>50]
-np.logical_or(eeg>10,eeg<-40) 
+
 
 
 def crest_factor(x):
@@ -41,7 +48,6 @@ from scipy import stats
 entropy = stats.entropy(list(Counter(eeg).values()), base=2)
 
 print('Shannon Entropy:' + str(entropy))
-
 
 
 def hjorth(a):
@@ -192,9 +198,9 @@ def psd(y):
 
 
     yf = fft(y)
-    #xf = np.linspace(0.0, 1.0/(2.0*T), N/2)
+    #xf = np.linspace(0.0, int(1.0/(2.0*T)), int(N/2))
     #import matplotlib.pyplot as plt
-    #plt.plot(xf, 2.0/N * np.abs(yf[0:N/2]))
+    #plt.plot(xf, 2.0/N * np.abs(yf[0:int(N/2)]))
     #plt.axis((0,60,0,1))
     #plt.grid()
     #plt.show()
@@ -204,9 +210,13 @@ def psd(y):
 N = 128
 T = 1.0 / 128.0
 
-# Al tomar la FFT, le agrego una señal oscilatoria adicional para verificar que está haciendo lo que creo.
-x= np.linspace(0.0, 1.0, len(eeg))
-eeg = eeg + 100*np.sin(10.0 * 2.0*np.pi*x)
+# Al tomar la FFT, le agrego una señal oscilatoria adicional para jugar con el feature escalar que obtengo de la señal.
+shamsignal = False
+if (shamsignal):
+    x= np.linspace(0.0, 1.0, N)
+    eeg = eeg[:128] +  100*np.sin(10.0 * 2.0*np.pi*x)
+
+
 yf = fft(eeg)
 xf = np.linspace(0.0, int(1.0/(2.0*T)), int(N/2))
 
@@ -215,3 +225,5 @@ plt.close()
 plt.plot(xf, 2.0/N * np.abs(yf[0:int(N/2)]))
 plt.grid()
 plt.show()
+
+print('PSD:' + str(psd(eeg[:128])))

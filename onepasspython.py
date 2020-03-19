@@ -1,10 +1,17 @@
-# coding: latin-1
-# Python quicksort
+"""
+==================
+One   Pass  Python
+==================
 
-# Esta guía está basada en este excelente tutorial: http://cs231n.github.io/python-numpy-tutorial/
+Esta guía está basada en este excelente tutorial: http://cs231n.github.io/python-numpy-tutorial/
 
+Python 101: la indentación del código determina los bloques.
+
+"""
+print(__doc__)
 
 # Primero funciones !  Sirven para modularizar el código.
+
 def f(x=0):
     print('El valor es %2d' % x)
     return 4

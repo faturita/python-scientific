@@ -1,4 +1,14 @@
-#coding: latin-1
+"""
+==================
+Filtros Espectrales
+==================
+
+Los filtros espectrales permiten filtrar información en el espacio de frecuencias.
+
+Pueden ser Pasa-bajo, Pasa-alto o pasa-banda.
+
+"""
+print(__doc__)
 import numpy as np
 
 from struct import *
@@ -65,6 +75,7 @@ def psd(y):
 
     return np.sum(np.abs(yf[0:int(N/2)]))
 
+# Frecuencia de sampleo
 N = 128
 # sample spacing
 T = 1.0 / 128.0
@@ -74,6 +85,7 @@ y = 1*np.sin(10.0 * 2.0*np.pi*x) + 9*np.sin(20.0 * 2.0*np.pi*x)
 
 plt.plot(x, y)
 plt.grid()
+plt.title(r'Original Signal')
 plt.axis((0,1,-20,20))
 plt.show()
 
@@ -82,4 +94,39 @@ xf = np.linspace(0.0, int(1.0/(2.0*T)), int(N/2))
 
 plt.plot(xf, 2.0/N * np.abs(yf[0:int(N/2)]))
 plt.grid()
+plt.title(r'Signal spectrum.')
+plt.axis((0,60,0,9))
 plt.show()
+
+# Le aplico un filtro pasabanda entre 8 y 15 Hz.  El resto se intenta planchar a cero.
+y = butter_bandpass_filter(y, 8.0, 15.0, 128.0, order=6)
+
+yf = fft(y)
+xf = np.linspace(0.0, int(1.0/(2.0*T)), int(N/2))
+
+plt.plot(xf, 2.0/N * np.abs(yf[0:int(N/2)]))
+plt.grid()
+plt.title(r'Output filtered signal spectrum.')
+plt.axis((0,60,0,9))
+plt.show()
+
+
+plt.plot(x, y)
+plt.grid()
+plt.title(r'Output filtered signal.')
+plt.axis((0,1,-20,20))
+plt.show()
+
+
+shamsignal = False
+if (shamsignal):
+    t = np.linspace(0, 1.0, 6430)
+    T = 1.0 / 128.0
+    N = 128.0
+    tt=np.asarray([])
+    for i in range(51):
+        t = np.linspace(0.0, N*T, N) * N 
+        t = t + i * N
+        tt=np.concatenate((tt,t), axis=0)
+        
+    plt.plot(tt, 200 * np.sin(2*np.pi*50*tt),'b')
