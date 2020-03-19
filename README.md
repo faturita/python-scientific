@@ -96,6 +96,7 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* https://jalammar.github.io/visual-numpy/
 * [Guía Guit](https://rogerdudler.github.io/git-guide/index.es.html)
 * [Tom O'Haver Pragmatic Introduction to Signal Processing](https://terpconnect.umd.edu/~toh/spectrum/): Awesome guide on tools to tackle signal processing.
 * Imbalanced Datasets: https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/ and https://link.springer.com/article/10.1186/s40537-018-0151-6
