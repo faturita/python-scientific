@@ -63,9 +63,9 @@ print (z)
 print (np.concatenate((x,y,z)))
 
 print ('Array concatenation:')
-x = np.array([11,22],[33,22])
-y = np.array([18,6],[23,22])
-z = np.array([1,5],[98,76])
+x = np.array(([11,22],[33,22]))
+y = np.array(([18,6],[23,22]))
+z = np.array(([1,5],[98,76]))
 print (x)
 print (y)
 print (z)
@@ -111,7 +111,7 @@ a.insert(2, [3,2])
 print (a)
 
 
-print('Slicing is crucial in multivariate analysis with python')
+# Slicing is crucial in multivariate analysis with python
 
 nums = list(range(5))     # range is a built-in function that creates a list of integers
 print(nums)               # Prints "[0, 1, 2, 3, 4]"
@@ -124,7 +124,7 @@ nums[2:4] = [8, 9]        # Assign a new sublist to a slice
 print(nums)               # Prints "[0, 1, 8, 9, 4]"
 
 
-print('Numpy...')
+# Numpy basic creation and moving around.
 
 import numpy as np
 
@@ -140,6 +140,7 @@ print(b.shape)                     # Prints "(2, 3)"
 print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
 
 
+# Numpy Matrix Primitives
 import numpy as np
 
 a = np.zeros((2,2))   # Create an array of all zeros
@@ -162,6 +163,7 @@ print(e)                     # Might print "[[ 0.91940167  0.08143941]
                              #               [ 0.68744134  0.87236687]]"
 
 
+# Pulling subarrays from matrixces
 import numpy as np
 
 # Create the following rank 2 array with shape (3, 4)
@@ -187,7 +189,7 @@ print(a[0, 1])   # Prints "77"
 
 import numpy as np
 
-# Create the following rank 2 array with shape (3, 4)
+# Create the following rank 2 array with shape (3, 4) (rank in this context is the number of indices to move around the tensor)
 # [[ 1  2  3  4]
 #  [ 5  6  7  8]
 #  [ 9 10 11 12]]
@@ -212,13 +214,15 @@ print(col_r2, col_r2.shape)  # Prints "[[ 2]
 
 
 
+# Matrix indexing
 import numpy as np
 
 a = np.array([[1,2], [3, 4], [5, 6]])
 
 # An example of integer array indexing.
 # The returned array will have shape (3,) and
-print(a[[0, 1, 2], [0, 1, 0]])  # Prints "[1 4 5]"
+# It selects elements from the 0,1, and 2 row, intersecting 0, 1, 0 column.
+print(a[[0, 1, 2], [0, 1, 0]])  # Prints "[1 4 5]", 
 
 # The above example of integer array indexing is equivalent to this:
 print(np.array([a[0, 0], a[1, 1], a[2, 0]]))  # Prints "[1 4 5]"
@@ -232,7 +236,7 @@ print(np.array([a[0, 1], a[0, 1]]))  # Prints "[2 2]"
 
 
 
-
+# Matrix Indexing
 import numpy as np
 
 # Create a new array from which we will select elements
@@ -247,9 +251,14 @@ print(a)  # prints "array([[ 1,  2,  3],
 b = np.array([0, 2, 0, 1])
 
 # Select one element from each row of a using the indices in b
+# np.arange(4) is equivalent to np.asarray(list(range(4)))
+# This produces [0,1,2,3]  (4 elements ordered starting from zero)
+# This is Matrix Indexing: it returns the values for the rows [0,1,2,3] intersecting the column values [0,2,0,1] for the columns
 print(a[np.arange(4), b])  # Prints "[ 1  6  7 11]"
+print(a[[0,1,2,3],[0,2,0,1]])
+print(np.asarray((a[0,0],a[1,2],a[2,0],a[3,1])))   # These all three are equivalent
 
-# Mutate one element from each row of a using the indices in b
+# Change one element from each row of a using the indices in b
 a[np.arange(4), b] += 10
 
 print(a)  # prints "array([[11,  2,  3],
@@ -259,7 +268,7 @@ print(a)  # prints "array([[11,  2,  3],
 
 
 
-
+# Boolean Matrices used for selection
 import numpy as np
 
 a = np.array([[1,2], [3, 4], [5, 6]])

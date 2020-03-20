@@ -3,7 +3,7 @@
 HolaMundo
 ==================
 
-Python se puede correr desde 4 lugares
+Python se puede correr desde 5 lugares
 
 1- X Terminal, ejecutando los comandos con 'python programa.py'
 2- X Terminal, de manera interactiva con 'python', 'import programa'
@@ -68,13 +68,12 @@ eeg = data[:,2]
 print(eeg)
 
 # Ojo con el filtro OR.
-eeg[eeg>50]
+filteredeeg = eeg[eeg>50]
 eegfiltered = np.logical_or(eeg>10,eeg<-40) 
 
 plt.plot(eeg,'r', label='EEG')
 plt.xlabel('t');
 plt.ylabel('eeg(t)');
-#plt.title(r'Plot of CT signal $x(t)=325 \sin(2\pi 50 t)$');
 plt.title(r'EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(eeg)])

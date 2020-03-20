@@ -1,7 +1,7 @@
 """
-==================
+=====================
 STEM Blinking Counter
-==================
+=====================
 
 Contador de pestañeos.
 
@@ -45,12 +45,12 @@ fig = plt.figure()
 ax1 = fig.add_subplot(111)
 
 ax1.plot(eeg,'r', label='EEG')
-plt.legend(loc='upper left');
+plt.legend(loc='upper left')
 plt.show()
 
 
 # El threshold corresponde al limite en amplitud a considerar para discriminar
-# que es un pestañeo de qué no lo es.
+# que es un pestañeo de qué no lo es.  Idealmente debería utilizarse algún umbralizador automático (detección de outliers)
 signalthreshold = 420
 
 # Primero filtramos los valores de la señal que superan un umbral hardcoded
@@ -63,22 +63,25 @@ print (dpeaks)
 
 # De la derivada, identificamos los valores positivos que corresponden a las curvas crecientes
 pdpeaks = np.where( dpeaks > 0)
-print (pdpeaks)
-print (pdpeaks != 0)
 
-# boolpeaks y pdpeaks son indices. Por lo tanto vemos cuales de los indices de los picos, 
-# son a su vez valores que superan el umbral.
-finalresult = np.in1d(pdpeaks,boolpeaks)
-print (finalresult)
+peaksd = pdpeaks[0] 
+# boolpeaks y pdpeaks son indices. Chequeo cuales de los valores que tienen derivada creciente en peaksd, son tambien picos en boolpeaks
+finalresult = np.in1d(peaksd,boolpeaks)
+
+print (finalresult)     # Finalresult es una lista de valores booleanos que indican si cada valor de peaksd matchea o no la clausula.
 blinkings = finalresult.sum()
 
+peaks1 = peaksd[finalresult]
+
 print ('Blinkings: %d' % blinkings)
+print ('Locations:');print(peaks1)
 
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 
-peaks, _ = find_peaks(eeg, height=200)
+peaks2, _ = find_peaks(eeg, height=200)
 plt.plot(eeg)
-plt.plot(peaks, eeg[peaks], "x")
+plt.plot(peaks2, eeg[peaks2], "x")
+plt.plot(peaks1, eeg[peaks1], "o")
 plt.plot(np.zeros_like(eeg), "--", color="gray")
 plt.show()

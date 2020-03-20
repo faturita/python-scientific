@@ -97,6 +97,7 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* Visual Studio Code tips (debugging line by line included): https://code.visualstudio.com/docs/python/python-tutorial
 * https://jalammar.github.io/visual-numpy/
 * [Guía Guit](https://rogerdudler.github.io/git-guide/index.es.html)
 * [Tom O'Haver Pragmatic Introduction to Signal Processing](https://terpconnect.umd.edu/~toh/spectrum/): Awesome guide on tools to tackle signal processing.
@@ -105,7 +106,8 @@ https://online-learning.harvard.edu/course/using-python-research
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
 * https://github.com/lmcinnes/umap
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
-* https://github.com/aaizemberg/
+* https://github.com/aaizemberg/: Everything you would like to know about Visualizations, GIS, databases, and big data science.
+* https://github.com/ezequielma20/data-science: Excellent resource of this great Data Science Dev from Baufest.
 * https://blog.goodaudience.com/introduction-to-1d-convolutional-neural-networks-in-keras-for-time-sequences-3a7ff801a2cf
 * https://medium.com/odscjournal/data-scientists-versus-statisticians-8ea146b7a47f
 * https://github.com/healthDataScience/deep-learning-HAR

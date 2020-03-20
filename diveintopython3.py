@@ -30,7 +30,7 @@ print('3 // 2.0 =', 3 // 2.0)   # Integer division but the resut is float
 
 # Unicode
 print('Python', python_version())
-print('strings are now utf-8 \u03BCnico\u0394é!')
+print('strings are now utf-8 \u03BCnico\u0394é!.  日本語でも書くのはできますよ。')
 
 print('Python', python_version(), end="")
 print(' has', type(b' bytes for storing data'))
@@ -101,4 +101,20 @@ print(list(range(3)))
 # Change in rounding policy.  Round goes to the nearest EVEN number
 print(round(15.5))
 print(round(16.5))
+
+# Map and lambdas
+import numpy as np
+import math
+input1 = np.asarray([0.34,0.22,0.12,0.323,0.12,-0.83,0.23, 0.3])
+input2 = np.asarray([-0.9, 0.3, 0.2, -0.2,0.75,  0.1, 0.2,-0.3])
+input3 = np.asarray([0.23,-0.9,   1,  0.3,-0.1, -0.9, 0.4, 0.2])
+input = np.concatenate( ([input1],[input2],[input3]))
+input = input.T
+
+real = list(map(lambda x,y,z: ((math.sin(x * math.pi + math.pi) + math.cos(y * math.pi + math.pi) + z) / 3), input[:,0],input[:,1],input[:,2]))
+print (real)
+biggerthanzero = list(filter(lambda z: z>0, input[:,0]))
+print(biggerthanzero)
+biggerthanzero2 = [i for i in input[:,0] if i>0]
+print(biggerthanzero2) # Equivalent
 
