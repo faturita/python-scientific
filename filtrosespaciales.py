@@ -27,6 +27,7 @@ s1 = np.sin(2 * time)  # Señal 1, sinusoidal.
 s2 = np.sign(np.sin(3 * time))  # Señal 2, cuadrada
 s3 = signal.sawtooth(2 * np.pi * time)  # Señal 3, sawtooth
 
+# Muestro el primer grafico donde aparecen todas las señales crudas, tal como serían en la realidad.
 plt.figure(1)
 plt.title('Sinusoidal')
 plt.subplot(3,1,1)
@@ -39,12 +40,12 @@ plt.subplot(3,1,3)
 plt.plot(s3, color='orange')
 
 
-# Las seniales se concatenan en una unica estructura
+# Las señales se concatenan en una unica estructura
 S = np.c_[s1, s2, s3]
 S += 0.2 * np.random.normal(size=S.shape)  # Agregamos ruido a cada una de 0.2 (alta frecuencia)
 
-
-plt.figure(10)
+# Estas serían las señales tal como se registrarían en los sensores, sin ninguna mezcla.
+plt.figure(2)
 plt.title('Noisy Signals')
 plt.subplot(3,1,1)
 plt.plot(S[:,0], color='red')

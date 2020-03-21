@@ -11,8 +11,6 @@ Pueden ser Pasa-bajo, Pasa-alto o pasa-banda.
 print(__doc__)
 import numpy as np
 
-from struct import *
-
 import sys, select
 
 import time
@@ -80,8 +78,11 @@ N = 128
 # sample spacing
 T = 1.0 / 128.0
 
+# Linspace me arma una secuencia de N números igualmente espaciados entre 0.0 y 1.0
 x = np.linspace(0.0, 1.0, N)
+# A esa secuencia le agrego una señal pura de 10 Hz y una de 20 Hz de mucha mayor amplitud, emulando un ruído no deseado sobre la señal.
 y = 1*np.sin(10.0 * 2.0*np.pi*x) + 9*np.sin(20.0 * 2.0*np.pi*x)
+
 
 plt.plot(x, y)
 plt.grid()
@@ -89,6 +90,7 @@ plt.title(r'Original Signal')
 plt.axis((0,1,-20,20))
 plt.show()
 
+# Aplico la transformada de fourier y compongo el eje X de las frecuencias para visualizar la señal transformada.
 yf = fft(y)
 xf = np.linspace(0.0, int(1.0/(2.0*T)), int(N/2))
 
@@ -117,7 +119,7 @@ plt.title(r'Output filtered signal.')
 plt.axis((0,1,-20,20))
 plt.show()
 
-
+# Este bloque de código permite hacer el mismo análisis sobre la señal completa de EEG, expandiendo un segundo para cubrir toda la señal.
 shamsignal = False
 if (shamsignal):
     t = np.linspace(0, 1.0, 6430)
