@@ -1,17 +1,27 @@
-#coding: latin-1
+"""
+========================
+OnePassFeatureExtraxtion
+========================
 
-# OpenCV basic code.
-# Saving/Storing keypoints https://isotope11.com/blog/storing-surf-sift-orb-keypoints-using-opencv-in-python
-#
-#
+OpenCV basic code.
+Saving/Storing keypoints https://isotope11.com/blog/storing-surf-sift-orb-keypoints-using-opencv-in-python
 
+
+"""
+print(__doc__)
+
+
+# OpenCV es una librería que se usa para realizar procesamiento de imágenes.
 import cv2
 import numpy as np
 
+# Pickle son unas rutinas para serializar datos de descriptores de imágenes (para guardarlos en un archivo)
 import pickle
 
+# Sys es la librería para acceder a utilidades del sistema.
 import sys
 
+# Con esto chequeo si hay parámetros en la línea de comando.  El primero parametro es siempre el nombre del programa.
 if (len(sys.argv)<2):
 	print ("Descriptor filename should be provided.")
 	quit()
@@ -36,6 +46,7 @@ def unpickle_keypoints(array):
         descriptors.append(temp_descriptor)
     return keypoints, np.array(descriptors)
 
+# Instruye a OpenCV a que acceda a la primer cámara disponible.
 cap = cv2.VideoCapture(0)
 #cap = cv2.VideoCapture('/Users/rramele/Documents/AppleStore.Subiendo.I.mov')
 #cap = cv2.VideoCapture('tcp://192.168.1.1:5555')
@@ -46,48 +57,44 @@ cap = cv2.VideoCapture(0)
 print ("Connecting..")
 
 for i in range(1,10):
-   # Capture frame-by-frame
-   ret, frame = cap.read()
+    # Capture frame-by-frame
+    ret, frame = cap.read()
 
-   #frame = cv2.flip(frame,0)
-   ##frame = cv2.flip(frame,1)
+    # Estas instrucciones sirven para invertir la imagen.
+    #frame = cv2.flip(frame,0)
+    ##frame = cv2.flip(frame,1)
 
-   gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-   #cv2.imwrite('01.png', gray)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    #cv2.imwrite('01.png', gray)
 
-   #gray = frame;
+    #gray = frame;
 
-   #Using AKAZE descriptors.
-   detector = cv2.AKAZE_create()
-   (kps, descs) = detector.detectAndCompute(gray, None)
-   print("keypoints: {}, descriptors: {}".format(len(kps), descs.shape))
-
-
-   # draw the keypoints and show the output image
-   cv2.drawKeypoints(frame, kps, frame, (0, 255, 0))
-
-   cv2.imshow("Computer Eye", frame)
+    # Se calculan los descriptores de AKAZE.  Puntos de la imágen destacados que sirven para discriminar.
+    detector = cv2.AKAZE_create()
+    (kps, descs) = detector.detectAndCompute(gray, None)
+    print("keypoints: {}, descriptors: {}".format(len(kps), descs.shape))
 
 
-   if cv2.waitKey(1) & 0xFF == ord('q'):
-      break
+    # Se dibujan los puntos en la imagen.
+    cv2.drawKeypoints(frame, kps, frame, (0, 255, 0))
+
+    cv2.imshow("Computer Eye", frame)
+
+    # Si se pone el foco en la pantalla, y se apreta la letra q se cierra.
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 
 temp_array = []
 
+# Se repite el código anterior, pero ahora una sola vez, como si fuera una foto, se sacan los descriptores
+# y se guardan.
 for i in range(1,2):
    # Capture frame-by-frame
    ret, frame = cap.read()
 
-   ##frame = cv2.flip(frame,0)
-   ##frame = cv2.flip(frame,1)
-
    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-   #cv2.imwrite('01.png', gray)
 
-   #gray = frame;
-
-   #Using AKAZE descriptors.
    detector = cv2.AKAZE_create()
    (kps, descs) = detector.detectAndCompute(gray, None)
    print("keypoints: {}, descriptors: {}".format(len(kps), descs.shape))
@@ -105,6 +112,8 @@ for i in range(1,2):
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
 
+# Guardo los descriptores (entre 500 y 2000 puede haber). Cada descriptor es un feature que voy a utilizar
+# posteriormente para clasificarlos.
 print ('Done.')
 file = sys.argv[1]
 pickle.dump(temp_array, open(file, "wb"))

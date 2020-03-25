@@ -76,15 +76,19 @@ print ( desc2[1,:])  # There are many 61 lentgh vectors.
 #desc2=desc2[0:100,:]
 
 
-# Featuresize is the dimension of the feature vectors.
+# Los descriptores son matrices.  La primera dimension 0 representa la cantidad de descriptores, en 
+# tanto que la segunda 1 es la dimension de cada uno de los features.
 featuresize = desc1.shape[1]
 
 
 # This is X, and y.  X being the data samples, and y their lables (0 or 1)
+# Los descriptores de las dos imágenes se concatenan en uno solo tensor, y se componen los 
+# labels a sabiendas de donde viene cada uno.  
 featuredata = np.concatenate ((desc1,desc2))
 featurelabels = np.concatenate( (np.zeros(desc1.shape[0]),(np.zeros(desc2.shape[0])+1) )  )
 
-# Preprocessing
+# Preprocessing: esto es requerido para que funcionen mejor los clasificadores porque los descriptores
+# tienen algunas dimensiones con valores muy altos y otras con valores muy pequeños.
 from sklearn.preprocessing import MinMaxScaler
 scaling = MinMaxScaler(feature_range=(-1,1)).fit(featuredata)
 featuredata = scaling.transform(featuredata)
@@ -102,6 +106,8 @@ reorder = np.random.permutation(featuredata.shape[0])
 # Spolier, it should be like random guessing.
 #featurelabels = featurelabels[np.random.permutation(featuredata.shape[0])]
 
+# Parto el dataset en 2.  Uso boundary para marcar la frontera de división (la mitad)
+# Pueden intentar cambiar este valor para asignar más info al entrenamiento o al testing.
 trainingdata = featuredata[reorder[0:boundary]]
 traininglabels = featurelabels[reorder[0:boundary]]
 
@@ -112,12 +118,14 @@ testlabels = featurelabels[reorder[boundary+1:featuredata.shape[0]]]
 print ('Training Dataset Size %d,%d' % (trainingdata.shape))
 print ('Test Dataset Size %d,%d' % (testdata.shape))
 
-# Classify using SVM lineal.
+# Primero usamos SVM con un kernel lineal.  Hago aca una clasificación directa
+# Fit construye el modelo.
 clf = svm.SVC(kernel='linear', C = 1.0)
 clf.fit(trainingdata,traininglabels)
 
 print("Done with fitting...")
 
+# Se hace la predicción de los labels en base a los features de test.
 predlabels = clf.predict(testdata)
 C = confusion_matrix(testlabels, predlabels)
 acc = (float(C[0,0])+float(C[1,1])) / ( testdata.shape[0])
@@ -127,6 +135,10 @@ print(C)
 target_names = ['Class1', 'Class2']
 report = classification_report(testlabels, predlabels, target_names=target_names)
 print(report)
+
+# ==== A partir de aca se construyen otros modelos y todos se comparan entre sí mediante las curvas ROC
+# Para realizar la comparación con las curvas ROC necesito que la predicción retorne un valor de probabilidad
+# en vez de retornar directamente el label estimado de la clase para cada uno de los vectores features.
 
 # Use SVM but instead of guessing the class (0 or 1), configure it to output the
 # probability value to belong to each class (this is needed to calculate ROC curves)
@@ -255,6 +267,10 @@ pyplot.show()
 # Cross Validation ==========================
 from sklearn.model_selection import KFold
 
+# La idea de la convalidación cruzada, es partir el conjunto de datos muchas veces, de maneras distintas, y 
+# probar la clasificación sobre el conjunto de test.  Luego se promedia todo, para ver cuán bien con pocos datos
+# de entrenamiento, se puede predecir los valores de testeo. Con esto se obtiene un valor de accuracy menos sesgado
+# y que muestra mejor el poder de generalización de la clasificación.  En este caso se está haciendo con SVM.
 avgaccuracy = []
 kf = KFold(n_splits=10)
 for train, test in kf.split(featuredata):
