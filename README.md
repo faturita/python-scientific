@@ -58,7 +58,7 @@ If you don't know anything at all about python, this is the place to be.
 * [filtrostemporales.py](filtrostemporales.py): Convolution and numpy slicing.
 * [filtrosespectrales.py](filtrosespectrales.py): Basic sample to extract spectral characteristics from time series.
 * [filtrosespaciales.py](filtrosespaciales.py): Blind source separation sample.
-* [imagefeatures.py](imagefeatures.py): Program to extract features from an image using opencv.
+* [onepassfeatureextraxtion.py](onepassfeatureextraxtion.py): Program to extract features from an image using opencv.
 * [onepassclassifier.py](onepassclassifier.py): Program to classify those features using different classifiers.  This contains all the elements to implement a classification model.
 * [InteractiveNotebook.ipynb](InteractiveNotebook.ipynb): Jupyter notebook sample for creating visualizing tools with Altair.
 * [baseline.py](baseline.py): Signal baseline removal sample.
