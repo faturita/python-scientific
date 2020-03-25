@@ -30,6 +30,13 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import roc_auc_score
 from matplotlib import pyplot
 
+import sys
+
+if (len(sys.argv)<3):
+	print ("Descriptors filename should be provided (2 files).  These files should have been generated with onpassfeatureimages.py.")
+	quit()
+
+
 # These two functions help me to serialize and save to disk the features.
 def pickle_keypoints(keypoints, descriptors):
     i = 0
@@ -51,14 +58,16 @@ def unpickle_keypoints(array):
         descriptors.append(temp_descriptor)
     return keypoints, np.array(descriptors)
 
-#Retrieve Keypoint Features for class 1 (the first picture)
-keypoints_database = pickle.load( open( "data/kd3.p", "rb" ) )
+#Retrieve Keypoint Features for class 1 (the first picture) 1 and 3 are the same.
+file1 = sys.argv[1]
+keypoints_database = pickle.load( open( file1, "rb" ) )
 kp1, desc1 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp1), desc1.shape))
 print ( desc1[1,:])  # There are many 61 lentgh vectors.
 
 #Retrieve Keypoint Features for Class 2
-keypoints_database = pickle.load( open( "data/kd1.p", "rb" ) )
+file2 = sys.argv[2]
+keypoints_database = pickle.load( open( file2, "rb" ) )
 kp2, desc2 = unpickle_keypoints(keypoints_database[0])
 print("Found keypoints: {}, descriptors: {}".format(len(kp2), desc2.shape))
 print ( desc2[1,:])  # There are many 61 lentgh vectors.
@@ -261,7 +270,12 @@ for train, test in kf.split(featuredata):
 
     predlabels = clf.predict(testdata)
     C = confusion_matrix(testlabels, predlabels)
-    acc = (float(C[0,0])+float(C[1,1])) / ( testdata.shape[0])
+
+    if (C.shape == (2,2)):
+        acc = (float(C[0,0])+float(C[1,1])) / ( testdata.shape[0])
+    else:
+        acc = (float(C[0,0])) / ( testdata.shape[0])
+    
     avgaccuracy.append(acc*1.0)
 
 acc = sum(avgaccuracy)/len(avgaccuracy)

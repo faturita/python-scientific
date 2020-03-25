@@ -10,6 +10,12 @@ import numpy as np
 
 import pickle
 
+import sys
+
+if (len(sys.argv)<2):
+	print ("Descriptor filename should be provided.")
+	quit()
+
 def pickle_keypoints(keypoints, descriptors):
     i = 0
     temp_array = []
@@ -100,7 +106,8 @@ for i in range(1,2):
       break
 
 print ('Done.')
-pickle.dump(temp_array, open("data/kd1.p", "wb"))
+file = sys.argv[1]
+pickle.dump(temp_array, open(file, "wb"))
 
 #When everything done, release the capture
 cap.release()
