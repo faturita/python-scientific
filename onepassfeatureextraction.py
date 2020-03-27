@@ -48,11 +48,7 @@ def unpickle_keypoints(array):
 
 # Instruye a OpenCV a que acceda a la primer cámara disponible.
 cap = cv2.VideoCapture(0)
-#cap = cv2.VideoCapture('/Users/rramele/Documents/AppleStore.Subiendo.I.mov')
-#cap = cv2.VideoCapture('tcp://192.168.1.1:5555')
-#cap = cv2.VideoCapture('tcp://192.168.0.3/cgi-bin/fwstream.cgi?FwModId=0&PortId=1&PauseTime=0&FwCgiVer=0x0001')
-#cap = cv2.VideoCapture('rtsp://192.168.0.3/cam0_0')
-#cap = cv2.VideoCapture('tcp://192.168.0.110:10000')
+
 
 print ("Connecting..")
 
