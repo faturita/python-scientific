@@ -25,7 +25,7 @@ X, y = load_digits(return_X_y=True)
 # tSNE es una tecnica de reduccion de la dimensionalidad (ver Everitt).  
 # Al reducir y transformar las dimensiones, es una tecnica de clustering.
 tsne = TSNE()
-
+ 
 # Se asigna directamente el valor de X y se lo transforma a dos dimensiones.
 X_embedded = tsne.fit_transform(X)
 
@@ -33,3 +33,5 @@ X_embedded = tsne.fit_transform(X)
 sns.scatterplot(X_embedded[:,0], X_embedded[:,1], hue=y, legend='full', palette=palette)
 
 plt.show()
+
+

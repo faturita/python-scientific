@@ -178,7 +178,7 @@ class OfflineHeadset:
         if (self.f):
             self.f.close()
 
-
+# Segmentación de la serie de tiempo.
 def process(headset):
     ts = time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H-%M-%S')
@@ -209,6 +209,10 @@ def process(headset):
             window.append( datapoint )
 
 
+            # Este punto establece cuando se hace el corte, 
+            # como se genera el feature y 
+            # como se hace el desplazamiento de la ventana.
+            # Este es el metodo de Welsh para EEG.
             if len(window)>=N:
                 if not isartifact(window):
                     awindow = np.asarray( window )
@@ -355,6 +359,12 @@ def classify(afeatures1, afeatures2, featuresize):
     plt.show()
 
 
+# Esto es lo que hace el método principal.
+
+# Primero toma muestras de señales de tiempo de una personas.  Estas señales corresponden a dos experiemntos, 
+# donde la persona durante un tiempo estaba con los ojos cerrados, y luego con los ojos abiertos.
+# Eso dispara un cambio en las señales occipitales, en O1 y O2 que son dos canales.  Ese cambio se manifiesta
+# como un aumento de la potencia de 10 Hz cuando la persona tiene los ojos cerrados.
 def featureextractor():
     # Get features from label 1.
     headset = OfflineHeadset('Subject',1,'Alfa')
@@ -365,6 +375,7 @@ def featureextractor():
     features2 = process(headset)
     headset.close()
 
+    # En este punto se tienen una secuencia de features bidimensionales.  El PSD de O1 y O2 durante una ventana de tiempo.
     afeatures1 = np.asarray(features1)
     afeatures2 = np.asarray(features2)
 
@@ -399,7 +410,9 @@ def featureextractor():
     plt.show()
 
 
-
+# Este If de python, sirve cuando un programa funciona como una libreria, por lo que no tiene código que se ejecute
+# que no esté en el bloque global (sin indentación).  En esos casos este if sirve para indicar que se tiene 
+# que ejecutar cuando a este .py se lo ejecuta de manera directa.
 if __name__ == "__main__":
 
     featureextractor()

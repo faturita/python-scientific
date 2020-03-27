@@ -94,6 +94,11 @@ If you don't know anything at all about python, this is the place to be.
 # Do you want to learn python from scratch ?
 
 https://online-learning.harvard.edu/course/using-python-research
+
+# Something else about Git
+
+* learngitbranching.js.org
+* atlassian.com/git
   
 # References and sources
 
