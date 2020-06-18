@@ -29,6 +29,7 @@ If you don't know anything at all about python, and you want to know something t
  ```
  
  * Run an Anaconda Prompt
+ * Move with "cd" to the directory that you just downloaded.
  * Create the environment with:
  
  ```bash 
