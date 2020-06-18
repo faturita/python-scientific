@@ -12,14 +12,16 @@ print(__doc__)
 
 from platform import python_version
 
+# In[1]:
 print('Python', python_version())
 print('Hello, World!')
 
+# %%
 # Eliminar el CRLF 
 print("some text,", end="")
 print(' print more text on the same line')
 
-
+# %%
 # Integer division
 print('Python', python_version())
 print('3 / 2 =', 3 / 2)
@@ -27,17 +29,20 @@ print('3 // 2 =', 3 // 2)   # Integer division
 print('3 / 2.0 =', 3 / 2.0)
 print('3 // 2.0 =', 3 // 2.0)   # Integer division but the resut is float
 
-
+# %%
 # Unicode
 print('Python', python_version())
 print('strings are now utf-8 \u03BCnico\u0394é!.  日本語でも書くのはできますよ。')
 
+# %%
 print('Python', python_version(), end="")
 print(' has', type(b' bytes for storing data'))
 
+# %%
 print('and Python', python_version(), end="")
 print(' also has', type(bytearray(b'bytearrays')))
 
+# %%
 x = 100
 def val_in_range(x, val):
     return val in range(x)
@@ -55,23 +60,26 @@ try:
 except NameError as err:
     print(err, '--> our error message')
 
+# %%
 # Python 3 only has the next global method
 my_generator = (letter for letter in 'abcdefg')
 
 print (next(my_generator))
 print (next(my_generator))
 
-
+# %%
 # In python 2 the variables form blocks LEAK into the global namespace.  
 # This bad practice should not pass any longer in python 3
 print('Python', python_version())
 
+# %%
 # This also includes lambdas
 i = 1
 print('before: i =', i)
 print('comprehension:', [i for i in range(5)])
 print('after: i =', i)
 
+# %%
 # Python 2 allows to do very UGLY things that do not raise exceptions until runtime when it is too late.
 print('Python', python_version())
 
@@ -91,6 +99,7 @@ except TypeError as err:
     print(err)
 
 
+# %%
 # Python 3 has generators and iteratable objects (instead of everything being a list)
 print('Python', python_version())
 

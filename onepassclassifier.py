@@ -296,3 +296,24 @@ for train, test in kf.split(featuredata):
 
 acc = sum(avgaccuracy)/len(avgaccuracy)
 print ('SVM K-Fold Cross Validated Feature Dim: %d Accuracy: %f' % (featuresize,acc))
+
+
+'''
+1- Arrange m training data points as you wish randomly
+2- Divide k folds M = | U_i |, i = 1..k    each || = m / k
+
+For i=1..k
+    + Train M_j, j != i
+    + Test on M_i
+    + Compute n_i = a_12 + a_21 + (a_00 + a_10)  (this is the error from confusion matrix)
+
+E_l = (SUM i=1..k  n_i)  / m
+
+Repeat above procedure from l=1..t times.
+
+e = SUM j=1..t  E_j / t
+V = SUM j=1..t (Ej - e)^2 / (t-1), std = sqrt(V)
+
+The value 'e' will contain the prediction error of the classification with given V variance and std.
+
+'''

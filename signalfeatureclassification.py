@@ -1,9 +1,15 @@
-#coding: latin-1
+"""
+==========================================
+Signal Feature Classification
+==========================================
 
 # Run with ann virtual environment
 # EPOC Emotiv file format https://www.researchgate.net/publication/332514530_EPOC_Emotiv_EEG_Basics
 
 # OpemMP sometimes raises coredumps, try export KMP_DUPLICATE_LIB_OK=TRUE
+
+"""
+print(__doc__)
 
 import numpy as np
 

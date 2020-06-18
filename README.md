@@ -1,9 +1,11 @@
 # Python Scientific
 
-Nowadays, python is ruling the world.  Hence, lets rule python....
+Nowadays, python is ruling the world.  This very humble language that was once the realm of enlighted developers that loved to create the most beautiful scripting language is now becoming the programming language of the world, and particularly of the data deluge.
+
+
 This repository allows you to install all the necesary stuff to start working with python on scientific applications, and particularly, to work with neuroscience time-series.  It allows you to install everything you need and start coding with NumPy, SciPy, OpenAI and MNE.
 
-If you don't know anything at all about python, this is the place to be.
+If you don't know anything at all about python, and you want to know something that will help you to do what you need, this is one place to be.
 
 
 * Install Git Bash
@@ -41,10 +43,17 @@ If you don't know anything at all about python, this is the place to be.
 
  )
  
-  * Activate the newly created environment
-  ```bash
-  conda activate mne3
-  ```
+ * Activate the newly created environment
+ ```bash
+ conda activate mne3
+ ```
+
+NOTE: if you receive an error about 'umap package missing' or similar, just edit your local file [environmentw.yaml](environmentw.yaml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
+
+ * Install umap (or any package that you want)
+ ```bash
+ conda install -n mne3 umap
+ ```
 
 # What's on each file
 
@@ -88,7 +97,7 @@ If you don't know anything at all about python, this is the place to be.
   git pull origin master
   ```
   
-  If you have modified some file, this will trigger an automatic merge.  If the merge is successful it will open a VI console (just press ':' and 'x') to add a merging comment.
+  If you have happened to modify a file, the previous command will trigger an automatic merge.  If the merge is successful it will open a VI console (just press ':' and 'x') to add a merging comment.
   If there is any conflict, check the modified files looking for any sign of conflict (you will clearly notice it).  After you fix the merging, mark it as resolved with 'git add filename' and finish the operation with 'git commit -m"Merge fixed"'
   
 # Do you want to learn python from scratch ?
@@ -102,7 +111,9 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* [MacBook configuration to use GPUs](https://towardsdatascience.com/deep-learning-using-gpu-on-your-macbook-c9becba7c43)
 * Visual Studio Code tips (debugging line by line included): https://code.visualstudio.com/docs/python/python-tutorial
+* https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder
 * https://jalammar.github.io/visual-numpy/
 * [Guía Guit](https://rogerdudler.github.io/git-guide/index.es.html)
 * [Tom O'Haver Pragmatic Introduction to Signal Processing](https://terpconnect.umd.edu/~toh/spectrum/): Awesome guide on tools to tackle signal processing.
@@ -120,6 +131,8 @@ https://online-learning.harvard.edu/course/using-python-research
 * https://www.freecodecamp.org/news/how-to-build-your-first-neural-network-to-predict-house-prices-with-keras-f8db83049159/
 * https://towardsdatascience.com/dcgans-deep-convolutional-generative-adversarial-networks-c7f392c2c8f8
 * https://medium.com/@ODSC/logistic-regression-with-python-ede39f8573c7
-* https://github.com/bhavinjawade/Advanced-Data-Structures-with-Python
+* [Python Data Structures](https://github.com/bhavinjawade/)Advanced-Data-Structures-with-Python
+* [Cross Entropy](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a)
+* [Visual Information Theory](http://colah.github.io/posts/2015-09-Visual-Information/)
 * More info an references [here](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
 
