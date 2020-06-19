@@ -14,7 +14,6 @@ print('ECD2020')
 print('Este ejercicio tiene dos maneras de resolverse.')
 print('Lo tiene que tener listo para el fin de la Cuarentena')
 
-print('Opción A: contestan todas las preguntas directamente en relación a cómo resolverían el problema.  Es decir explicando por qué lo que plantean podría funcionar.')
 print('Opción B: elijan una (al menos) pregunta e intentan implementar una solución, codificando en R, Java o python.')
 
 print('0 - Construyan una alternativa para detectar pestañeos y trabajen sobre el dataset de pestañeos para simular y testear el abordaje propuesto.')
@@ -23,10 +22,24 @@ print('2 - Sobre los datos de MNIST, intenten luego de clusterizar armar un clas
 print('3 - Busquen un dataset de internet público de señales de sensores.  ¿Cómo lo abordarían exploratoriamente, qué procesamiento y qué análisis harían?')
 print('4 - Prueben alternativas para mejorar la clasificación de las ondas alfa.')
 print('5 - ¿Que feature utilizarian para mejorar la clasificacion que ofrece Keras con MLP para las series de tiempo?')
+print('6 - Suban un snippet que aborde alguna problemática de solución, implementé algún otro método de clasificación o de análisis, sobre los datos registrados en este repositorio.')
 
-# El experimento que hicimos con SUJETO está en el directorio data/experimentosujeto.dat
 
 '''
+El experimento para el Ejercicio (1) está en el directorio data/experimentosujeto.dat
+
+Sujeto #1 se colocó el dispositivo de captura de señales de EEG EPOC Emotiv.  Cuatro canales se habilitaron F7, F8 frontales y O1,O2 occipitales.
+El dispositvo además tiene información de dos IMUs, en Gyro_x y Gyro_y.
+La persona estuvo sentada durante 5 minutos aproximadamente.  Durante diferentes períodos de tiempo realizó las siguientes acciones
+
+* Movimiento de la cabeza hacia los laterales (Yaw)
+* Movimiento de la cabeza hacia adelante y atrás (pitch)
+* Movimiento de la cabeza hacia los lados (llevando las orejas a los hombros) (roll)
+* Pestañeo voluntario intermitente
+* Apertura y cierre de la boca.
+* Cerró los ojos.
+* Permaneció inmovil mirando un punto fijo (y pestañando naturalmente).
+
 El formato de los datos es
 
         "COUNTER",
