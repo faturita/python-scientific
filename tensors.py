@@ -8,6 +8,7 @@ How to work with numpy tensors.
 """
 print(__doc__)
 
+# %%
 # Python posee una estructura de datos primaria que se denomina lista
 # NumPy extiende esa estructura para conformar tensores, 
 # que son las unidades básicas de procesamiento.
@@ -22,10 +23,10 @@ z = np.array( ([11,12,13],[21,22,23],[31,32,33]) )
 print (z)
 
 
-
+# %%
 # Los tensores operan entre sí como si fuesen vectores algebraicos.
-# Array are zero based, array 0 is vertical, 1 is horizontal.
-# (h,v)
+# Array are zero based, array 0 is row, 1 is column.
+# (r,c)
 print ('Element at 0, 1:')
 print  (y[0][1])
 
@@ -44,15 +45,18 @@ print (y[1,1])
 print ('Shows vertical element 2')
 print (y[:,2])
 
+# %%
+# Los arrays tienen tipo.
 print ('Type of an array:' + str(y.dtype))
 
+# %%
 print ('Fundamental: Reshaping arrays....')
 f = np.array(range(100))
 fr = f.reshape(10,10)
 fr[1:-1,1:-1]
 print (fr[1:-1,1:-1])
 
-
+# %%
 print ('Array concatenation:')
 x = np.array([11,22])
 y = np.array([18,7,6])
@@ -62,6 +66,7 @@ print (y)
 print (z)
 print (np.concatenate((x,y,z)))
 
+# %%
 print ('Array concatenation:')
 x = np.array(([11,22],[33,22]))
 y = np.array(([18,6],[23,22]))
@@ -71,23 +76,38 @@ print (y)
 print (z)
 print (np.concatenate((x,y,z)))
 
+# %%
 print ('Concatenate according to axis')
 z = np.concatenate((x,y),axis = 0)
 print (z)
 
-print ('Adding new dimensions')
-x = np.array([2,5,18,14,4])
-y = x[:, np.newaxis]
+# %%
+print ('Scaling up tensors.')
+x = np.array([2,5,18,14,4])     # Vector of 1 index.
+y = x[:, np.newaxis]            # Matriz of two indexes.    
 print (x)
 print (y)
 
+# %%
 # Y has two dimensiones (5,1) while X has only one dimension (5,)
+print (y.shape)
+print (x.shape)
+
+print (type(y))
+print (type(x))
+
+print (y.ndim)
+print (x.ndim)
+
 print (y[2,0])                                                                 
 print (x[2])    
 
-print (np.zeros((30,30)))
-print (np.ones((29,2)))
+z = y[:,:, np.newaxis]      # Now z is a tensor (5,1,1)
 
+print (z.ndim)
+print (z.shape)
+
+# %%
 print("Python Lists =======================")
 a=[1,2,3,4,5]
 
@@ -111,6 +131,7 @@ a.insert(2, [3,2])
 print (a)
 
 
+# %%
 # Slicing is crucial in multivariate analysis with python
 
 nums = list(range(5))     # range is a built-in function that creates a list of integers
@@ -124,8 +145,8 @@ nums[2:4] = [8, 9]        # Assign a new sublist to a slice
 print(nums)               # Prints "[0, 1, 8, 9, 4]"
 
 
+# %%
 # Numpy basic creation and moving around.
-
 import numpy as np
 
 a = np.array([1, 2, 3])   # Create a rank 1 array
@@ -140,6 +161,7 @@ print(b.shape)                     # Prints "(2, 3)"
 print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
 
 
+# %%
 # Numpy Matrix Primitives
 import numpy as np
 
@@ -163,6 +185,7 @@ print(e)                     # Might print "[[ 0.91940167  0.08143941]
                              #               [ 0.68744134  0.87236687]]"
 
 
+# %%
 # Pulling subarrays from matrixces
 import numpy as np
 
@@ -186,7 +209,7 @@ print(a[0, 1])   # Prints "77"
 
 
 
-
+# %%
 import numpy as np
 
 # Create the following rank 2 array with shape (3, 4) (rank in this context is the number of indices to move around the tensor)
@@ -213,7 +236,7 @@ print(col_r2, col_r2.shape)  # Prints "[[ 2]
                              #          [10]] (3, 1)"
 
 
-
+# %%
 # Matrix indexing
 import numpy as np
 
@@ -235,7 +258,7 @@ print(a[[0, 0], [1, 1]])  # Prints "[2 2]"
 print(np.array([a[0, 1], a[0, 1]]))  # Prints "[2 2]"
 
 
-
+# %%
 # Matrix Indexing
 import numpy as np
 
@@ -267,7 +290,7 @@ print(a)  # prints "array([[11,  2,  3],
           #                [10, 21, 12]])
 
 
-
+# %%
 # Boolean Matrices used for selection
 import numpy as np
 
@@ -290,7 +313,7 @@ print(a[bool_idx])  # Prints "[3 4 5 6]"
 # We can do all of the above in a single concise statement:
 print(a[a > 2])     # Prints "[3 4 5 6]"
 
-
+# %%
 print('Numpy tensors have are typed.')
 
 import numpy as np
@@ -304,7 +327,7 @@ print(x.dtype)             # Prints "float64"
 x = np.array([1, 2], dtype=np.int64)   # Force a particular datatype
 print(x.dtype)                         # Prints "int64"
 
-
+# %%
 print('Elementwise operations:')
 
 import numpy as np
@@ -341,7 +364,7 @@ print(np.divide(x, y))
 #  [ 1.73205081  2.        ]]
 print(np.sqrt(x))
 
-
+# %%
 print('Inner product')
 import numpy as np
 
@@ -365,6 +388,8 @@ print(np.dot(x, v))
 print(x.dot(y))
 print(np.dot(x, y))
 
+
+# %%
 print("Summarize matrix values")
 import numpy as np
 
@@ -376,7 +401,7 @@ print(np.sum(x, axis=1))  # Compute sum of each row; prints "[3 7]"
 
 print(np.mean(x,axis=0))  # Compute the mean 
 
-
+# %%
 print ("Transpose operation...")
 import numpy as np
 
@@ -393,7 +418,7 @@ print(v.T)  # Prints "[1 2 3]"
 
 
 
-
+# %%
 print ("Tiling vector into matrices.")
 import numpy as np
 
@@ -413,7 +438,8 @@ print(y)  # Prints "[[ 2  2  4
           #          [11 11 13]]"
 
 
-print('Broadcasting (wraps vector to correct sizes to apply operations)')
+# %%
+print('Numpy allows implicit Broadcasting (wraps vector to correct sizes to apply operations)')
 import numpy as np
 
 # We will add the vector v to each row of the matrix x,
@@ -427,6 +453,7 @@ print(y)  # Prints "[[ 2  2  4]
           #          [11 11 13]]"
 
 
+# %%
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 
@@ -446,4 +473,3 @@ print ("Euclidean Distance Matrix ==================================")
 #  [ 2.23606798  1.          0.        ]]
 d = squareform(pdist(x, 'euclidean'))
 print(d)
-
