@@ -29,6 +29,7 @@ If you don't know anything at all about python, and you want to know something t
  ```
  
  * Run an Anaconda Prompt
+ * Move with "cd" to the directory that you just downloaded.
  * Create the environment with:
  
  ```bash 
@@ -49,6 +50,11 @@ If you don't know anything at all about python, and you want to know something t
  ```
 
 NOTE: if you receive an error about 'umap package missing' or similar, just edit your local file [environmentw.yaml](environmentw.yaml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
+
+ ```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+ ```
 
  * Install umap (or any package that you want)
  ```bash
