@@ -356,13 +356,14 @@ def classify(afeatures1, afeatures2, featuresize):
     plt.legend(['Train', 'Val'], loc='upper right')
     plt.show()
 
-    plt.plot(hist.history['acc'])
-    plt.plot(hist.history['val_acc'])
-    plt.title('Model accuracy')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Val'], loc='lower right')
-    plt.show()
+
+    #plt.plot(hist.history['acc'])
+    #plt.plot(hist.history['val_acc'])
+    #plt.title('Model accuracy')
+    #plt.ylabel('Accuracy')
+    #plt.xlabel('Epoch')
+    #plt.legend(['Train', 'Val'], loc='lower right')
+    #plt.show()
 
 
 # Esto es lo que hace el método principal.
