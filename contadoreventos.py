@@ -5,6 +5,9 @@ STEM Blinking Counter
 
 Contador de pestañeos.
 
+Este código intenta encontrar los picos de la señal que generalmente corresponden a pestañeos en
+señales de EOG, Electrooculografía.
+
 Fs = 128
 
 """
@@ -28,8 +31,6 @@ print ('Longitud del archivo:'+str(len(results)))
 # Convert the file into numpy array of ints.
 results = np.asarray(results)
 results = results.astype(int)
-
-# Strip from the signal anything you want
 
 
 # La primer columna corresponde a el largo del archivo a considerar
@@ -65,6 +66,7 @@ print (dpeaks)
 pdpeaks = np.where( dpeaks > 0)
 
 peaksd = pdpeaks[0] 
+
 # boolpeaks y pdpeaks son indices. Chequeo cuales de los valores que tienen derivada creciente en peaksd, son tambien picos en boolpeaks
 finalresult = np.in1d(peaksd,boolpeaks)
 
