@@ -18,6 +18,33 @@ def f(x=0):
 
 variable = f()
 
+# In[1]
+
+print('Las tuplas son objetos inmutables')
+nested_tup = (4,5,6,(7,8))
+totuple = tuple('string')
+print(totuple)
+
+print ('Las tuplas son versatiles para las asignaciones')
+tup = (4,5,6)
+a,b,c = tup 
+
+print('Swap')
+a,b = 1,2
+a,b = b,a 
+
+seq = [(1,2,3),(4,5,6),(7,8,9)]
+for a,b,c in seq:
+    print('a={0}, b={1}, c={2}'.format(a,b,c))
+
+print('En python 3 tuplas permiten representar etceteras de retornos de funciones.')
+values = 1,2,3,4,5
+a,b, *rest = values 
+print (a,b)
+print ( rest )
+
+
+
 # In[1]:
 print ('Existen muchas situaciones donde es necesario formatear texto.  El 3 indica la cantidad de digitos a utlizar y d que son enteros.')
 a=3
@@ -91,7 +118,13 @@ xs.append('bar')  # Add a new element to the end of the list
 print(xs)         # Prints "[3, 1, 'foo', 'bar']"
 x = xs.pop()      # Remove and return the last element of the list
 print(x, xs)      # Prints "bar [3, 1, 'foo']"
+print(1 in xs)    # Check if 1 is in list
 
+# In[1]:
+print('Las listas de python pueden tener tipos diversos.')
+x = [4, None, 'foo']
+x.extend([7,8,(2,3)])
+print(x)
 # In[1]:
 print('Slicing en Listas básicas de python.')
 nums = list(range(5))     # range is a built-in function that creates an object that represent a list of integer.  List convert that to a python list.
@@ -103,6 +136,26 @@ print(nums[:])            # Get a slice of the whole list; prints "[0, 1, 2, 3, 
 print(nums[:-1])          # Slice indices can be negative; prints "[0, 1, 2, 3]"
 nums[2:4] = [8, 9]        # Assign a new sublist to a slice
 print(nums)               # Prints "[0, 1, 8, 9, 4]"
+
+for i, value in enumerate(nums):    # Enumerate built-in
+    print('Postion {0}, Value {1}'.format(i,value))
+
+slist = ['foo','bar','baz']         # Build an indexed dictionary
+mapping = {}
+for i,v in enumerate(slist):
+    mapping[v] = i
+
+print(mapping)
+
+
+# In[1]:
+seq1 = ['foo','bar','baz']
+seq2 = ['one','two','three']
+
+zipped = zip(seq1,seq2)
+ll = list(zipped)
+print(ll)
+
 
 # In[1]:
 print('Looping over elements in a list...')
@@ -129,6 +182,9 @@ nums = [0, 1, 2, 3, 4]
 squares = [x ** 2 for x in nums]
 print(squares)   # Prints [0, 1, 4, 9, 16]
 
+strings = ['a','as','bat','car','dove','python']
+print ( [x.upper() for x in strings if len(x)>2])
+
 # In[1]:
 print('They can also contain conditions...')
 nums = [0, 1, 2, 3, 4]
@@ -147,6 +203,9 @@ print(d.get('monkey', 'N/A'))  # Get an element with a default; prints "N/A"
 print(d.get('fish', 'N/A'))    # Get an element with a default; prints "wet"
 del d['fish']         # Remove an element from a dictionary
 print(d.get('fish', 'N/A')) # "fish" is no longer a key; prints "N/A"
+
+mapping = dict(zip(range(5),reversed(range(5))))
+
 
 # In[1]:
 print('Se pueden iterar los elementos.')
@@ -190,6 +249,49 @@ from math import sqrt
 nums = {int(sqrt(x)) for x in range(30)}
 print(nums)  # Prints "{0, 1, 2, 3, 4, 5}"
 
+# In[1]:
+print('Lambdas are anonymous functions...')
+
+strings = ['foo','card','bar','aaaa','abab']
+strings.sort(key=lambda x:len(set(list(x))))
+
+print(strings)
+
+# In[1]:
+print('Haskell Currying')
+from functools import partial
+
+def add_numbers(x,y):
+    return x+y
+
+add_five = lambda y: add_numbers(5,y)
+
+# In[1]:
+print('Generators: functions that lazily return values.')
+
+def _make_gen():
+    for x in range(100):
+        yield x ** 2        # Yield implies that this is a generator
+
+gen = _make_gen()
+for x in gen:
+    print (x, end=' ')
+
+gen = (x ** 2 for x in range(100))
+
+for x in gen:
+    print(x, end=' ')
+
+# In[1]:
+print('Built in iterators')
+
+import itertools
+first_letter = lambda x: x[0]
+
+names = ['Alan','Adam', 'Wes', 'Will', 'Albert', 'Steven']
+
+for letter, names in itertools.groupby(names, first_letter):
+    print(letter, list(names))      # Names is a generator
 
 # In[1]:
 print('Tuples are like un-indexed lists and they can be used as element key')
@@ -213,6 +315,27 @@ def helloguys(name='Joe Doe', loud=False):
 
 helloguys('Bob') # Prints "Hello, Bob"
 helloguys('Jenny', loud=True)  # Prints "HELLO, FRED!"
+
+# In[1]:
+
+import re
+def remove_punctuation(value):
+    return re.sub('[!#?]','',value)
+
+clean_ops = [str.strip, remove_punctuation, str.title]
+
+def clean_strings(strings, ops):
+    result = []
+    for value in strings:
+        for function in ops:
+            value = function(value)
+        result.append(value)
+    return result
+
+states = ['Jujuy','Salta','Chaco##','CorriEntes?','Buenos#Aires']
+
+clean_strings(states, clean_ops)    # Functions are used as variables (first class citizens)
+
 
 # In[1]:
 print('Objetos (no esperen demasiado).')

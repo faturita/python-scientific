@@ -162,6 +162,19 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 ldaf = LinearDiscriminantAnalysis()
 ldaf.fit(trainingdata,traininglabels)
 
+# Decision Tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.pipeline import make_pipeline
+dt = DecisionTreeClassifier(random_state=0)
+dt.fit(trainingdata, traininglabels)
+#pipe3=make_pipeline(StandardScaler(),GridSearchCV(arbol,parameters2,cv=3))
+
+# Random Forest
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
+frs = RandomForestClassifier(n_estimators=100, random_state=0)
+frs.fit(trainingdata, traininglabels)
+
 # predict probabilities
 sr_probs = clf.predict_proba(testdata)
 # keep probabilities for the positive outcome only
@@ -184,6 +197,16 @@ dr_probs = ldaf.predict_proba(testdata)
 # keep probabilities for the positive outcome only
 dr_probs = dr_probs[:, 1]
 
+# predict probabilities
+dt_probs = dt.predict_proba(testdata)
+# keep probabilities for the positive outcome only
+dt_probs = dt_probs[:, 1]
+
+# predict probabilities
+rf_probs = frs.predict_proba(testdata)
+# keep probabilities for the positive outcome only
+rf_probs = rf_probs[:, 1]
+
 
 # calculate scores
 ns_auc = roc_auc_score(testlabels, ns_probs)
@@ -191,7 +214,8 @@ sr_auc = roc_auc_score(testlabels, sr_probs)
 kr_auc = roc_auc_score(testlabels, kr_probs)
 lr_auc = roc_auc_score(testlabels, lr_probs)
 dr_auc = roc_auc_score(testlabels, dr_probs)
-
+dt_auc = roc_auc_score(testlabels, dt_probs)
+rf_auc = roc_auc_score(testlabels, rf_probs)
 
 # summarize scores
 print('Trivial: ROC AUC=%.3f' % (ns_auc))
@@ -199,6 +223,8 @@ print('SVM: ROC AUC=%.3f' % (sr_auc))
 print('kNN: ROC AUC=%.3f' % (kr_auc))
 print('LogReg: ROC AUC=%.3f' % (lr_auc))
 print('LDA: ROC AUC=%.3f' % (dr_auc))
+print('Decision Tree: ROC AUC=%.3f' % (dt_auc))
+print('Random Forest: ROC AUC=%.3f' % (rf_auc))
 
 # calculate roc curves
 ns_fpr, ns_tpr, _ = roc_curve(testlabels, ns_probs)
@@ -206,7 +232,8 @@ sr_fpr, sr_tpr, _ = roc_curve(testlabels, sr_probs)
 kr_fpr, kr_tpr, _ = roc_curve(testlabels, kr_probs)
 lr_fpr, lr_tpr, _ = roc_curve(testlabels, lr_probs)
 dr_fpr, dr_tpr, _ = roc_curve(testlabels, dr_probs)
-
+dt_fpr, dt_tpr, _ = roc_curve(testlabels, dt_probs)
+rf_fpr, rf_tpr, _ = roc_curve(testlabels, rf_probs)
 
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
 # plot the roc curve for the model
@@ -263,6 +290,36 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
+pyplot.plot(dt_fpr, dt_tpr, marker='.', label='LDA')
+pyplot.plot(dr_fpr, dr_tpr, marker='.', label='DecTree')
+# plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
+pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
+pyplot.plot(dr_fpr, dr_tpr, marker='.', label='LDA')
+pyplot.plot(dt_fpr, dt_tpr, marker='.', label='DecTree')
+pyplot.plot(rf_fpr, rf_tpr, marker='.', label='RF')
+# plot the roc curve for the model
+# axis labels
+pyplot.xlabel('False Positive Rate')
+pyplot.ylabel('True Positive Rate')
+# show the legend
+pyplot.legend()
+# show the plot
+pyplot.show()
+
 
 # Cross Validation ==========================
 from sklearn.model_selection import KFold

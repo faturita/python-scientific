@@ -51,7 +51,9 @@ plt.ylabel('eeg(t)');
 plt.title(r'Original EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(eeg)])
+plt.savefig('signal.png')
 plt.show()
+
 
 # La operación de convolución permite implementar el suavizado del Moving Average
 windowlength = 10
@@ -66,5 +68,7 @@ plt.ylabel('eeg(t)');
 plt.title(r'Smoothed EEG Signal')     
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(avgeeg)])
+plt.savefig('smoothed.png')
 plt.show()
+
 
