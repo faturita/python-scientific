@@ -122,7 +122,7 @@ plt.show()
 # Este bloque de código permite hacer el mismo análisis sobre la señal completa de EEG, expandiendo un segundo para cubrir toda la señal.
 shamsignal = False
 if (shamsignal):
-    t = np.linspace(0, 1.0, 6430)
+    t = np.linspace(0, 1.0, 6430)   # 6430 es el largo de lo que sea.
     T = 1.0 / 128.0
     N = 128.0
     tt=np.asarray([])

@@ -249,6 +249,12 @@ from math import sqrt
 nums = {int(sqrt(x)) for x in range(30)}
 print(nums)  # Prints "{0, 1, 2, 3, 4, 5}"
 
+nnums = [int(sqrt(x)) for x in range(30) ]
+print (nnums)
+import numpy as np
+nnums = np.unique(nnums)
+print(nnums)
+
 # In[1]:
 print('Lambdas are anonymous functions...')
 

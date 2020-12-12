@@ -65,16 +65,16 @@ X = np.dot(S, A.T)  # Generate observations
 
 print("Las Observaciones son los datos originales mezclados %d,%d" % X.shape)
 
-plt.figure(2)
+plt.figure(3)
 plt.title('Observation 1')
 plt.subplot(3,1,1)
 plt.plot(X[:,0], color='red')
 plt.title('Observation 2')
 plt.subplot(3,1,2)
-plt.plot(X[:,0], color='steelblue')
+plt.plot(X[:,1], color='steelblue')
 plt.title('Observation 3')
 plt.subplot(3,1,3)
-plt.plot(X[:,0], color='orange')
+plt.plot(X[:,2], color='orange')
 
 
 # A partir de aca, se intenta hacer el camino inverso y separar las muestras buscando sus componentes.
@@ -94,7 +94,7 @@ H = pca.fit_transform(X)  # Reconstruct signals based on orthogonal components
 # Plot results
 
 
-plt.figure(3)
+plt.figure(4)
 plt.title('ICA 1')
 plt.subplot(3,1,1)
 plt.plot(S_[:,0], color='red')
@@ -116,7 +116,7 @@ print(f"ICA 1 vs 2:Pearson r: {r} and p-value: {p}")
 r, p = stats.pearsonr(S_[:,2], X[:,0])
 print(f"ICA 2 vs 0:Pearson r: {r} and p-value: {p}")
 
-plt.figure(4)
+plt.figure(5)
 plt.title('PCA 1')
 plt.subplot(3,1,1)
 plt.plot(H[:,0], color='red')
@@ -138,7 +138,7 @@ r, p = stats.pearsonr(H[:,2], X[:,0])
 print(f"PCA 2 vs 0:Pearson r: {r} and p-value: {p}")
 
 
-plt.figure(5)
+plt.figure(6)
 models = [X, S, S_, H]
 names = ['Observations (mixed signal)',
          'True Sources',

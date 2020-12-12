@@ -87,6 +87,8 @@ x = np.array([2,5,18,14,4])     # Vector of 1 index.
 y = x[:, np.newaxis]            # Matriz of two indexes.    
 print (x)
 print (y)
+print(x.ndim)
+print(y.ndim)
 
 # %%
 # Y has two dimensiones (5,1) while X has only one dimension (5,)
@@ -200,6 +202,7 @@ a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
 # [[2 3]
 #  [6 7]]
 b = a[:2, 1:3]
+print(b)
 
 # A slice of an array is a view into the same data, so modifying it
 # will modify the original array.
