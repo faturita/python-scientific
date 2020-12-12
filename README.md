@@ -29,7 +29,7 @@ If you don't know anything at all about python, and you want to know something t
  ```
  
  * Run an Anaconda Prompt
- * Move with "cd" to the directory that you just downloaded.
+ * Move with "cd" to the directory that you just downloaded ("cd python-scientific")
  * Create the environment with:
  
  ```bash 
@@ -61,6 +61,11 @@ conda config --set channel_priority strict
  conda install -n mne3 umap
  ```
 
+ó
+
+ ```bash
+ conda install -n mne3 umap-learn
+ ```
 
  Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
