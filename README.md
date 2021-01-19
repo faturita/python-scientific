@@ -1,6 +1,6 @@
 <p align="center">
-    <img alt="node-express-starter" width="50%" height="auto" src="./images/signal.png" />
-    <img alt="node-express-starter" width="50%" height="auto" src="./images/smoothed.png" />
+    <img alt="node-express-starter" width="30%" height="auto" src="./images/signal.png" />
+    <img alt="node-express-starter" width="30%" height="auto" src="./images/smoothed.png" />
 </p>
 
 
@@ -91,7 +91,8 @@ conda config --set channel_priority strict
 
  Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
-# 🗄 What's on each file
+<details>
+<summary>🗄 What's on each file</summary>
 
 * [holamundo.py](holamundo.py): Basic Python Data Science sample.  Grab a dataset and visualize it.
 * [holamundonotebook.ipynb](holamundonotebook.ipynb): The same, as jupyter notebook.
@@ -116,6 +117,7 @@ conda config --set channel_priority strict
 * [signalfeatureclassification.py](signalfeatureclassification.py): Runs on environmentann3w.yml environment. Process an EEG signal and detects alpha suppression with eyes closed.  Classify them using Keras.
 * [qlearning.py](qlearning.py): Works with environmentaiw.yml. Basic OpenAI Gym sample for QLearning.
 
+</details>
 
 # How to update your own repository with new changes from the server repository ?
   
