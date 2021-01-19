@@ -1,12 +1,34 @@
-# Python Scientific
+<p align="center">
+    <img alt="node-express-starter" width="100%" height="auto" src="./images/signal.png" />
+    <img alt="node-express-starter" width="100%" height="auto" src="./images/smoothed.png" />
+</p>
+
+
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Blue_Python_3.7_Shield_Badge.svg"/>
+</p>
+
+
+
+# 📟  Python Scientific 
 
 Nowadays, python is ruling the world.  This very humble language that was once the realm of enlighted developers that loved to create the most beautiful scripting language is now becoming the programming language of the world, and particularly of the data deluge.
 
-
-This repository allows you to install all the necesary stuff to start working with python on scientific applications, and particularly, to work with neuroscience time-series.  It allows you to install everything you need and start coding with NumPy, SciPy, OpenAI and MNE.
+This repository allows you to install all the necesary stuff to start working with python on scientific applications, and particularly, to work with sensor data and neuroscience time-series.  It allows you to install everything you need and start coding with NumPy, SciPy, OpenAI and MNE.
 
 If you don't know anything at all about python, and you want to know something that will help you to do what you need, this is one place to be.
 
+## Contents
+
+* 🔪 Python Introduction
+* 📥 Workspace Setup
+* 📈 Signal Processing Overview
+* 🔎 Signal Analysis and Feature Extraction
+* 🛠 Python ML/DL Tools and Techniques
+* 🧠 Neurodata Processing
+
+
+## Procedure
 
 * Install Git Bash
   https://git-scm.com/downloads
@@ -69,7 +91,7 @@ conda config --set channel_priority strict
 
  Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
-# What's on each file
+# 🗄 What's on each file
 
 * [holamundo.py](holamundo.py): Basic Python Data Science sample.  Grab a dataset and visualize it.
 * [holamundonotebook.ipynb](holamundonotebook.ipynb): The same, as jupyter notebook.
