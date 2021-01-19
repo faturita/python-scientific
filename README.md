@@ -1,6 +1,6 @@
 <p align="center">
-    <img alt="node-express-starter" width="50%" height="auto" src="./images/signal.png" />
-    <img alt="node-express-starter" width="50%" height="auto" src="./images/smoothed.png" />
+    <img alt="node-express-starter" width="30%" height="auto" src="./images/signal.png" />
+    <img alt="node-express-starter" width="30%" height="auto" src="./images/smoothed.png" />
 </p>
 
 
