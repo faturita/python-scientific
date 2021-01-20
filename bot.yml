@@ -1,0 +1,13 @@
+name: bot
+channels:
+  - defaults
+dependencies:
+  - python=3.5
+  - pylint
+  - matplotlib
+  - opencv
+  - numpy
+  - pyserial
+  - configparser
+prefix: /anaconda2/envs/bot
+

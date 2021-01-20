@@ -149,8 +149,9 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* https://github.com/ml-tooling/best-of-ml-python Best of Machine Learning resources for Python.
 * [MacBook configuration to use GPUs](https://towardsdatascience.com/deep-learning-using-gpu-on-your-macbook-c9becba7c43)
-* Visual Studio Code tips (debugging line by line included): https://code.visualstudio.com/docs/python/python-tutorial
+* https://code.visualstudio.com/docs/python/python-tutorial Visual Studio Code tips (debugging line by line included)
 * https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder
 * https://jalammar.github.io/visual-numpy/
 * [Guía Guit](https://rogerdudler.github.io/git-guide/index.es.html)
@@ -162,6 +163,7 @@ https://online-learning.harvard.edu/course/using-python-research
 * https://towardsdatascience.com/t-sne-python-example-1ded9953f26
 * https://github.com/aaizemberg/: Everything you would like to know about Visualizations, GIS, databases, and big data science.
 * https://github.com/ezequielma20/data-science: Excellent resource of this great Data Science Dev from Baufest.
+* https://github.com/jbruestle/plaidvision PlaidML Great Sample
 * https://blog.goodaudience.com/introduction-to-1d-convolutional-neural-networks-in-keras-for-time-sequences-3a7ff801a2cf
 * https://medium.com/odscjournal/data-scientists-versus-statisticians-8ea146b7a47f
 * https://github.com/healthDataScience/deep-learning-HAR

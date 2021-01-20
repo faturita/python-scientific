@@ -3,7 +3,17 @@
 Tensors
 ==================
 
-How to work with numpy tensors.
+Working with tensors on python.  
+
+Python has a built in structure called lists, which is very flexible to perform array operations.
+Numpy has extended this structure to work with algebraic tensors by creating 
+one of the most powerful packages to perform mathematical processing and numerical operations.
+
+Tensors are the basic processing units in terms of ML/DL.
+
+@NOTE: These tensors are different form the Tensorflow Tensors which are inherently the same structures
+ but TensorFlow tensors are adapted to perform parallel and device agnostic processing, which numpy tensors
+ do not.
 
 """
 print(__doc__)
@@ -57,24 +67,34 @@ fr[1:-1,1:-1]
 print (fr[1:-1,1:-1])
 
 # %%
-print ('Array concatenation:')
+print ('Array concatenation on the same axis:')
 x = np.array([11,22])
-y = np.array([18,7,6])
-z = np.array([1,3,5])
+y = np.array([18,6])
+z = np.array([1,5])
 print (x)
 print (y)
 print (z)
-print (np.concatenate((x,y,z)))
+print (np.concatenate((x,y,z)))     # Each x,y,z is dim (2,)
 
 # %%
-print ('Array concatenation:')
+print ('Array concatenation on the second axis:')
+x = np.array([11,22])
+y = np.array([18,6])
+z = np.array([1,5])
+print (x)
+print (y)
+print (z)                           
+print (np.c_[x,y,z])
+
+# %%
+print ('Array concatenation of arrays.')
 x = np.array(([11,22],[33,22]))
 y = np.array(([18,6],[23,22]))
 z = np.array(([1,5],[98,76]))
 print (x)
 print (y)
 print (z)
-print (np.concatenate((x,y,z)))
+print (np.concatenate((x,y,z)))     # Each x,y,z is dim (2,2)
 
 # %%
 print ('Concatenate according to axis')
