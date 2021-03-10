@@ -1,4 +1,12 @@
-# coding: latin-1
+"""
+===============================
+UMAP Clustering
+===============================
+
+UMAP package installation on Anaconda can be tricky
+
+"""
+print(__doc__)
 import umap
 from sklearn.datasets import load_digits
 

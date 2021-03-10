@@ -1,7 +1,7 @@
 """
-=========================================================
-Ejemplo de código para descargarse un dataset json online 
-=========================================================
+===============================
+Download an online JSON dataset
+===============================
 
 How to download json files and process them.
 
@@ -84,6 +84,6 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
 
-ax1.scatter(sx,sy,  c='r', marker=".", label='Datos de paradas de Metrobus')
+ax1.scatter(sx,sy,  c='r', marker=".", label='Metrobus stops')
 plt.legend(loc='upper left');
 plt.show()

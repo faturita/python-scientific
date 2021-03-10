@@ -3,8 +3,8 @@
 Dive into python 3
 ==================
 
-Python 2.x is not supported by anyone, effective Jan 2020 (this means now)
-Python 3 is in general a fixed version of python.  So it is MORE RESTRICTIVE.
+Python 2.x is not supported by anyone, effective Jan 2020 (just before the pandemic).
+Python 3 is in general an improved version of python.  So, it is MORE RESTRICTIVE.
 Remember the mantra: Syntax error >> pair programmed >> unit test >> runtime exception >> silent bug
 
 """

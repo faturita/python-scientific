@@ -3,7 +3,7 @@
 Autoregressive Modelling
 ========================
 
-Modelado autoregresivo básico
+Basic Autoregressive Modelling
 
 https://machinelearningmastery.com/autoregression-models-time-series-forecasting-python/
 

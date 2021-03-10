@@ -3,7 +3,7 @@
 Baseline Removal
 ==================
 
-Eliminación del Baseline usando interpolación
+Baseline Removal based on basic interpolation.
 
 """
 print(__doc__)
@@ -15,37 +15,37 @@ import matplotlib.pyplot as plt
 import scipy.sparse as sparse
 from scipy.sparse.linalg  import spsolve
 
-print('Eliminación de Baseline')
+print('Baseline Removal')
 
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 data = signals.values
 eeg = data[:,2]
 
-# Creo una secuencia de puntos del largo de la señal [0,1,2,...len(eeg)]
-# Esta va a ser la señal de drift que distorsiona la señal original.
+# Create a basic linearly spaced sequence to map the axis points [0,1,2,...len(eeg)]
+# This points will be used to capture the signal drift.
 time = np.linspace(0, len(eeg), len(eeg))
 
-# Modifico la señal original SIMULANDO el agregado del drift
+# Artificially modify the EEG signal with a linear drift.
 eeg = eeg +  time
 
 plt.plot(eeg,'r', label='EEG')
 plt.xlabel('t')
 plt.ylabel('eeg(t)')
-plt.title(r'EEG Signal with a upward drifting')
+plt.title(r'EEG Signal with an upward drifting')
 plt.ylim([-2000, 6500])
 plt.xlim([0,len(eeg)])
 plt.show()
 
 from scipy.interpolate import interp1d
 
-# Genero 100 puntos de 0 al valor de len(eeg)  [0,123,340,...,len(eeg)]
+# Get 100 points from 0 .. len(eeg)  [0,123,340,...,len(eeg)]
 x = range(0,len(eeg),100)
-y = eeg[x]                                                  # Me fijo el valor de EEG en esos puntos
-f = interp1d(x, y,fill_value="extrapolate")                 # Calculo una f de interpolacion sobre esos puntos.  
-                                                            # Esto me da una forma posible de la señal de base, solo considerando esos puntos.
-f2 = interp1d(x, y, kind='cubic',fill_value="extrapolate")  # Idem con una función cúbica.
+y = eeg[x]                                                  # Get the signal values on those points
+f = interp1d(x, y,fill_value="extrapolate")                 # Estimate a function that will interpolate those points. 
+                                                            # This will estimate a waveform based solely on those points.
+f2 = interp1d(x, y, kind='cubic',fill_value="extrapolate")  # Replicate the same with a cubic function
 
-# Muestro las interpolaciones en un gráfico.
+# Plot the interpolated values
 xnew = np.linspace(0, 6000, num=41, endpoint=True)
 import matplotlib.pyplot as plt
 plt.plot(x, y, 'o', xnew, f(xnew), '-', xnew, f2(xnew), '--')
@@ -53,10 +53,10 @@ plt.title(r'Interpolating signal')
 plt.legend(['data', 'linear', 'cubic'], loc='best')
 plt.show()
 
-# Ahora necesito regenerar esa función para todos los puntos intermedios interpolandolos.
+# Now regenerate the signal based on the estimated function 'f' and get a signal from that.
 baseline = f(range(len(eeg)))
 
-# Y finalmente le resto esos puntos interpolados a la señal original.
+# Finally, substract those points from the original signal.
 eeg = eeg - baseline
 
 

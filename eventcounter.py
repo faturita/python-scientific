@@ -3,10 +3,10 @@
 STEM Blinking Counter
 =====================
 
-Contador de pestañeos.
+Easy blinking counter.
 
-Este código intenta encontrar los picos de la señal que generalmente corresponden a pestañeos en
-señales de EOG, Electrooculografía.
+Use me to find the peaks on the EEG signal obtained with Mindwave.
+They are marks that in general correspond to blinking events.
 
 Fs = 128
 
@@ -23,8 +23,7 @@ import matplotlib.pyplot as plt
 
 results = []
 
-# Esta primera linea, abre el archivo 'blinking.dat' que se grabó
-# al establecerse la conexión con el servidor.
+# Open blinking.dat file.
 with open('data/blinking.dat') as inputfile:
     for row in csv.reader(inputfile):
         rows = row[0].split(' ')
@@ -36,29 +35,26 @@ results = np.asarray(results)
 results = results.astype(int)
 
 
-# La primer columna corresponde a el largo del archivo a considerar
-# en relación a las muestras (1:100 serian las muestras) representante
-# del tiempo.
-# La segunda columna, corresponde a: eeg, attention y meditation.
+# Pick the EEG signal.
 eeg = results[1:,1]
 
 
-print ('Longitud del archivo:'+str(len(results)))
-print("Primeros valores del detaset:\n")
+print('File Length:'+str(len(results)))
+print("Some values from the dataset:\n")
 print(results[0:10,])
-print("Dimensiones de la matriz results: {}".format(results.shape))
-print("Algunos valores del vector egg\n")
-print("Longitud: {}".format(len(eeg)))
-print("Máximo valor: {}".format(eeg.max()))
-print("Mínimo valor: {}".format(eeg.min()))
-print("Rango: {}".format(eeg.max()-eeg.min()))
-print("Valor promedio: {}".format(eeg.mean()))
-print("Varianza: {}".format(eeg.var()))
-print("Desvío standard: {}".format(math.sqrt(eeg.var())))
+print("Matrix dimension: {}".format(results.shape))
+print("EEG Vector Metrics\n")
+print("Length: {}".format(len(eeg)))
+print("Max value: {}".format(eeg.max()))
+print("Min value: {}".format(eeg.min()))
+print("Range: {}".format(eeg.max()-eeg.min()))
+print("Average value: {}".format(eeg.mean()))
+print("Variance: {}".format(eeg.var()))
+print("Std: {}".format(math.sqrt(eeg.var())))
 plt.figure(figsize=(12,5))
 plt.plot(eeg,color="green")
-plt.ylabel("Medición",size=10)
-plt.xlabel("Número de medición",size=10)
+plt.ylabel("Amplitude",size=10)
+plt.xlabel("Timepoints",size=10)
 plt.title("Serie temporal de eeg",size=20)
 plt.show()
 
@@ -66,39 +62,38 @@ plt.show()
 # Prueba de normalidad
 print('normality = {}'.format(scipy.stats.normaltest(eeg)))
 sns.distplot(eeg)
-plt.title("Supuestos de normalidad del vector eeg")
+plt.title("Normality-1 Analysis on EEG vector")
 plt.show()
 sns.boxplot(eeg,color="red")
-plt.title("Supuestos de normalidad del vector eeg V2")
+plt.title("Normality-2 Analysis on EEG vector")
 plt.show()
 res = stats.probplot(eeg, plot = plt)
-plt.title("Supuestos de normalidad V3") 
+plt.title("Normality-3 Analysis on EEG vector") 
 plt.show()
 
 
-#Obtenemos nuestros umbrales para distinguir un parpadeo respecto a lo que no lo es
+#Find the threshold values to determine what is a blinking and what is not
 umbral_superior=int(eeg.mean()+3*eeg.std())
-print("Umbral superior: {}".format(umbral_superior))
+print("Upper Threshold: {}".format(umbral_superior))
 umbral_inferior=int(eeg.mean()-3*eeg.std())
-print("Umbral inferior: {}".format(umbral_inferior))
+print("Lower Threshold: {}".format(umbral_inferior))
 plt.figure(figsize=(12,5))
 plt.plot(eeg,color="green")
 plt.plot(np.full(len(eeg),umbral_superior),'r--')
 plt.plot(np.full(len(eeg),umbral_inferior),'r--')
-plt.ylabel("Medición",size=10)
-plt.xlabel("Número de medición",size=10)
-plt.title("Serie temporal de eeg con límites de control",size=20)
-plt.annotate("Umbral superior",xy=(500,umbral_superior+10),color="red")
-plt.annotate("Umbral inferior",xy=(500,umbral_inferior+10),color="red")
+plt.ylabel("Amplitude",size=10)
+plt.xlabel("Timepoint",size=10)
+plt.title("EEG Series with control limits",size=20)
+plt.annotate("Upper Threshold",xy=(500,umbral_superior+10),color="red")
+plt.annotate("Lower Threshold",xy=(500,umbral_inferior+10),color="red")
 plt.show()
 
-"""
-Aplicaremos filtros a nuestros datos para transformarlos en una terna según si están por encima del umbral
-superior (asignar valor 1), por debajo del umbral inferior (asignar valor -1) o entre los 2 umbrales (asignar
-valor 0). Luego para determinar la cantidad de parpadeos, se contará la cantidad de ocasiones en las cuales la
-serie pasa de valor cero a valor uno, es decir la cantidad de ocasiones que desde un estado de reposo las
-mediciones de eeg superan el umbral superior.
-"""
+'''
+Now the EEG data is filtered to produce a new output, assigning 1, greater than the upper limit, 0 between lower and upper
+limit, and -1, under the lower limit.  In order to determine the number of valid events, changes from 0-1 will be counted
+as a possible blinking event.
+'''
+
 
 filtro_eeg=[]
 contador=0
@@ -114,39 +109,38 @@ for i in range(len(eeg)):
         filtro_eeg.append(-1)
     else:
         filtro_eeg.append(0)
-print("Cantidad de parpadeos: {}".format(contador))
+print("Blinking counter: {}".format(contador))
 filtro_eeg=np.asarray(filtro_eeg)
 plt.figure(figsize=(16,5))
 plt.plot(filtro_eeg,color="blue")
-plt.title("Filtro temporal de parpadeos",size=20)
-plt.ylabel("Clase ternaria",size=10)
-plt.xlabel("Número de medición",size=10)
+plt.title("Blinking Filter",size=20)
+plt.ylabel("Class",size=10)
+plt.xlabel("Timepoint",size=10)
 plt.show()
 
 
-# Otro approach
+# Alternative method
 
-# El threshold corresponde al limite en amplitud a considerar para discriminar
-# que es un pestañeo de qué no lo es.  Idealmente debería utilizarse algún umbralizador automático (detección de outliers)
+# The threshold is hardcoded, visually estimated.
 signalthreshold = 420
 
-# Primero filtramos los valores de la señal que superan un umbral hardcoded
+# Filter the values above the threshold
 boolpeaks = np.where( eeg > signalthreshold  )
 print (boolpeaks)
 
-# Por otro lado, calculamos la derivada de la señal.
+# Pick the derivative
 dpeaks = np.diff( eeg )
 print (dpeaks)
 
-# De la derivada, identificamos los valores positivos que corresponden a las curvas crecientes
+# Identify those values where the derivative is ok
 pdpeaks = np.where( dpeaks > 0)
 
 peaksd = pdpeaks[0] 
 
-# boolpeaks y pdpeaks son indices. Chequeo cuales de los valores que tienen derivada creciente en peaksd, son tambien picos en boolpeaks
+# boolpeaks y pdpeaks son indices. Values with positive derivatives en peakds
 finalresult = np.in1d(peaksd,boolpeaks)
 
-print (finalresult)     # Finalresult es una lista de valores booleanos que indican si cada valor de peaksd matchea o no la clausula.
+print (finalresult)     
 blinkings = finalresult.sum()
 
 peaks1 = peaksd[finalresult]
