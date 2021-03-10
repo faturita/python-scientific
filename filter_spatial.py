@@ -1,6 +1,6 @@
 """
 ==================
-Filtros Espaciales
+Spatial Filters
 ==================
 
 Blind Source Separation Techniques
@@ -15,19 +15,19 @@ from scipy import signal
 from sklearn.decomposition import FastICA, PCA
 
 # #############################################################################
-# Primero clavamos la semilla en un valor fijo para proder reproducir el ejemplo.
+# Set a fixed random seed for reproducible reasons
 
 np.random.seed(0)
 n_samples = 2000
 
-# Generamos 2000 muestras entre 0 y 8 igualmente espaciadas (dividimos 0 a 8 en 2000)
+# Pick 2000 samples between 0 and 8, equally spaced.
 time = np.linspace(0, 8, n_samples)
 
-s1 = np.sin(2 * time)  # Señal 1, sinusoidal.
-s2 = np.sign(np.sin(3 * time))  # Señal 2, cuadrada
-s3 = signal.sawtooth(2 * np.pi * time)  # Señal 3, sawtooth
+s1 = np.sin(2 * time)  # Sinusoidal, Signal 1
+s2 = np.sign(np.sin(3 * time))  # Squared, Signal 2
+s3 = signal.sawtooth(2 * np.pi * time)  # Sawtooth, Signal 3
 
-# Muestro el primer grafico donde aparecen todas las señales crudas, tal como serían en la realidad.
+# The first plot with all the signals, as it may be in reality.
 plt.figure(1)
 plt.title('Sinusoidal')
 plt.subplot(3,1,1)
@@ -40,11 +40,11 @@ plt.subplot(3,1,3)
 plt.plot(s3, color='orange')
 
 
-# Las señales se concatenan en una unica estructura
+# Put all the signals together in a multichannel arrangement
 S = np.c_[s1, s2, s3]
-S += 0.2 * np.random.normal(size=S.shape)  # Agregamos ruido a cada una de 0.2 (alta frecuencia)
+S += 0.2 * np.random.normal(size=S.shape)  # Add high frequency noise.
 
-# Estas serían las señales tal como se registrarían en los sensores, sin ninguna mezcla.
+# These are the nosiy signals.
 plt.figure(2)
 plt.title('Noisy Signals')
 plt.subplot(3,1,1)
@@ -59,11 +59,11 @@ plt.plot(S[:,2], color='orange')
 
 S /= S.std(axis=0)  # Standardize data
 
-# Se mezclan datos segun la matriz A de mezcla.  Luego se multiplican las matrices.
+# A is the mixing matrix
 A = np.array([[1, 1, 1], [0.5, 2, 1.0], [1.5, 1.0, 2.0]])  # Mixing matrix
 X = np.dot(S, A.T)  # Generate observations
 
-print("Las Observaciones son los datos originales mezclados %d,%d" % X.shape)
+print("Observations are the signals as if they were obtained by real sensors, mixed and noisy signals %d,%d" % X.shape)
 
 plt.figure(3)
 plt.title('Observation 1')
@@ -77,8 +77,7 @@ plt.subplot(3,1,3)
 plt.plot(X[:,2], color='orange')
 
 
-# A partir de aca, se intenta hacer el camino inverso y separar las muestras buscando sus componentes.
-# Compute ICA
+# From this point, we would like to do the opposite and recover the original sources, undoing the mixing process.
 ica = FastICA(n_components=3)
 S_ = ica.fit_transform(X)  # Reconstruct signals
 A_ = ica.mixing_  # Get estimated mixing matrix

@@ -137,7 +137,7 @@ pdpeaks = np.where( dpeaks > 0)
 
 peaksd = pdpeaks[0] 
 
-# boolpeaks y pdpeaks son indices. Values with positive derivatives en peakds
+# boolpeaks and peaksd are indexes.
 finalresult = np.in1d(peaksd,boolpeaks)
 
 print (finalresult)     

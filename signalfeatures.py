@@ -3,7 +3,7 @@
 Signal Features
 ==================
 
-Algunos features temporales
+Temporal Features
 
 Codigo: https://github.com/gilestrolab/pyrem/blob/master/src/pyrem/univariate.py
 
@@ -156,18 +156,18 @@ def pfd(a):
 
 
 
-# Frecuencia de sampleo 128 Hz
+# Sampling frequency of 128 Hz
 
-print('Features que pueden extraerse de las series de tiempo.')
+print('Temporal Features')
 
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 
-print('Estructura de la informacion:')
+print('Information structure:')
 signals.head()
 
 data = signals.values
 
-print('Forma %2d,%2d:' % (signals.shape))
+print('Shape %2d,%2d:' % (signals.shape))
 eeg = data[:,2]
 
 
@@ -212,7 +212,7 @@ plt.show()
 N = 128
 T = 1.0 / 128.0
 
-# Al tomar la FFT, le agrego una señal oscilatoria adicional para jugar con el feature escalar que obtengo de la señal.
+# We can put an additional frequency component to verify that things are working ok
 shamsignal = False
 if (shamsignal):
     x= np.linspace(0.0, 1.0, N)
@@ -241,7 +241,6 @@ y = np.array([0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 logr = LogisticRegression(solver='lbfgs')
 logr.fit(x.reshape(-1, 1), y)
 
-# La predicción de la regresión logística es en base al valor 1 en la salida.
 y_pred = logr.predict_proba(x.reshape(-1, 1))[:, 1].ravel()
 loss = log_loss(y, y_pred)
 

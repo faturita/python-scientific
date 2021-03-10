@@ -3,15 +3,15 @@
 One   Pass  Python
 ==================
 
-Esta guía está basada en este excelente tutorial: http://cs231n.github.io/python-numpy-tutorial/
+This is based on: http://cs231n.github.io/python-numpy-tutorial/
 
-Python 101: la indentación del código determina los bloques.
+Python 101: indentation determine blocks in python.
 
 """
 print(__doc__)
 
-# In[1]: Estos comentarios habilitan el VSC para que opere como un notebook de jupyter.
-print('Funciones ! Sirven para modularizar el código.')
+# In[1]: This comment allows Visual Studio Code to identify blocks that can be sent to a jupyter console.
+print('Modularity comes from functions')
 def f(x=0):
     print('El valor es %2d' % x)
     return 4
@@ -20,12 +20,12 @@ variable = f()
 
 # In[1]
 
-print('Las tuplas son objetos inmutables')
+print('Tuples are immutable objects')
 nested_tup = (4,5,6,(7,8))
 totuple = tuple('string')
 print(totuple)
 
-print ('Las tuplas son versatiles para las asignaciones')
+print ('Tuples are handy for assignments')
 tup = (4,5,6)
 a,b,c = tup 
 
@@ -37,23 +37,21 @@ seq = [(1,2,3),(4,5,6),(7,8,9)]
 for a,b,c in seq:
     print('a={0}, b={1}, c={2}'.format(a,b,c))
 
-print('En python 3 tuplas permiten representar etceteras de retornos de funciones.')
+print('Python3 allows to use typles as varargs parameters')
 values = 1,2,3,4,5
 a,b, *rest = values 
 print (a,b)
 print ( rest )
 
-
-
 # In[1]:
-print ('Existen muchas situaciones donde es necesario formatear texto.  El 3 indica la cantidad de digitos a utlizar y d que son enteros.')
+print ('Format shape')
 a=3
 print ('AT'+'{:3d}'.format(a))
 print ('AT %3d' % a)
 print ('Tuple %3d %3d' % (2,3))
 
 # In[1]:
-print('Operaciones aritméticas básicas')
+print('Basic arithmetic operations')
 x = 3
 print(type(x)) # Prints "<class 'int'>"
 print(x)       # Prints "3"
@@ -71,7 +69,7 @@ print(y, y + 1, y * 2, y ** 2) # Prints "2.5 3.5 5.0 6.25"
 
 
 # In[1]:
-print('Operadores lógicos')
+print('Logical operators')
 t = True
 f = False
 print(type(t)) # Prints "<class 'bool'>"
@@ -81,7 +79,7 @@ print(not t)   # Logical NOT; prints "False"
 print(t != f)  # Logical XOR; prints "True"
 
 # In[1]:
-print('Manejo de cadenas en python....')
+print('Python strings....')
 hello = 'hello'    # String literals can use single quotes
 world = "world"    # or double quotes; it does not matter.
 print(hello)       # Prints "hello"
@@ -94,7 +92,7 @@ print (hw[0:1])    # Strings allow some slicing
 print (hw[0:-1])
 
 # In[1]:
-print('Objetos String y sus operaciones.')
+print('String objects.')
 s = "hello"
 print(s.capitalize())  # Capitalize a string; prints "Hello"
 print(s.upper())       # Convert a string to uppercase; prints "HELLO"
@@ -121,12 +119,12 @@ print(x, xs)      # Prints "bar [3, 1, 'foo']"
 print(1 in xs)    # Check if 1 is in list
 
 # In[1]:
-print('Las listas de python pueden tener tipos diversos.')
+print('Python list can be heterogenous.')
 x = [4, None, 'foo']
 x.extend([7,8,(2,3)])
 print(x)
 # In[1]:
-print('Slicing en Listas básicas de python.')
+print('Slicing.')
 nums = list(range(5))     # range is a built-in function that creates an object that represent a list of integer.  List convert that to a python list.
 print(nums)               # Prints "[0, 1, 2, 3, 4]"
 print(nums[2:4])          # Get a slice from index 2 to 4 (exclusive); prints "[2, 3]"
@@ -208,7 +206,7 @@ mapping = dict(zip(range(5),reversed(range(5))))
 
 
 # In[1]:
-print('Se pueden iterar los elementos.')
+print('Dictionary items can be iterable.')
 d = {'person': 2, 'cat': 4, 'spider': 8}
 for animal in d:
     legs = d[animal]
@@ -216,7 +214,6 @@ for animal in d:
 # Prints "A person has 2 legs", "A cat has 4 legs", "A spider has 8 legs"
 
 # In[1]:
-print('Se pueden iterar los elementos y los indices.')
 d = {'person': 2, 'cat': 4, 'spider': 8}
 for animal, legs in d.items():
     print('A %s has %d legs' % (animal, legs))
@@ -312,7 +309,7 @@ print(d[(1, 2)])  # Prints "1"
 
 
 # In[1]:
-print('Parametros por default en funciones.')
+print('Default values in functions')
 def helloguys(name='Joe Doe', loud=False):
     if loud:
         print('HELLO, %s!' % name.upper())
@@ -344,7 +341,7 @@ clean_strings(states, clean_ops)    # Functions are used as variables (first cla
 
 
 # In[1]:
-print('Objetos (no esperen demasiado).')
+print('Objects')
 class Greeter(object):
 
     # Constructor

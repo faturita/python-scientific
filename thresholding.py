@@ -16,14 +16,12 @@ import numpy as np
 
 results = []
 
-# Esta primera linea, abre el archivo 'blinking.dat' que se grabó
-# al establecerse la conexión con el servidor.
 with open('data/blinking.dat') as inputfile:
     for row in csv.reader(inputfile):
         rows = row[0].split(' ')
         results.append(rows[1:])
 
-print ('Longitud del archivo:'+str(len(results)))
+print ('Length:'+str(len(results)))
 
 # Convert the file into numpy array of ints.
 results = np.asarray(results)
@@ -31,17 +29,11 @@ results = results.astype(int)
 
 # Strip from the signal anything you want
 
-
-# La primer columna corresponde a el largo del archivo a considerar
-# en relación a las muestras (1:100 serian las muestras) representante
-# del tiempo.
-# La segunda columna, corresponde a: eeg, attention y meditation.
 eeg = results[1:,1]
 
 print (eeg)
 
-# La siguiente función es la implementación del método de Otsu en una dimensión.
-# Esto permite encontrar uno (o más) valores que permiten segmentar la información de la entrada.
+# 1-D Otsu implementation
 def otsu(signal):
     h = np.histogram(signal, bins=100)
     bins = h[1]
@@ -93,7 +85,7 @@ def otsu(signal):
 
     return maxt
 
-# El método de Otsu me da el umbral 
+# Otsu method provides the umbralization vlaue
 
 val = [1,10,20,22,12,23,12,23,23,89,99,102,104,102,109,97,79]
 signal = np.asarray(val)

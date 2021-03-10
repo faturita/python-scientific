@@ -5,7 +5,7 @@ Tensors
 
 Working with tensors on python.  
 
-Python has a built in structure called lists, which is very flexible to perform array operations.
+Python has a built-in structure called list, which is very flexible to perform array operations.
 Numpy has extended this structure to work with algebraic tensors by creating 
 one of the most powerful packages to perform mathematical processing and numerical operations.
 
@@ -19,9 +19,6 @@ Tensors are the basic processing units in terms of ML/DL.
 print(__doc__)
 
 # %%
-# Python posee una estructura de datos primaria que se denomina lista
-# NumPy extiende esa estructura para conformar tensores, 
-# que son las unidades básicas de procesamiento.
 
 import numpy as np
 x = np.array([42,47,11], int)
@@ -34,7 +31,7 @@ print (z)
 
 
 # %%
-# Los tensores operan entre sí como si fuesen vectores algebraicos.
+# Tensors works as algebraic vectors
 # Array are zero based, array 0 is row, 1 is column.
 # (r,c)
 print ('Element at 0, 1:')
@@ -56,7 +53,7 @@ print ('Shows vertical element 2')
 print (y[:,2])
 
 # %%
-# Los arrays tienen tipo.
+# Numpy array are "strong" typed
 print ('Type of an array:' + str(y.dtype))
 
 # %%
