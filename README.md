@@ -149,6 +149,7 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* Bias on DataScience: https://github.com/koaning/scikit-lego, https://github.com/fairlearn/fairlearn
 * https://github.com/ml-tooling/best-of-ml-python Best of Machine Learning resources for Python.
 * [MacBook configuration to use GPUs](https://towardsdatascience.com/deep-learning-using-gpu-on-your-macbook-c9becba7c43)
 * https://code.visualstudio.com/docs/python/python-tutorial Visual Studio Code tips (debugging line by line included)
