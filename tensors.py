@@ -43,7 +43,7 @@ print (y.ndim)
 # Shape, size, of the array.
 print (y.shape)
 
-# Show up to row 2 included
+# Show up to row 2 included (3 excluded)
 print (y[:2])
 
 # Show element 1,1, equal to y[1][1]

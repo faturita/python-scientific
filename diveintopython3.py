@@ -133,9 +133,12 @@ input = input.T
 real = list(map(lambda x,y,z: ((math.sin(x * math.pi + math.pi) + math.cos(y * math.pi + math.pi) + z) / 3), input[:,0],input[:,1],input[:,2]))
 print (real)
 
+# %%
 # Filter can be used to filter data in a similar way.
 biggerthanzero = list(filter(lambda z: z>0, input[:,0]))    # Filter values from the first column based on condition
 print(biggerthanzero)
 biggerthanzero2 = [i for i in input[:,0] if i>0]            # It does the same
 print(biggerthanzero2) 
 
+
+# %%

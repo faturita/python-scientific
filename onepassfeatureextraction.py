@@ -9,7 +9,7 @@ Saving/Storing keypoints https://isotope11.com/blog/storing-surf-sift-orb-keypoi
 
 """
 print(__doc__)
-
+ 
 
 # OpenCV es una librería que se usa para realizar procesamiento de imágenes.
 import cv2

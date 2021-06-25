@@ -221,7 +221,7 @@ data[data.notnull()]
 print('On 2D')
 data = pd.DataFrame([[1., 6.5, 3.], [1., NA, NA], [NA, NA, NA], [NA, 6.5, 3.]])
 data.dropna(how='all', axis = 1)        # 0 is row, 1 is col
-data.dropna(how='any', axus = 0)
+data.dropna(how='any', axis = 0)
 
 
 # %%  -----------------------------------------------------------------------------
@@ -229,17 +229,18 @@ print('Now fillna can be used in the same way to fill in the data.')
 
 data.fillna(0)
 
-data.fillna({0: 0.5, 2:0})
+data.fillna({0: 0.5, 2:0})  # When NaN is found, for the row 0 put 0.5, for the row 2, put 0
 
 print('An interpolation can be performed to fill in the missing values.')
 data.fillna(method='ffill')
 
 data[np.abs(data) > 1.5] = np.sign(data) * 10
 
+# Show a resume of the data contained in data
 data.describe()
 
 # %%  -----------------------------------------------------------------------------
-print('None which is the python Null marker, can also be considered as NA sentinel.')
+print('None, the python Null marker, can also be considered as NA sentinel.')
 string_data = pd.Series(['aardvark', 'artichoke', np.nan, 'avocado'])
 
 string_data[0] = None
@@ -253,11 +254,11 @@ string_data = pd.Series(['Newark', 'Manchester', 'Halifax', 'Manchester'])
 
 string_data.drop_duplicates()
 
+# %% ----------------------------------------------------------------------------
 print('Replacing values')
 string_data.replace({'Newark': np.nan, 'Halifax': 'Ottawa'})
 
 # %%  -----------------------------------------------------------------------------
-print('----------------------------------------------------------------------------------------------------------------------------------')
 print('Pandas Series: data structure to handling sequential data.')
 
 import pandas as pd
@@ -373,8 +374,10 @@ np.abs(frame)
 
 f = lambda x: x.max() - x.min()
 
+# Mappings can be applied directly on dataframes.
 frame.apply(f)
 
+# Or they can also be applied specifically to certain columns or rows.
 frame.apply(f, axis=1)
 frame.apply(f, axis='columns')
 # %%  -----------------------------------------------------------------------------
@@ -451,7 +454,4 @@ df['GOAL'].plot(kind = 'hist')
 plt.show()
 
                                                 
-# %%
-
-
 
