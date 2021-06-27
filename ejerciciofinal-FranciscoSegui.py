@@ -84,6 +84,7 @@ from io import StringIO
 # In[1]:
 ##conda install -n mne3 pandas
 ##conda env list
+
 # %%
 
 signals = pd.read_csv('data/experimentosujeto.dat', delimiter=' ', names = [
@@ -110,16 +111,20 @@ signals = pd.read_csv('data/experimentosujeto.dat', delimiter=' ', names = [
         "RESERVED4",
         "RESERVED5"])
 
-
-
-# %%
 signals.shape
 
-# In[1]:
 data = signals.values
+data
 
 eeg = data[:,8]
+eeg
 
+# %%
+print(data[0,])
+print(eeg)
+eeg.shape
+
+# %%
 plt.plot(eeg,'r', label='EEG')
 plt.xlabel('t');
 plt.ylabel('eeg(t)');
@@ -133,7 +138,7 @@ plt.show()
 data.shape
 
 # %%
-import mne
+
 ch_names = [
             "COUNTER",
         "AF3",
@@ -159,12 +164,30 @@ ch_names = [
         "RESERVED5"]
 
 sfreq = 128
+
+print(len(ch_names))
+data.shape
+
+
+# %%
+list([2,7,8,13,15,16])
+
+data[:,list([2,7,8,13,15,16])]
+
+# %%
+
 data =data[:,list([2,7,8,13,15,16])]
+
+# %%
 
 ch_renames = [ch_names[2],ch_names[7],ch_names[8],ch_names[13],ch_names[15],ch_names[16]]
 ch_types = ['eeg' for _ in ch_renames]
 
 
+print(ch_renames)
+print(ch_types)
+
+# %%
 
 info = mne.create_info(ch_renames, sfreq, ch_types=ch_types)
 
