@@ -17,4 +17,11 @@ print('0 - Construyan una alternativa para detectar pestañeos (blinking.dat) y 
 
 
 # In[2]
-
+"""
+Scripts a revisar
+filter_temporal.py
+holamundo.py
+eventcounter.py
+signalfeatures.py
+baseline.py
+"""
