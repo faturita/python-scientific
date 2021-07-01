@@ -7,10 +7,11 @@ Final Assignment
 Alumno: Francisco Seguí
 
 """
+print(__doc__)
 print('Opción B: elijan una (al menos) pregunta e intentan implementar una solución, codificando en R, Java o python.')
-
+print('')
 print('Elijo la opción 0')
-
+print('')
 print('0 - Construyan una alternativa para detectar pestañeos (blinking.dat) y trabajen sobre el dataset de pestañeos para simular y testear el abordaje propuesto.')
 
 
