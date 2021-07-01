@@ -106,7 +106,9 @@ print('Location of Blinks');print(blinklocations)
 import seaborn as sns
 sns.set(style="darkgrid")
 sns.lineplot(x="timestamp", y="eeg", hue="attention", data=signals, palette="Reds")
+plt.savefig('attention.png')
 plt.show()
 
 sns.lineplot(x="timestamp", y="eeg", hue="meditation", data=signals, palette="Blues")
+plt.savefig('meditation.png')
 plt.show()
