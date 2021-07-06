@@ -158,7 +158,6 @@ plt.plot(peaks1, eeg[peaks1], "o")
 plt.plot(np.zeros_like(eeg), "--", color="gray")
 plt.show()
 
-
 # In[2]
 # Alumno: Francisco Seguí https://github.com/fseguior/
 # Propongo una forma alternativa de delimitar dinámicamente los umbrales de detección de pestañeo
