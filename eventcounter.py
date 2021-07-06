@@ -222,3 +222,19 @@ blinkcount=np.count_nonzero(blinklocations)
 
 print(f'Count of Blinks: {blinkcount}')
 print('Location of Blinks');print(blinklocations)
+
+# %%
+# Grafico los valores de attention (rojos) y de meditation (azules)
+# Vemos que en la primera parte ambos valores son bajos
+# En el pico del timestamp 597 la attention sube repentinamente y alcanza un pico, que despues desciende gradualmente para volver hacia el final de la serie a los valores bajos.
+# En el pico del timestamp 597 la mediation sube, pero alcanza su maximo en el pico del timestamp 600. Luego baja un poco pero se mantienen en valores altos.
+
+import seaborn as sns
+sns.set(style="darkgrid")
+sns.lineplot(x="timestamp", y="eeg", hue="attention", data=signals, palette="Reds")
+plt.savefig('attention.png')
+plt.show()
+
+sns.lineplot(x="timestamp", y="eeg", hue="meditation", data=signals, palette="Blues")
+plt.savefig('meditation.png')
+plt.show()
