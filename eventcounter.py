@@ -157,3 +157,69 @@ plt.plot(peaks2, eeg[peaks2], "x")
 plt.plot(peaks1, eeg[peaks1], "o")
 plt.plot(np.zeros_like(eeg), "--", color="gray")
 plt.show()
+
+
+# In[2]
+# Alumno: Francisco Seguí https://github.com/fseguior/
+# Propongo una forma alternativa de delimitar dinámicamente los umbrales de detección de pestañeo
+# Calculo los límites inferiores y superiores utilizando una medida de posición
+# En este caso uso el percentil 1 y el 99, con lo cual se consideran como picos el 2% de los valores
+# De esta forma el filtro es dinámico, y se adapta a los valores de la muestra.
+# Vemos en el gráfico que el criterio funciona adecuadamente
+
+lowerbound=int(np.percentile(eeg, 1))
+upperbound=int(np.percentile(eeg, 99))
+
+plt.plot(eeg, color="steelblue")
+plt.plot(np.full(len(eeg),lowerbound), color="goldenrod", ls="--")
+plt.plot(np.full(len(eeg),upperbound), color="goldenrod", ls="--")
+plt.ylabel("Amplitude",size=10)
+plt.xlabel("Timepoint",size=10)
+plt.title("EEG Series with control limits",size=20)
+plt.ylim([min(eeg)*1.1, max(eeg)*1.1 ])  ## dinamizo los valores del eje así se adapta a los datos que proceso
+plt.annotate("Lower Bound",xy=(500,lowerbound+10),color="goldenrod")
+plt.annotate("Upper Bound",xy=(500,upperbound+10),color="goldenrod")
+plt.savefig('blinks.png')
+plt.show()
+
+# Grafico el filtro de pestañeos/blinking
+# Utilizo una función lambda para marcar los pestañeos
+
+blinks = list((map(lambda x: 1 if x >upperbound else ( -1 if x < lowerbound else 0), eeg)))
+blinks = np.asarray(blinks)
+
+plt.plot(blinks, color="darksalmon")
+plt.title("Blinking Filter",size=20)
+plt.ylabel("Class",size=10)
+plt.xlabel("Timepoint",size=10)
+plt.savefig('blinkingfilter.png')
+plt.show()
+
+# Encuentro picos positivos. Filtro los valores donde blink==1, y luego analizo que haya habido un salto realmente (para no contar dos veces puntos consecutivos).
+# Con un map y una funcion lambda obtengo una lista con booleanos para los valores donde hay picos realmente.
+# Luego los filtro con una función filter y otra lambda
+peak=np.where(blinks == 1)[0]
+
+peakdiff=np.diff(np.append(0,peak))
+
+boolpeak=list(map(lambda x : x > 100, peakdiff))
+
+peakslocation=list(filter(lambda x: x, boolpeak*peak))
+
+# Repito para los valles, mismo algoritmo pero busco blinks == -1
+valley=np.where(blinks == -1)[0]
+
+valleydiff=np.diff(np.append(0,valley))
+
+boolvalley=list(map(lambda x : x > 100, valleydiff))
+
+valleylocation=list(filter(lambda x: x, boolvalley*valley))
+
+# Hago un append de los valles y los picos, y los ordeno. Luego los cuento para imprimir tanto la cantidad de pestañeos, como la localización de los mismos
+
+blinklocations=np.sort(np.append(peakslocation,valleylocation))
+
+blinkcount=np.count_nonzero(blinklocations)
+
+print(f'Count of Blinks: {blinkcount}')
+print('Location of Blinks');print(blinklocations)
