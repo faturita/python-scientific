@@ -5,7 +5,10 @@ Toy Sample for clustering techniques
 
 Based on Phil Roth <mr.phil.roth@gmail.com> Clustering sample
 
-Checks kmeans and dbscan clustering
+This programs check differences between kmeans clustering and dbscan.
+
+KMeans: requires the number of clusters.  So, you can try different options and check some measurement of "good clustering"
+DBScan: does not requires the number of cluster, but instead it needs the eps, the radius, and the minimun number of elements.
 
 """
 

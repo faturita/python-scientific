@@ -1,5 +1,3 @@
-
-
 """
 En este programa generaremos una clusterización de las diferentes imágenes del programa MNIST a partir del algoritmo
 KMEANS. Luego vamos a asignar cada cluster_label a cada dígito real. Por último generaremos algunos modelos de ML
