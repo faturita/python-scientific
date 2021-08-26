@@ -55,13 +55,13 @@ If you don't know anything at all about python, and you want to know something t
  * Create the environment with:
  
  ```bash 
- conda env update --name mne3 --file environmentw.yml
+ conda env update --name mne3 --file config/environmentw.yml
  ```
 
  (or this one if any error occurs
  
  ```
- conda env update --prefix ./env --file environmentw.yml 
+ conda env update --prefix ./env --file config/environmentw.yml 
  ```
 
  )
@@ -71,7 +71,7 @@ If you don't know anything at all about python, and you want to know something t
  conda activate mne3
  ```
 
-NOTE: if you receive an error about 'umap package missing' or similar, just edit your local file [environmentw.yaml](environmentw.yaml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
+NOTE: if you receive an error about 'umap package missing' or similar, just edit your local file [environmentw.yaml](config/environmentw.yml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
 
  ```bash
 conda config --add channels conda-forge
@@ -116,6 +116,10 @@ conda config --set channel_priority strict
 * [umapclustering.py](ejemploclusteringumap.py): UMAP dimensionality reduction sample on MNIST.
 * [signalfeatureclassification.py](signalfeatureclassification.py): Runs on environmentann3w.yml environment. Process an EEG signal and detects alpha suppression with eyes closed.  Classify them using Keras.
 * [qlearning.py](qlearning.py): Works with environmentaiw.yml. Basic OpenAI Gym sample for QLearning.
+* [taxilearning.py](taxilearning.py): This is a basic Gym scenario to verify RL optimization.
+* [choppersample.py](choppersample.py): A basic game that can be used to test different AI strategies to solve.
+* [easygame.py](easygame.py): Pygame engine that can be used as a template.
+
 
 </details>
 

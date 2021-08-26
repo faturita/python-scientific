@@ -5,7 +5,8 @@ LSTM forecasting
 
 LSTM sample
 
-
+* https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/
+* https://arxiv.org/abs/1507.06947
 
 """
 print(__doc__)
@@ -50,6 +51,7 @@ print(len(train), len(test))
 # %%
 
 # convert an array of values into a dataset matrix
+# If loop_back is 1, we are using t to predict the value t+1
 def create_dataset(dataset, look_back=1):
 	dataX, dataY = [], []
 	for i in range(len(dataset)-look_back-1):
