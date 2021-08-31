@@ -18,7 +18,7 @@ def f(x=0):
 
 variable = f()
 
-# In[1]
+# In[1]: Tuples and lists.
 
 print('Tuples are immutable objects')
 nested_tup = (4,5,6,(7,8))
@@ -37,7 +37,7 @@ seq = [(1,2,3),(4,5,6),(7,8,9)]
 for a,b,c in seq:
     print('a={0}, b={1}, c={2}'.format(a,b,c))
 
-print('Python3 allows to use typles as varargs parameters')
+print('Python3 allows to use tuples as varargs parameters')
 values = 1,2,3,4,5
 a,b, *rest = values 
 print (a,b)
@@ -46,9 +46,10 @@ print ( rest )
 # In[1]:
 print ('Format shape')
 a=3
-print ('AT'+'{:3d}'.format(a))
+print ('AT'+'{:3d}'.format(a))   
 print ('AT %3d' % a)
 print ('Tuple %3d %3d' % (2,3))
+print (f'Value: {a}.')
 
 # In[1]:
 print('Basic arithmetic operations')
@@ -67,6 +68,13 @@ y = 2.5
 print(type(y)) # Prints "<class 'float'>"
 print(y, y + 1, y * 2, y ** 2) # Prints "2.5 3.5 5.0 6.25"
 
+# In[1]: id() gives you the memory location of a certain variable.
+
+a = [3,4,23]
+b = a[1]
+
+print( id(a) )
+print( id(b) )
 
 # In[1]:
 print('Logical operators')
@@ -146,13 +154,23 @@ for i,v in enumerate(slist):
 print(mapping)
 
 
-# In[1]:
+# In[1]: Zip joints two lists creating tuples between elements.
 seq1 = ['foo','bar','baz']
 seq2 = ['one','two','three']
 
 zipped = zip(seq1,seq2)
 ll = list(zipped)
-print(ll)
+print(ll)                   # [(foo,one),(bar,two)...]
+
+
+# In[1]
+
+values = [1,2,3]
+keys = [0.1,0.2,0.3]
+
+res = dict(zip(keys, values))
+
+print('Dictionary for mappings:' + str(res))
 
 
 # In[1]:
@@ -258,7 +276,7 @@ print('Lambdas are anonymous functions...')
 strings = ['foo','card','bar','aaaa','abab']
 strings.sort(key=lambda x:len(set(list(x))))
 
-print(strings)
+print(strings)              # This will sort words based on the number of different letters on each word
 
 # In[1]:
 print('Haskell Currying')
@@ -268,6 +286,8 @@ def add_numbers(x,y):
     return x+y
 
 add_five = lambda y: add_numbers(5,y)
+
+print(add_five(3))
 
 # In[1]:
 print('Generators: functions that lazily return values.')
@@ -413,7 +433,7 @@ def quicksort(arr):
     right = [x for x in arr if x > pivot]
     return quicksort(left) + middle + quicksort(right)
 
-print ('Quicksort es un algoritmo bastante eficiente para ordenar elementos.')
+print ('Please never ever use this implementation of quicksort.')
 print ([3,6,8,10,1,2,1])
 print(quicksort([3,6,8,10,1,2,1]))
 

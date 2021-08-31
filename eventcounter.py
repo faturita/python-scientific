@@ -109,6 +109,7 @@ for i in range(len(eeg)):
         filtro_eeg.append(-1)
     else:
         filtro_eeg.append(0)
+        
 print("Blinking counter: {}".format(contador))
 filtro_eeg=np.asarray(filtro_eeg)
 plt.figure(figsize=(16,5))

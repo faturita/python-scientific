@@ -28,7 +28,7 @@ This Q table can be replaced by a neural network (as function approximator).
 
 import gym
 
-env = gym.make('Taxi-v2').env
+env = gym.make('Taxi-v3').env
 
 env.render()
 
