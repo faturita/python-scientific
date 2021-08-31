@@ -52,9 +52,6 @@ signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','
 print('Estructura de la informacion:')
 print(signals.head())
 
-print('Filtrar segun informacion especifica:')
-print(signals[signals.counter > 45])
-
 data = signals.values
 
 print('Ahora tienen un tensor de numpy (data)')
@@ -66,10 +63,6 @@ print('Python slicing...[:,].  El \':\' sirve para indicar el rango desde hasta.
 eeg = data[:,2]
 
 print(eeg)
-
-# Ojo con el filtro OR.
-filteredeeg = eeg[eeg>50]
-eegfiltered = np.logical_or(eeg>10,eeg<-40) 
 
 plt.plot(eeg,'r', label='EEG')
 plt.xlabel('t');

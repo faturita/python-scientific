@@ -132,6 +132,18 @@ x = [4, None, 'foo']
 x.extend([7,8,(2,3)])
 print(x)
 # In[1]:
+print('Slicing in lists.')
+import pandas as pd
+signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
+data = signals.values
+eeg = data[:,2]
+
+# Ojo con el filtro OR.
+filteredeeg = eeg[eeg>50]
+eegfiltered = np.logical_or(eeg>10,eeg<-40) 
+
+
+# In[1]:
 print('Slicing.')
 nums = list(range(5))     # range is a built-in function that creates an object that represent a list of integer.  List convert that to a python list.
 print(nums)               # Prints "[0, 1, 2, 3, 4]"

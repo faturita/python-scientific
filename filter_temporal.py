@@ -55,7 +55,7 @@ plt.ylabel('eeg(t)');
 plt.title(r'Original EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(eeg)])
-plt.savefig('signal.png')
+plt.savefig('images/signal.png')
 plt.show()
 
 
@@ -72,7 +72,7 @@ plt.ylabel('eeg(t)');
 plt.title(r'Smoothed EEG Signal')     
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(avgeeg)])
-plt.savefig('smoothed.png')
+plt.savefig('images/smoothed.png')
 plt.show()
 
 
@@ -94,12 +94,19 @@ def simple_feature_scaling(arr):
   
 # Let's define an array arr
   
-arr = list(range(1,11))
-arr_scaled = simple_feature_scaling(arr)
+eeg_scaled = simple_feature_scaling(eeg)
 
-print(f'Before Scaling...\n min arr is {min(arr)}\n max arr is {max(arr)}\n')
-print(f'After Scaling...\n min arr_scaled is {min(arr_scaled)}\n max arr_scaled is {max(arr_scaled)}')
+print(f'Before Scaling...\n min  is {min(eeg)}\n max  is {max(eeg)}\n')
+print(f'After Scaling...\n min is {min(eeg_scaled)}\n max is {max(eeg_scaled)}')
 
+plt.plot(eeg_scaled,'r', label='EEG')
+plt.xlabel('t');
+plt.ylabel('eeg(t)');
+plt.title(r'Scaled EEG Signal')     
+plt.ylim([-2000, 2000]);
+plt.xlim([0,len(avgeeg)])
+plt.savefig('images/scaledeeg.png')
+plt.show()
 
 # Min-Max Scaling, Xnew = (Xold - Xmin) / (Xmax - Xmin)
 
@@ -120,11 +127,19 @@ def min_max_scaling(arr):
   
   # Let's define an arr and call the min-max scaler
   
-arr = list(range(1,11))
-arr_scaled = min_max_scaling(arr)
+eeg_minmax = min_max_scaling(eeg)
 
-print(f'Before Scaling...\n min arr is {min(arr)}\n max arr is {max(arr)}\n')
-print(f'After Scaling...\n min arr_scaled is {min(arr_scaled)}\n max arr_scaled is {max(arr_scaled)}')
+print(f'Before Scaling...\n min  is {min(eeg)}\n max  is {max(eeg)}\n')
+print(f'After Scaling...\n min is {min(eeg_minmax)}\n max is {max(eeg_minmax)}')
+
+plt.plot(eeg_minmax,'r', label='EEG')
+plt.xlabel('t');
+plt.ylabel('eeg(t)');
+plt.title(r'Min Max EEG Signal')     
+plt.ylim([-2000, 2000]);
+plt.xlim([0,len(avgeeg)])
+plt.savefig('images/minmaxeeg.png')
+plt.show()
 
 # Normalization, "Statistical Normalization" means pushing the data to match to a Normal Distribution.
 # (Normalization is also considered in terms of vector normalization, divide by the norm.)
@@ -143,18 +158,35 @@ def z_score_norm(arr):
 
     return new_arr
 
-arr = list(range(1,11))
-arr_scaled = z_score_norm(arr)
+eeg_zscore = z_score_norm(eeg)
 
-print(f'Before ZScore...\n min arr is {min(arr)}\n max arr is {max(arr)}\n')
-print(f'After ZScore...\n min arr_scaled is {min(arr_scaled)}\n max arr_scaled is {max(arr_scaled)}')
+print(f'Before ZScore...\n min  is {min(eeg)}\n max is {max(eeg)}\n')
+print(f'After ZScore...\n min is {min(eeg_zscore)}\n max  is {max(eeg_zscore)}')
+
+plt.plot(eeg_zscore,'r', label='EEG')
+plt.xlabel('t');
+plt.ylabel('eeg(t)');
+plt.title(r'z-score EEG Signal')     
+plt.ylim([-2000, 2000]);
+plt.xlim([0,len(avgeeg)])
+plt.savefig('images/zscoredeeg.png')
+plt.show()
 
 
-# Box-Cox Normalization
+# Box-Cox Normalization:  Transform the data to look more normal N()
 from scipy import stats
 
-arr = list(range(1,11))
-arr_scaled = stats.boxcox(arr)
+eeg2 = eeg + abs(min(eeg)) + 1
+eeg_boxcox, _ = stats.boxcox(eeg2)
 
-print(f'Before BoxCox...\n min arr is {min(arr)}\n max arr is {max(arr)}\n')
-print(f'After BoxCox...\n min arr_scaled is {min(arr_scaled)}\n max arr_scaled is {max(arr_scaled)}')
+print(f'Before BoxCox...\n min  is {min(eeg)}\n max  is {max(eeg)}\n')
+print(f'After BoxCox...\n min is {min(eeg_boxcox)}\n max  is {max(eeg_boxcox)}')
+
+plt.plot(eeg_boxcox,'r', label='EEG')
+plt.xlabel('t');
+plt.ylabel('eeg(t)');
+plt.title(r'BoxCox Scaling EEG Signal')     
+plt.ylim([-2000, 2000]);
+plt.xlim([0,len(avgeeg)])
+plt.savefig('images/boxcoxeeg.png')
+plt.show()
