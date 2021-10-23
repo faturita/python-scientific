@@ -158,6 +158,8 @@ tables = pd.read_html('http://monostuff.logdown.com/')
 
 journals = tables[0]
 
+print(journals)
+
 # %%  -----------------------------------------------------------------------------
 print('Python uses pickles to serialize structures, and this can be read from pandas.')
 
@@ -300,6 +302,7 @@ series1 = pd.Series(a, index = ["x", "y", "z"])
 b = [-1, -8, 3]
 series2 = pd.Series(a, index = ["y", "z", "r"])
 
+# WARNING !
 series3 = series1 + series2 
 
 
@@ -383,9 +386,9 @@ frame.apply(f, axis='columns')
 # %%  -----------------------------------------------------------------------------
 format = lambda x: '%.2f' % x 
 
-frame.applymap(format)
+print(frame.applymap(format))
 
-frame['e'].map(format)
+print(frame['e'].map(format))
 
 # %%  -----------------------------------------------------------------------------
 print('Index uniqueness')

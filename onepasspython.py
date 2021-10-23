@@ -71,7 +71,7 @@ print(y, y + 1, y * 2, y ** 2) # Prints "2.5 3.5 5.0 6.25"
 # In[1]: id() gives you the memory location of a certain variable.
 
 a = [3,4,23]
-b = a[1]
+b = a[0]
 
 print( id(a) )
 print( id(b) )
@@ -131,16 +131,6 @@ print('Python list can be heterogenous.')
 x = [4, None, 'foo']
 x.extend([7,8,(2,3)])
 print(x)
-# In[1]:
-print('Slicing in lists.')
-import pandas as pd
-signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
-data = signals.values
-eeg = data[:,2]
-
-# Ojo con el filtro OR.
-filteredeeg = eeg[eeg>50]
-eegfiltered = np.logical_or(eeg>10,eeg<-40) 
 
 
 # In[1]:
@@ -323,7 +313,8 @@ print('Built in iterators')
 import itertools
 first_letter = lambda x: x[0]
 
-names = ['Alan','Adam', 'Wes', 'Will', 'Albert', 'Steven']
+names = ['Alan','Adam', 'Wes', 'Will', 'Albert', 'Wilmourne', 'Steven']
+names.sort()            # You need to sort it (SQL Does this as well)
 
 for letter, names in itertools.groupby(names, first_letter):
     print(letter, list(names))      # Names is a generator
@@ -449,3 +440,15 @@ print ('Please never ever use this implementation of quicksort.')
 print ([3,6,8,10,1,2,1])
 print(quicksort([3,6,8,10,1,2,1]))
 
+# In[]
+# In[1]:
+print('Slicing in lists.')
+import pandas as pd
+import numpy as np
+signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
+data = signals.values
+eeg = data[:,2]
+
+# Ojo con el filtro OR.
+filteredeeg = eeg[eeg>50]
+eegfiltered = np.logical_or(eeg>10,eeg<-40) 

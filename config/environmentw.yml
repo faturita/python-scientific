@@ -2,14 +2,18 @@ name: mne3
 channels:
   - defaults
 dependencies:
+  - autopep8
   - scikit-learn
   - pytest-mock
   - traits
   - gevent
+  - tensorboard
   - pip
   - xlrd
+  - pyod
   - numexpr
   - cython
+  - lxml
   - seaborn
   - mkl
   - pyqt
@@ -21,10 +25,12 @@ dependencies:
   - flake8
   - statsmodels
   - python[version='<3.7']
+  - peakutils
   - matplotlib
   - joblib
   - umap-learn
   - scipy
+  - peak-detect
   - vega_datasets
   - pyface
   - traitsui
@@ -35,6 +41,7 @@ dependencies:
   - spyder
   - psutil
   - opencv
+  - plotly
   - h5py
   - pillow
 prefix: /anaconda2/envs/mne3

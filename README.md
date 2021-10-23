@@ -71,7 +71,7 @@ If you don't know anything at all about python, and you want to know something t
  conda activate mne3
  ```
 
-NOTE: if you receive an error about 'umap package missing' or similar, just edit your local file [environmentw.yaml](config/environmentw.yml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
+NOTE: if you receive an error about 'umap package missing' or similar, just ''edit'' your local file [environmentw.yaml](config/environmentw.yml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
 
  ```bash
 conda config --add channels conda-forge
@@ -99,6 +99,7 @@ conda config --set channel_priority strict
 * [onepasspython.py](onepasspython.py): Basic python 3.x structures, sentences and control keywords.
 * [diveintopython3.py](diveintopython3.py): Some python stuff particular to python 3.
 * [tensors.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
+* [darawrangling.py](datawrangling.py): Basic cookbook for data wrangling in Pandas.
 * [downloadandcheck.py](downloadandcheck.py): Basic sample to get an online dataset and plot it.
 * [scientificnotation.py](scientificnotation.py): Some numerical stuff for python.
 * [filter_temporal.py](filtrostemporales.py): Convolution and numpy slicing.

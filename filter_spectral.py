@@ -132,3 +132,39 @@ if (shamsignal):
         tt=np.concatenate((tt,t), axis=0)
         
     plt.plot(tt, 200 * np.sin(2*np.pi*50*tt),'b')
+    plt.show()
+
+
+# Longitud de la señal (10 segundos de señal)
+N = 1280
+sr = 128.0
+
+# Linspace me arma una secuencia de N números igualmente espaciados entre 0.0 y el largo a la frecuencia de sampleo
+x = np.linspace(0.0, N, N*sr)
+# A esa secuencia le agrego una señal pura de 10 Hz y una de 20 Hz de mucha mayor amplitud, emulando un ruído no deseado sobre la señal.
+y = 1*np.sin(10.0 * 2.0*np.pi*x) + 9*np.sin(20.0 * 2.0*np.pi*x)
+
+plt.plot(x, y)
+plt.grid()
+plt.title(r'Original Signal')
+plt.axis((0,N,-20,20))
+plt.show()
+
+
+X = fft(y)
+N = len(X)
+n = np.arange(N)
+# get the sampling rate
+T = N/sr
+freq = n/T 
+
+# Get the one-sided specturm
+n_oneside = N//2
+# get the one side frequency
+f_oneside = freq[:n_oneside]
+
+plt.figure(figsize = (12, 6))
+plt.plot(f_oneside, np.abs(X[:n_oneside]), 'b')
+plt.xlabel('Freq (Hz)')
+plt.ylabel('FFT Amplitude |X(freq)|')
+plt.show()

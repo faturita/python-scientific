@@ -407,6 +407,8 @@ print(np.dot(x, v))
 #  [43 50]]
 print(x.dot(y))
 print(np.dot(x, y))
+print('Cross product')
+print(np.cross(x,y))
 
 
 # %%
@@ -458,7 +460,7 @@ print(y)  # Prints "[[ 2  2  4
           #          [11 11 13]]"
 
 
-# %%
+# %% WARNING !!!!
 print('Numpy allows implicit Broadcasting (wraps vector to correct sizes to apply operations)')
 import numpy as np
 
