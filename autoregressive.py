@@ -8,8 +8,10 @@ Basic Autoregressive Modelling
 https://machinelearningmastery.com/autoregression-models-time-series-forecasting-python/
 
 """
+# In[] 
 print(__doc__)
 
+print("Check the lag plot.")
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,6 +23,8 @@ lag_plot(signals)
 pyplot.show()
 
 
+# In[] 
+print('Now check the autocorrelation.  How much informtion can be derived from the signal to predict each value.')
 from pandas import DataFrame
 from pandas import concat
 from matplotlib import pyplot
@@ -36,6 +40,9 @@ from sklearn.metrics import mean_squared_error
 
 autocorrelation_plot(signals)
 pyplot.show()
+
+# In[] 
+print('Check the default model.')
 
 # create lagged dataset
 values = DataFrame(signals.values)

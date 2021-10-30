@@ -1,15 +1,15 @@
 """
 ==================
-Tensors
+Numpies 🎂  Arrays 
 ==================
 
-Working with tensors on python.  
+Working with tensor arrays on python.  
 
 Python has a built-in structure called list, which is very flexible to perform array operations.
 Numpy has extended this structure to work with algebraic tensors by creating 
 one of the most powerful packages to perform mathematical processing and numerical operations.
 
-Tensors are the basic processing units in terms of ML/DL.
+Numpy arrays are the basic processing units in terms of ML/DL.
 
 @NOTE: These tensors are different form the Tensorflow Tensors which are inherently the same structures
  but TensorFlow tensors are adapted to perform parallel and device agnostic processing, which numpy tensors
@@ -401,6 +401,11 @@ print(np.dot(v, w))
 # Matrix / vector product; both produce the rank 1 array [29 67]
 print(x.dot(v))
 print(np.dot(x, v))
+print(x @ v)
+
+# Vector norm
+from numpy.linalg import norm
+print( norm(v) )
 
 # Matrix / matrix product; both produce the rank 2 array
 # [[19 22]
@@ -438,7 +443,23 @@ v = np.array([1,2,3])
 print(v)    # Prints "[1 2 3]"
 print(v.T)  # Prints "[1 2 3]"
 
+# %%
+print ("Matrix decompositions")
+import numpy as np
+A = np.array([[1,-2],[3,4]])
+B = np.array([[5,6],[-7,8]])
 
+from scipy.linalg import lu 
+P, L, U = lu(A)
+
+from numpy.linalg import qr
+Q, R = qr(A, 'complete')
+
+from numpy.linalg import eig
+values, vectors = eig(A)
+
+from scipy.linalg import svd
+U, s, V = svd(A)
 
 # %%
 print ("Tiling vector into matrices.")

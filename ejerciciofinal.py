@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 
 print('ECD')
 print('Este ejercicio tiene dos maneras de resolverse.')
-print('Lo tiene que tener listo para el fin de la Cuarentena')
 
 print('Opción B: elijan una (al menos) pregunta e intentan implementar una solución, codificando en R, Java o python.')
 

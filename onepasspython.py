@@ -200,6 +200,12 @@ nums = [0, 1, 2, 3, 4]
 squares = [x ** 2 for x in nums]
 print(squares)   # Prints [0, 1, 4, 9, 16]
 
+# In[1] Map and filter at the same time
+arr = [1,2,3,4,5]
+a = list(map(lambda x:x*2, filter(lambda x:x%2 ==0, arr)))
+print(a)
+
+# In[2]
 strings = ['a','as','bat','car','dove','python']
 print ( [x.upper() for x in strings if len(x)>2])
 
