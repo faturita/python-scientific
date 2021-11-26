@@ -202,7 +202,6 @@ def process(headset):
     afullsignal = None
     features = []
 
-
     while headset.running:
         packet = headset.dequeue()
         interations=iterations+1
@@ -385,6 +384,9 @@ def featureextractor():
     # En este punto se tienen una secuencia de features bidimensionales.  El PSD de O1 y O2 durante una ventana de tiempo.
     afeatures1 = np.asarray(features1)
     afeatures2 = np.asarray(features2)
+
+    print (afeatures1.shape)
+    print( afeatures2.shape)
 
     print (afeatures1.mean(0))
     print (afeatures2.mean(0))

@@ -21,7 +21,7 @@ print('2 - Sobre los datos de MNIST, intenten luego de clusterizar armar un clas
 print('3 - Busquen un dataset de internet público de señales de sensores.  ¿Cómo lo abordarían exploratoriamente, qué procesamiento y qué análisis harían?')
 print('4 - Prueben alternativas para mejorar la clasificación de las ondas alfa.')
 print('5 - ¿Que feature utilizarian para mejorar la clasificacion que ofrece Keras con MLP para las series de tiempo?')
-print('6 - Suban un snippet que aborde alguna problemática de solución, implementé algún otro método de clasificación o de análisis, sobre los datos registrados en este repositorio.')
+print('6 - PR: Pull request al repo. Suban un snippet que aborde alguna problemática de solución, implementé algún otro método de clasificación o de análisis, sobre los datos registrados en este repositorio.')
 
 
 '''
