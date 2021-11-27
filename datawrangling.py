@@ -10,14 +10,12 @@ Input data   -->   Data Cooking ---> Visualization
                     Intermediate Files
 
 
-MLOps
+ModelOps[https://en.wikipedia.org/wiki/ModelOps]
 ------>
 DevOps
 ------>
 DevSecOps
 ------>
-
-MonkeyDevelopers
 
 Software development, in any form, is a human endeavor: it requires to articulate people working together in teams.
 TDSP: Team Data Science Process
