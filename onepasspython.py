@@ -288,7 +288,6 @@ print(strings)              # This will sort words based on the number of differ
 
 # In[1]:
 print('Haskell Currying')
-from functools import partial
 
 def add_numbers(x,y):
     return x+y
@@ -367,7 +366,6 @@ def clean_strings(strings, ops):
 states = ['Jujuy','Salta','Chaco##','CorriEntes?','Buenos#Aires']
 
 clean_strings(states, clean_ops)    # Functions are used as variables (first class citizens)
-
 
 # In[1]:
 print('Objects')

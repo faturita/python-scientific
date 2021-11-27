@@ -10,6 +10,15 @@ Input data   -->   Data Cooking ---> Visualization
                     Intermediate Files
 
 
+MLOps
+------>
+DevOps
+------>
+DevSecOps
+------>
+
+MonkeyDevelopers
+
 Software development, in any form, is a human endeavor: it requires to articulate people working together in teams.
 TDSP: Team Data Science Process
 
@@ -113,7 +122,6 @@ signals.head()
 
 print('read_sas, read_sql, read_pickle, read_json, read_excel, ...')
 
-
 dat = pd.read_csv('data/laliga.csv',delimiter=';')
 
 # %%  -----------------------------------------------------------------------------
@@ -169,6 +177,7 @@ cal_frame = pd.Series(calories)
 
 cal_frame.to_pickle('data/frame.pickle')
 
+# Guardar datos intermedios.
 
 new_frame = pd.read_pickle('data/frame.pickle')
 
@@ -194,7 +203,6 @@ print('You can get an indicative matrix which returns true on the cell where the
 # Isnull and notnull return a Panda Frame, not a boolean indicative matrix.
 results.isnull()
 results.notnull()
-
 
 
 print('It is also possible to specify different sentinel values for missing data.')

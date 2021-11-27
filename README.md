@@ -98,7 +98,7 @@ conda config --set channel_priority strict
 * [holamundonotebook.ipynb](holamundonotebook.ipynb): The same, as jupyter notebook.
 * [onepasspython.py](onepasspython.py): Basic python 3.x structures, sentences and control keywords.
 * [diveintopython3.py](diveintopython3.py): Some python stuff particular to python 3.
-* [tensors.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
+* [numpies.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
 * [darawrangling.py](datawrangling.py): Basic cookbook for data wrangling in Pandas.
 * [downloadandcheck.py](downloadandcheck.py): Basic sample to get an online dataset and plot it.
 * [scientificnotation.py](scientificnotation.py): Some numerical stuff for python.

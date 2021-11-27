@@ -516,3 +516,5 @@ print ("Euclidean Distance Matrix ==================================")
 #  [ 2.23606798  1.          0.        ]]
 d = squareform(pdist(x, 'euclidean'))
 print(d)
+
+# %%

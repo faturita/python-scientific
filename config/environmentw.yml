@@ -10,7 +10,7 @@ dependencies:
   - tensorboard
   - pip
   - xlrd
-  - pyod
+  - conda-forge::pyod
   - numexpr
   - cython
   - lxml
@@ -25,12 +25,12 @@ dependencies:
   - flake8
   - statsmodels
   - python[version='<3.7']
-  - peakutils
+  - conda-forge::peakutils
   - matplotlib
   - joblib
-  - umap-learn
+  - conda-forge::umap-learn
   - scipy
-  - peak-detect
+  - rigge::peak-detect
   - vega_datasets
   - pyface
   - traitsui
