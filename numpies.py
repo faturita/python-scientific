@@ -180,6 +180,17 @@ print(b.shape)                     # Prints "(2, 3)"
 print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
 
 
+
+# %%
+# Numpy basic creation and moving around.
+import numpy as np
+
+a = np.array([1, 2, 3])     # Create a rank 1 array
+l = np.delete( 1 )          # Eliminate the element at the position 1
+s = a[a==1]                 # Filter the elements from the list that are equal to 1
+m = np.where( a==1 )        # Determine the position in a where the matching is true.
+
+
 # %%
 # Numpy Matrix Primitives
 import numpy as np
