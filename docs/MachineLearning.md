@@ -43,6 +43,7 @@
 <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p>Mathematics for Machine Learning, Deisenroth</p></td></tr>
 <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p>Algorithms for Convex Optimization, Vishnoi</p></td></tr>
 <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p>Course notes on Optimization for Machine Learning, Gabriel Peyré</p></td></tr>
+  <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p>Linear Algebra for Computer Vision, Robotics, and Machine Learning, Gallier</p></td></tr>
 </table>
 
 # Statistics
