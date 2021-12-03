@@ -1,7 +1,7 @@
 # Books
 
  # The best python books to undesrtand the language
- * A Primer on Scientifical Programming with python, Langtangen
+ * ![Primer](primer.png)A Primer on Scientifical Programming with python, Langtangen
  * Python for Data Science, for dummies, 
  * Data Structures and Algorithms with python
  * Fluent Python 3
