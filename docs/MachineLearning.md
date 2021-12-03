@@ -1,4 +1,4 @@
-# Books
+# Machine Learning
 <table>
 <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p>Machine Learning a Probabilistic Perspective, Murphy</p></td></tr>
 <tr><td><img src="primer.png" alt="Primer" style="height: 104px; width:78px;"/></td><td><p><b>The Nature of Statistical Learning, Vapnik:</b>This book is contains an excellent description of what "learning" really is in the context of machine learning. It also describes SVM in detail.</p></td></tr>
