@@ -1,7 +1,7 @@
 # Books
 
  # The best python books to undesrtand the language
- * <div valign='center'><img src="primer.png" alt="Primer" style="height: 100px; width:100px;"/><p>A Primer on Scientifical Programming with python, Langtangen</p></div>
+ * <table><td><img src="primer.png" alt="Primer" style="height: 312px; width:234px;"/></td><td><p>A Primer on Scientifical Programming with python, Langtangen</p></td></table>
  * Python for Data Science, for dummies 
  * Data Structures and Algorithms with python
  * Fluent Python 3
