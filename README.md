@@ -151,6 +151,13 @@ https://online-learning.harvard.edu/course/using-python-research
 
 * learngitbranching.js.org
 * atlassian.com/git
+
+# Documentation
+
+* Roadmap for going deeper into [ML](docs/MachineLearning.md)
+* [Learning Python](docs/Python.md)
+* [Signal Processing](docs/Signals.md)
+* [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
   
 # References and sources
 
@@ -180,5 +187,5 @@ https://online-learning.harvard.edu/course/using-python-research
 * [Python Data Structures](https://github.com/bhavinjawade/)Advanced-Data-Structures-with-Python
 * [Cross Entropy](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a)
 * [Visual Information Theory](http://colah.github.io/posts/2015-09-Visual-Information/)
-* More info an references [here](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
+
 
