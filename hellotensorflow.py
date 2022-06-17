@@ -12,6 +12,7 @@ Tensorflow is fast, and allows automatic differentiation.
 Sources: 
 * Deep Learning with Tensorflow 2 and Keras, Antonio Gulli et al, 2019
 * Intro to Tensorflow and Deep Learning, Dr. Michael Fairbank
+* Chapter 3, Chollet Deep Learning book.
 
 '''
 # %%
@@ -66,15 +67,31 @@ d=tf.argmax(a)
 print(c)
 print(d)
 
+
+# %%
+# Random Tensors
+x = tf.random.normal( shape=(3,1), mean=0.,stddev=1.)
+print(x)
+
+x = tf.random.uniform( shape=(3,1), minval=0., maxval=1.)
+
+# %%
+# Assign values to Exisiting tf variables or subsets
+
+v = tf.Variable(initial_value=tf.random.normal(shape=(3, 1)))
+v.assign(tf.ones((3, 1)))
+
+v[0, 0].assign(3.)
+
 # %%
 # Automatic differentiation, wonder of tensorflow
 x=tf.Variable(5.0, tf.float32)
 with tf.GradientTape() as g:
     #g.watch(x)
-    y=tf.multiply(x,x)
-    dydx=g.gradient(y,[x])             
-print(c)
-#print(dydx.numpy())
+    y=tf.multiply(x,x)              # x^2 is the function
+    dydx=g.gradient(y,[x])          # So the derivative is 2*x
+
+print(dydx)                         # You will see a 10 here.
 
 # %%
 # Automatic differentiation, wonder of tensorflow

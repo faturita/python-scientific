@@ -17,11 +17,10 @@ print('Opción B: elijan una (al menos) pregunta e intentan implementar una solu
 
 print('0 - Construyan una alternativa para detectar pestañeos (blinking.dat) y trabajen sobre el dataset de pestañeos para simular y testear el abordaje propuesto.')
 print('1 - De las señales del EPOC Emotiv que obtuvimos de SUJETO, intenten estudiar las señales detectando: los pestañeos sobre F8 y F7, el momento donde el sujeto cierra los ojos, donde abre y cierra la boca, donde mueve la cabeza haciendo Roll, y donde mueve la cabeza haciendo YAW.')
-print('2 - Sobre los datos de MNIST, intenten luego de clusterizar armar un clasificador.')
-print('3 - Busquen un dataset de internet público de señales de sensores.  ¿Cómo lo abordarían exploratoriamente, qué procesamiento y qué análisis harían?')
-print('4 - Prueben alternativas para mejorar la clasificación de las ondas alfa.')
-print('5 - ¿Que feature utilizarian para mejorar la clasificacion que ofrece Keras con MLP para las series de tiempo?')
-print('6 - PR: Pull request al repo. Suban un snippet que aborde alguna problemática de solución, implementé algún otro método de clasificación o de análisis, sobre los datos registrados en este repositorio.')
+print('2 - Busquen un dataset de internet público de señales de sensores.  ¿Cómo lo abordarían exploratoriamente, qué procesamiento y qué análisis harían?')
+print('3 - Prueben alternativas para mejorar la clasificación de las ondas alfa.')
+print('4 - ¿Que feature utilizarian para mejorar la clasificacion que ofrece Keras con MLP para las series de tiempo?')
+print('5 - PR: Pull request al repo. Suban un snippet que aborde alguna problemática de solución, implementé algún otro método de clasificación o de análisis, sobre los datos registrados en este repositorio.')
 
 
 '''
@@ -31,13 +30,13 @@ Sujeto #1 se colocó el dispositivo de captura de señales de EEG EPOC Emotiv.  
 El dispositvo además tiene información de dos IMUs, en Gyro_x y Gyro_y.
 La persona estuvo sentada durante 5 minutos aproximadamente.  Durante diferentes períodos de tiempo realizó las siguientes acciones
 
-* Movimiento de la cabeza hacia los laterales (Yaw)
-* Movimiento de la cabeza hacia adelante y atrás (pitch)
-* Movimiento de la cabeza hacia los lados (llevando las orejas a los hombros) (roll)
-* Pestañeo voluntario intermitente
-* Apertura y cierre de la boca.
-* Cerró los ojos.
-* Permaneció inmovil mirando un punto fijo (y pestañando naturalmente).
+* Movimiento de la cabeza hacia los laterales (Yaw).  Esto se ve en una combinación de GYRO_X y GYRO_Y.
+* Movimiento de la cabeza hacia adelante y atrás (pitch). Esto se ve en una combinación de GYRO_X y GYRO_Y.
+* Movimiento de la cabeza hacia los lados (llevando las orejas a los hombros) (roll). Esto se ve en una combinación de GYRO_X y GYRO_Y.
+* Pestañeo voluntario intermitente.  F7 y F8
+* Apertura y cierre de la boca.   F7 y F8 pero con componentes en los otros canales, incluyendo los canales de los giróscopos.
+* Cerró los ojos.  Cambios en la frecuencia de 10 Hz en los canales occipitales O1 y O2.
+* Permaneció inmovil mirando un punto fijo (y pestañando naturalmente).  Este es el Baseline, y se reflejará en todos los canales de una forma que es diferente al resto.
 
 El formato de los datos es
 
@@ -64,7 +63,7 @@ El formato de los datos es
         "RESERVED",
         "RESERVED"
 
-Los datos buenos que tomamos deberían ser F7 y F8, GYRO_X y GYRO_Y.
+Los datos buenos que tomamos deberían ser O1, O2, F7 y F8, GYRO_X y GYRO_Y.
 
 '''
 

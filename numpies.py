@@ -215,6 +215,17 @@ print(e)                     # Might print "[[ 0.91940167  0.08143941]
                              #               [ 0.68744134  0.87236687]]"
 
 
+
+# %%
+# Timeit can be used to mesure processing time
+def fn(x):
+    return x + x*x + x*x*x
+
+x = np.random.rand(10000,10000).astype(dtype='float32')
+
+%timeit -n5 fn(x)
+
+
 # %%
 # Pulling subarrays from matrixces
 import numpy as np

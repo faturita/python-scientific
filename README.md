@@ -161,6 +161,7 @@ https://online-learning.harvard.edu/course/using-python-research
   
 # References and sources
 
+* Visualizations: https://github.com/rougier/scientific-visualization-book
 * Bias on DataScience: https://github.com/koaning/scikit-lego, https://github.com/fairlearn/fairlearn
 * https://github.com/ml-tooling/best-of-ml-python Best of Machine Learning resources for Python.
 * [MacBook configuration to use GPUs](https://towardsdatascience.com/deep-learning-using-gpu-on-your-macbook-c9becba7c43)

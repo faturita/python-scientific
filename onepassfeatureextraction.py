@@ -52,7 +52,7 @@ cap = cv2.VideoCapture(0)
 
 print ("Connecting..")
 
-for i in range(1,10):
+for i in range(1,20):
     # Capture frame-by-frame
     ret, frame = cap.read()
 
