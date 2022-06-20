@@ -1,11 +1,16 @@
 """
 ==================
-Filtros Espectrales
+Spectral Filters
 ==================
 
-Los filtros espectrales permiten filtrar información en el espacio de frecuencias.
+Spectral filters allow to filter information in the spectral domain, based on their frecuencies.
 
-Pueden ser Pasa-bajo, Pasa-alto o pasa-banda.
+They could be low-pass, band-pass, and high-pass.
+Their objective is to enhance SNR, by filtering out the noise contained in the signal.
+Spectral Noise could be:
+
+- White Noise: the power of the noise is the same in all frequencies. 
+- Pink Noise: the power of the noise is inversily proportional to the frequency (higher frequency, less noise)
 
 """
 print(__doc__)
@@ -160,18 +165,7 @@ from scipy.fft import rfft, rfftfreq
 
 import pandas as pd
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
-
-print('Estructura de la informacion:')
-print(signals.head())
-
 data = signals.values
-
-print('Ahora tienen un tensor de numpy (data)')
-print (data)
-
-print('Forma %2d,%2d:' % (signals.shape))
-
-print('Python slicing...[:,].  El \':\' sirve para indicar el rango desde hasta.  Los indices son posiciones segun la forma del tensor.')
 eeg = data[:,2]
 
 Fs = 128.0
@@ -181,8 +175,10 @@ normalized_signal = eeg
 N = len(normalized_signal)
 
 
-x = np.linspace(0.0, int(N*sr), N)
-# A esa secuencia le agrego una señal pura de 10 Hz y una de 20 Hz de mucha mayor amplitud, emulando un ruído no deseado sobre la señal.
+# Creo una secuencia de N puntos (el largo de EEG), de 0 hasta el largo de la secuencia en segundos (N/Fs).
+x = np.linspace(0.0, int(N/Fs), N)   
+
+# A esa secuencia de EEG le agrego una señal pura de 30 Hz.  Estoy ayuda a visualizar bien que la relación espectral está ok.
 normalized_signal +=  100*np.sin(30.0 * 2.0*np.pi*x)
 
 yf = rfft(normalized_signal)

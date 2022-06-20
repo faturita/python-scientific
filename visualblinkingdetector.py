@@ -1,5 +1,7 @@
 '''
-Based on code by ROGGER ARICHUNA HERRERA CANONICO and JUAN MANUEL DONADIO and ideas provided by FERNANDO MARTÍN RABALLO AIME (https://github.com/Sabonrab/infovis).
+Based on code by    ROGGER ARICHUNA HERRERA CANONICO and 
+                    JUAN MANUEL DONADIO and ideas provided by 
+                    FERNANDO MARTÍN RABALLO AIME (https://github.com/Sabonrab/infovis).
 
 
 @NOTE: Use me with the 'bot' environment.

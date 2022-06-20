@@ -111,12 +111,12 @@ conda config --set channel_priority strict
 * [baseline.py](baseline.py): Signal baseline removal sample.
 * [signalfeatures.py](signalfeatures.py): Basic set of feature extraction procedures for signals (time series).
 * [umbralizador.py](umbralizador.py): Otsu method to umbralize a one dimensional time series.
-* [eventcounter.py](contadoreventos.py): Signal peak counting sample.
+* [eventcounter.py](eventcounter.py): Signal peak counting sample.
 * [clustering.py](clustering.py): Clustering sample containing kmeans and dbscan.
 * [tsneclustering.py](ejemploclusteringtsne.py): tSNE dimensionality reduction sample on MNIST.
 * [umapclustering.py](ejemploclusteringumap.py): UMAP dimensionality reduction sample on MNIST.
 * [signalfeatureclassification.py](signalfeatureclassification.py): Runs on environmentann3w.yml environment. Process an EEG signal and detects alpha suppression with eyes closed.  Classify them using Keras.
-* [qlearning.py](qlearning.py): Works with environmentaiw.yml. Basic OpenAI Gym sample for QLearning.
+* [qlearning.py](qlearning.py): Basic OpenAI Gym sample for QLearning.
 * [taxilearning.py](taxilearning.py): This is a basic Gym scenario to verify RL optimization.
 * [choppersample.py](choppersample.py): A basic game that can be used to test different AI strategies to solve.
 * [easygame.py](easygame.py): Pygame engine that can be used as a template.

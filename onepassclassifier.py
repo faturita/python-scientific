@@ -5,6 +5,7 @@ OnePassClassifier
 
 This toy sample get two files of image descriptors (Akaze or whatever you want), build two classes with them and try to classify them with different methods.
 
+Enviroment: 'cv'
 
 """
 print(__doc__)
@@ -52,7 +53,7 @@ def unpickle_keypoints(array):
     keypoints = []
     descriptors = []
     for point in array:
-        temp_feature = cv2.KeyPoint(x=point[0][0],y=point[0][1],_size=point[1], _angle=point[2], _response=point[3], _octave=point[4], _class_id=point[5])
+        temp_feature = cv2.KeyPoint(x=point[0][0],y=point[0][1],size=point[1], angle=point[2], response=point[3], octave=point[4], class_id=point[5])
         temp_descriptor = point[6]
         keypoints.append(temp_feature)
         descriptors.append(temp_descriptor)

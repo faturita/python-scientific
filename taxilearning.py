@@ -4,6 +4,7 @@ Q-Learning toy sample based on OpenAI Gym.
 ==========================================
 
 Source: https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
+        Sutton Book, "Reinforcement Learning"
 
 In RL, QLearning, we want to learn a Q table, a function, for which given a state we can check the all the different actions to determine which one has
 the greater value on the Q table, and pick that one.  It is very easy to implement, works very well, but it requires a lot of episodes.
