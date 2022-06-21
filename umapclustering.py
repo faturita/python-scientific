@@ -3,6 +3,8 @@
 UMAP Clustering
 ===============================
 
+Multidimensional Scaling
+
 UMAP package installation on Anaconda can be tricky
 
 """

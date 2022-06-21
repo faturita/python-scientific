@@ -1,9 +1,9 @@
 """
 =====================
-Umbralizador
+Thresholding
 =====================
 
-Pongo el de Otsu en 1-D por ahora: https://en.wikipedia.org/wiki/Otsu%27s_method
+Otsu method: https://en.wikipedia.org/wiki/Otsu%27s_method
 
 Fs = 128
 
@@ -92,9 +92,11 @@ signal = np.asarray(val)
 
 otsuvalue = otsu(signal)
 
+print( f'Otsu thresholding:{otsuvalue}')
+
 reval = signal[signal>otsuvalue]
 
 print (reval)
 
-threshold = otsu(eeg)
+#threshold = otsu(eeg)
 

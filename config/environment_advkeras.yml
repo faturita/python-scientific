@@ -1,0 +1,7 @@
+name: advkeras
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - gevent
+prefix: /opt/anaconda3/envs/advkeras

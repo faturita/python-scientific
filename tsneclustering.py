@@ -3,6 +3,8 @@
 tSNE Clustering
 ===============
 
+Multidimensional Scaling
+
 https://towardsdatascience.com/t-sne-python-example-1ded9953f26
 
 """

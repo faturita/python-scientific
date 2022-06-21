@@ -4,7 +4,6 @@
 
 holamundo.py
 onepasspython.py
-
 scientificnotation.py
 
 ## Numpy
