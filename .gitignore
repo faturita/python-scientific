@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 .DS_Store
 .vscode/*
+data/B001/video.avi
