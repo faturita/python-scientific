@@ -19,6 +19,18 @@ Fs = 512
 |---- AGRADABLE --------|
 |---- PESTANEOS CODIGO ------ |
 
+* Baseline: esta parte la pueden utilizar para tener ejemplos negativos de cualquier cosa que deseen detectar.  Por 
+ejemplo si quieren detectar que algo cambia cuando hay "imaginación en colores violeta", extraen features de ese momento y de
+este e intentan armar un clasificador.
+* Toser: Probablemente queden registrados como picos, provocados por el propio movimiento de la cabeza.
+* Respirar fondo vs respirar rápido: quizás puede haber un cambio en alguna frecuencia.
+* Cuenta mental: Está reportado que esto genera cambios en las frecuencias altas gamma y beta, de entre 20-30 Hz.
+* Colores violeta / rojo:  de acá primero pueden intentar ver si hay cambio en relación a baseline en la frecuencia
+de 10 Hz porque para ambos casos cerré los ojos.  Luego pueden intentar ver si un clasificador les puede diferenciar las clases.
+* Sonreir: esto quizás genere algunos artefactos, picos en la señal debido al movimiento de la cara.
+* Agradable/Desagradable: aca no tengo idea, prueben contra baseline.  No hay nada reportado así.
+* Pestañeos:  En esta parte hay pestañeos que pueden intentar extraer.
+
 
 Los datos, el registro de EEG y el video, están disponibles en el siguiente link:
 https://drive.google.com/file/d/1ByQDK4ZPxbqw7T17k--avTcgSCCzs3vi/view?usp=sharing
