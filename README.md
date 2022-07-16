@@ -143,14 +143,17 @@ conda config --set channel_priority strict
   If you have happened to modify a file, the previous command will trigger an automatic merge.  If the merge is successful it will open a VI console (just press ':' and 'x') to add a merging comment.
   If there is any conflict, check the modified files looking for any sign of conflict (you will clearly notice it).  After you fix the merging, mark it as resolved with 'git add filename' and finish the operation with 'git commit -m"Merge fixed"'
   
-# Do you want to learn python from scratch ?
+# Python Roadmap
 
-https://online-learning.harvard.edu/course/using-python-research
+Probably, there are TONS of online resource to learn python.  Those listed here are focused on '''Crash Courses''' that are handy for dealing with scientific data, time series, and some data science applications.
+
+* Really good online course: https://online-learning.harvard.edu/course/using-python-research
+* [Python Books Roadmap](docs/Python.md)
 
 # Something else about Git
 
-* learngitbranching.js.org
-* atlassian.com/git
+* [Learn Git Branching](https://learngitbranching.js.org/)
+* [Atlassian Git Manual](https://atlassian.com/git)
 
 # Documentation
 
