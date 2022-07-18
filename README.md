@@ -164,6 +164,7 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Learning Python](docs/Python.md)
 * [Signal Processing](docs/Signals.md)
 * [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
+* Extra courses https://github.com/dair-ai/ML-Course-Notes
   
 # References and sources
 
