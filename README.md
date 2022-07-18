@@ -149,6 +149,7 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 
 * Really good online course: https://online-learning.harvard.edu/course/using-python-research
 * [Python Books Roadmap](docs/Python.md)
+* Very handy and pragmatic coding guidelines: https://guicommits.com/organize-python-code-like-a-pro/
 * Join this channel for Q&A: https://itba-ecd-python.slack.com
 
 # Something else about Git
