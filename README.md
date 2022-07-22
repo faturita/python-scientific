@@ -148,6 +148,7 @@ conda config --set channel_priority strict
 Probably, there are TONS of online resource to learn python.  Those listed here are focused on '''Crash Courses''' that are handy for dealing with scientific data, time series, and some data science applications.
 
 * Really good online course: https://online-learning.harvard.edu/course/using-python-research
+* [Good book in Spanish](docs/IntroPython3.pdf)
 * [Python Books Roadmap](docs/Python.md)
 * Quick Python Algorithm Snippets https://github.com/bhavinjawade/Advanced-Data-Structures-with-Python
 * Very handy and pragmatic coding guidelines: https://guicommits.com/organize-python-code-like-a-pro/
