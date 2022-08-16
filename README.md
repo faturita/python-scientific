@@ -166,7 +166,16 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Signal Processing](docs/Signals.md)
 * [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
 * Extra courses https://github.com/dair-ai/ML-Course-Notes
-  
+
+# Datasets
+
+* https://github.com/awesomedata/awesome-public-datasets
+* http://bnci-horizon-2020.eu/database/data-sets
+
+# More info
+
+* What are tensors?: https://arxiv.org/abs/2106.08090
+
 # References and sources
 
 * Visualizations: https://github.com/rougier/scientific-visualization-book
