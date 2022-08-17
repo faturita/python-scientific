@@ -167,6 +167,13 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
 * Extra courses https://github.com/dair-ai/ML-Course-Notes
 
+   # Do you want to reinforce your mathematics background? (https://twitter.com/akshay_pachaar)
+   * StatQuest: https://statquest.org/video-index/
+   * Khan Academy, Statistics and Probability (by Khan itself): https://www.khanacademy.org/math/statistics-probability
+   * Excellent MIT Mathematics for Machine Learning https://www.youtube.com/playlist?list=PLUl4u3cNGP62uI_DWNdWoIMsgPcLGOx-V
+   * Linear Algebra, OCW: https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/
+   * Mathematics for ML Specialization on Coursera https://www.coursera.org/specializations/mathematics-machine-learning
+
 # Datasets
 
 * https://github.com/awesomedata/awesome-public-datasets
