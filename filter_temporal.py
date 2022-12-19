@@ -1,12 +1,10 @@
 """
 ==================
-Filtros Temporales
+Temporal Filters
 ==================
 
-Algunos filtros temporales
-
-El más básico es mediante filtros sobre la propia serie temporal con clausulas de comparación.
-La operación de convolución es muy útil para la aplicación de filtros.
+Basic filtering is boolean filters to filter the matrices.
+Convolution is a basic tool to implement any kind of filter.
 
 Sources:
 * https://pub.towardsai.net/scaling-vs-normalizing-data-5c3514887a84

@@ -3,8 +3,11 @@
 Final Assignment
 ==================
 
-Entre 10 y 11 minutos
+El largo de los registros es entre 10 y 11 minutos
 Fs = 512
+
+FECHA DE ENTREGA: 10/01/2023
+SEGUNDA FECHA DE ENTREGA: 10/02/2023
 
 
 |---- BASELINE --------|
@@ -34,6 +37,16 @@ de 10 Hz porque para ambos casos cerré los ojos.  Luego pueden intentar ver si 
 
 Los datos, el registro de EEG y el video, están disponibles en el siguiente link:
 https://drive.google.com/file/d/1ByQDK4ZPxbqw7T17k--avTcgSCCzs3vi/view?usp=sharing
+
+Objetivo:
+El objetivo es dado este registro implementar un análisis de estos datos, exploratorio, superviado 
+o no supervisado, para intentar identificar que es lo que el sujeto está haciendo en cada bloque.  Pueden 
+intentar separar dos bloques entre sí, un bloque particular frente al BASELINE (esto es el momento cuando el sujeto
+no hace nada particular).  Pueden usar una parte de dos bloques para entrenar y luego intentar predecir las otras partes.
+Tienen que producir un PDF informe con gráficos/tablas breve y resumido.
+
+Fecha de entrega: 10 de Enero 2023
+Segunda fecha de entrega: 10 de Febrero 2023
 
 """
 

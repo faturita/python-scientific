@@ -28,7 +28,6 @@ dependencies:
   - conda-forge::peakutils
   - matplotlib
   - joblib
-  - conda-forge::umap-learn
   - scipy
   - rigge::peak-detect
   - vega_datasets

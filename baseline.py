@@ -5,6 +5,13 @@ Baseline Removal
 
 Baseline Removal based on basic interpolation.
 
+Modpoly: Modified Polynomial: iterative approach similar to alpha-prune
+ASLS: Assymetrical least square, whittaker smoothing: penalizes the roughtness of the baseline
+MOR: Performs morph operations first to throw away outliers and iterate.
+SNIP: identify peaks, throw them away and get the baseline iteratively.
+
+- pybaselines: https://pybaselines.readthedocs.io/en/latest/installation.html
+
 """
 print(__doc__)
 
@@ -57,24 +64,75 @@ plt.show()
 baseline = f(range(len(eeg)))
 
 # Finally, substract those points from the original signal.
-eeg = eeg - baseline
+eeg2 = eeg - baseline
 
 
-plt.plot(eeg,'r', label='EEG')
+plt.plot(eeg2,'r', label='EEG')
 plt.xlabel('t')
 plt.ylabel('eeg(t)')
 plt.title(r'EEG Signal')
 plt.ylim([-2000, 2000])
-plt.xlim([0,len(eeg)])
+plt.xlim([0,len(eeg2)])
 plt.show()
 
-def baseline_als(y, lam, p, niter=10):
-  L = len(y)
-  D = sparse.diags([1,-2,1],[0,-1,-2], shape=(L,L-2))
-  w = np.ones(L)
-  for i in range(niter):
-    W = sparse.spdiags(w, 0, L, L)
-    Z = W + lam * D.dot(D.transpose())
-    z = spsolve(Z, w*y)
-    w = p * (y > z) + (1-p) * (y < z)
-  return z
+# %% PyBaseline routines
+import matplotlib.pyplot as plt
+import numpy as np
+from pybaselines import Baseline, utils
+
+x = np.linspace(1, 1000, 1000)
+# a measured signal containing several Gaussian peaks
+signal = (
+    utils.gaussian(x, 4, 120, 5)
+    + utils.gaussian(x, 5, 220, 12)
+    + utils.gaussian(x, 5, 350, 10)
+    + utils.gaussian(x, 7, 400, 8)
+    + utils.gaussian(x, 4, 550, 6)
+    + utils.gaussian(x, 5, 680, 14)
+    + utils.gaussian(x, 4, 750, 12)
+    + utils.gaussian(x, 5, 880, 8)
+)
+# exponentially decaying baseline
+true_baseline = 2 + 10 * np.exp(-x / 400)
+noise = np.random.default_rng(1).normal(0, 0.2, x.size)
+
+y = signal + true_baseline + noise
+y = data[:,2] + time 
+x = time
+true_baseline = time
+
+
+baseline_fitter = Baseline(x, check_finite=False)
+
+bkg_1 = baseline_fitter.modpoly(y, poly_order=3)[0]
+bkg_2 = baseline_fitter.asls(y, lam=1e7, p=0.02)[0]
+bkg_3 = baseline_fitter.mor(y, half_window=30)[0]
+bkg_4 = baseline_fitter.snip(
+    y, max_half_window=40, decreasing=True, smooth_half_window=3
+)[0]
+
+plt.plot(x, y, label='raw data', lw=1.5)
+plt.plot(x, true_baseline, lw=3, label='true baseline')
+plt.plot(x, bkg_1, '--', label='modpoly')
+plt.plot(x, bkg_2, '--', label='asls')
+plt.plot(x, bkg_3, '--', label='mor')
+plt.plot(x, bkg_4, '--', label='snip')
+
+plt.legend()
+plt.show()
+
+eeg1 = eeg - bkg_1 + 1000
+eeg2 = eeg - bkg_1 + 2000
+eeg3 = eeg - bkg_1 + 3000
+eeg4 = eeg - bkg_1 + 4000
+
+plt.plot(eeg1,'r', label='EEG')
+plt.plot(eeg2,'b', label='EEG')
+plt.plot(eeg3,'g', label='EEG')
+plt.plot(eeg4,'y', label='EEG')
+plt.xlabel('t')
+plt.ylabel('eeg(t)')
+plt.title(r'EEG Signal')
+plt.ylim([-1, 5000])
+plt.xlim([0,len(eeg2)])
+plt.show()

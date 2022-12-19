@@ -1,6 +1,6 @@
 """
 ==================
-HolaMundo
+HelloWorld
 ==================
 
 Python se puede correr desde 5 lugares
@@ -70,6 +70,7 @@ plt.ylabel('eeg(t)');
 plt.title(r'EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(eeg)])
+plt.savefig('grafico.eps')
 plt.show()
 
 import seaborn as sns

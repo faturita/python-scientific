@@ -161,19 +161,26 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Atlassian Git Manual](https://atlassian.com/git)
 
 # Documentation
-
 * Roadmap for going deeper into [ML](docs/MachineLearning.md)
 * [Learning Python](docs/Python.md)
 * [Signal Processing](docs/Signals.md)
 * [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
-* Extra courses https://github.com/dair-ai/ML-Course-Notes
 
-   # Do you want to reinforce your mathematics background? (https://twitter.com/akshay_pachaar)
-   * StatQuest: https://statquest.org/video-index/
-   * Khan Academy, Statistics and Probability (by Khan itself): https://www.khanacademy.org/math/statistics-probability
-   * Excellent MIT Mathematics for Machine Learning https://www.youtube.com/playlist?list=PLUl4u3cNGP62uI_DWNdWoIMsgPcLGOx-V
-   * Linear Algebra, OCW: https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/
-   * Mathematics for ML Specialization on Coursera https://www.coursera.org/specializations/mathematics-machine-learning
+
+# Awesome Lists
+* Awesome list of Python: https://github.com/vinta/awesome-python
+* Awesome list of Computer Vision https://github.com/jbhuang0604/awesome-computer-vision
+
+
+# Excellent Online Courses
+* Extra courses https://github.com/dair-ai/ML-Course-Notes
+* Do you want to reinforce your mathematics background? (https://twitter.com/akshay_pachaar)
+* StatQuest: https://statquest.org/video-index/
+* Khan Academy, Statistics and Probability (by Khan itself): https://www.khanacademy.org/math/statistics-probability
+* Excellent MIT Mathematics for Machine Learning https://www.youtube.com/playlist?list=PLUl4u3cNGP62uI_DWNdWoIMsgPcLGOx-V
+* Linear Algebra, OCW: https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/
+* Mathematics for ML Specialization on Coursera https://www.coursera.org/specializations/mathematics-machine-learning
+* NLP https://www.youtube.com/playlist?list=PL8PYTP1V4I8D0UkqW2fEhgLrnlDW9QK7z
 
 # Datasets
 
@@ -213,5 +220,6 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Python Data Structures](https://github.com/bhavinjawade/)Advanced-Data-Structures-with-Python
 * [Cross Entropy](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a)
 * [Visual Information Theory](http://colah.github.io/posts/2015-09-Visual-Information/)
+* [History of Artificial Intelligence](https://philippschmitt.com/blueprints-for-intelligence/)
 
 

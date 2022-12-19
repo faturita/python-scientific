@@ -29,6 +29,18 @@ print (y)
 z = np.array( ([11,12,13],[21,22,23],[31,32,33]) )
 print (z)
 
+# %%
+# In general, basic operations on lists are applied on the whole list, but on numpy, the 
+# are applied element-wise.
+
+a=  [1,2,3,4]
+aa = np.asarray([1,2,3,4])
+
+print (a+a)
+
+print (aa+aa)
+
+
 
 # %%
 # Tensors works as algebraic vectors

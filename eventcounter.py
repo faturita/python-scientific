@@ -8,7 +8,15 @@ Easy blinking counter.
 Use me to find the peaks on the EEG signal obtained with Mindwave.
 They are marks that in general correspond to blinking events.
 
-Fs = 128
+= Pragmatic Signal Processing
+
+Analytical signal processing:  There is a richful set of techniques and tool that can be used
+to perform basic analysis of signals, trying to find peaks, troughs, valleys, and so on.  These
+tools are very widespread in analytical chemestry.
+
+This website is the best ever which contains a wonderful description of these tools:
+
+https://terpconnect.umd.edu/~toh/spectrum/index.html
 
 """
 print(__doc__)
@@ -231,6 +239,9 @@ print('Location of Blinks');print(blinklocations)
 # En el pico del timestamp 597 la mediation sube, pero alcanza su maximo en el pico del timestamp 600. Luego baja un poco pero se mantienen en valores altos.
 
 import seaborn as sns
+import pandas as pd
+signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
+
 sns.set(style="darkgrid")
 sns.lineplot(x="timestamp", y="eeg", hue="attention", data=signals, palette="Reds")
 plt.savefig('attention.png')

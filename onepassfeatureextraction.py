@@ -6,6 +6,7 @@ OnePassFeatureExtraxtion
 OpenCV basic code.
 Saving/Storing keypoints https://isotope11.com/blog/storing-surf-sift-orb-keypoints-using-opencv-in-python
 
+Provide the command line filename to store the descriptors.
 
 """
 print(__doc__)

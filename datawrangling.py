@@ -1,7 +1,9 @@
 '''
-Pandas.  Data Wrangling in python.
+=================================
+Pandas - Data Wrangling in python
+=================================
 
-if you ever work as a fancy Data Scientists, it is very likely that 80% of your time will be spent doing data wrangling (I prefer the term Data Cooking).
+If you ever work as a fancy Data Scientists, it is very likely that 80% of your time will be spent doing data wrangling (I prefer the term Data Cooking).
 This will continue until you finally achieve a managerial postion and stop doing useful work, all of a sudden.
 
 
@@ -11,6 +13,8 @@ Input data   -->   Data Cooking ---> Visualization
 
 
 ModelOps[https://en.wikipedia.org/wiki/ModelOps]
+------>
+MLOps
 ------>
 DevOps
 ------>
@@ -31,7 +35,7 @@ Visualization
 ⏺   Basic Visualization
 
 This script contains several snippets, separtaed by '# %%' which is a special marker that allows Visual Studio Code
-to treat a python script as a jupyter notebook.  
+to treat a python script as a jupyter console notebook.  
 
 References:
 - Wes McKinney, Python for Data Analysis, 2017
@@ -48,6 +52,13 @@ import matplotlib.pyplot as plt
 import requests
 from io import StringIO
 
+# %%  -----------------------------------------------------------------------------
+
+print('The whole picture, working in Data Science Project in corporate environments')
+# https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview
+
+# %%  -----------------------------------------------------------------------------
+
 print('Hello Python Scientific World')
 
 online = False
@@ -58,14 +69,19 @@ if (online == True):
 else:
     signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 
+
+print('Signals is a dataframe, the basic pandas structure.')
 print('Information:')
 print(signals.head())
 
 print('Filter records:')
 print(signals[signals.counter > 45])
 
+# Show a resume of the data contained in data
+signals.describe()
+
 # %%  -----------------------------------------------------------------------------
-print('Moving to numpy !')
+print('You can always extract the numpy tensor from the pandas dataframe.')
 data = signals.values
 
 print('Now in "data", you have a tensor.')
@@ -78,7 +94,7 @@ print('From here you can start working around the data structure which has a mat
 
 # %%  -----------------------------------------------------------------------------
 print('You can go the other way around and convert a numpy array into a dataframe.')
-
+print('Dataframe contain metadata information.')
 databack = pd.DataFrame(data, columns=['ts', 'ct', 'e','att','med','blk'])
 
 print ('Shape %2d,%2d:' % databack.shape)
@@ -94,14 +110,9 @@ plt.show()
 
 
 # %%  -----------------------------------------------------------------------------
-
-print('The whole picture, working in Data Science Project in corporate environments')
-# https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview
-
-# %%  -----------------------------------------------------------------------------
-print('----------------------------------------------------------------------------------------------------------------------------------')
 print('Pandas is great to read data from several differentes sources.')
 
+print('Create a Dataframe from a python dictionary.')
 jsonlike = {
   'cars': ["BMW", "Volvo", "Ford"],
   'passings': [3, 7, 2]
@@ -109,18 +120,21 @@ jsonlike = {
 
 mydataframe = pd.DataFrame(jsonlike)
 print(mydataframe)
+print('The columns names are taken from the dictionary while row names are just consequitive numbers.')
 
 # %%  -----------------------------------------------------------------------------
 
-print(' read_xxxx methods load data in several formats.  This like Excel import, so there are hundreds of parameters.')
+print('The read_xxxx methods load data in several formats.  This like Excel import, so there are hundreds of parameters.')
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 # //skip_rows, index_cols, sep='\s+', nrows
 
-signals.head()
+print(signals.head())
 
 print('read_sas, read_sql, read_pickle, read_json, read_excel, ...')
 
 dat = pd.read_csv('data/laliga.csv',delimiter=';')
+
+print(dat.head())
 
 # %%  -----------------------------------------------------------------------------
 print('Data can finally be exported to an output file.')
@@ -143,11 +157,14 @@ results = json.loads(obj)
 
 results
 
+print('We can filter what part of the JSON object do we want for the Dataframe.')
 siblings = pd.DataFrame(results['siblings'], columns=['name', 'age'])
 
 print(siblings)
 
 json_string = json.dumps(results)
+
+print(json_string)
 
 
 # %%  -----------------------------------------------------------------------------
@@ -167,6 +184,16 @@ journals = tables[0]
 print(journals)
 
 # %%  -----------------------------------------------------------------------------
+print('Series are one-index Dataframe.')
+
+calories = {"day1": 420, "day2": 380, "day3": 390}
+
+cal_frame = pd.Series(calories)
+
+print(cal_frame)
+print('Day1, day2, ... are the row names.')
+
+# %%  -----------------------------------------------------------------------------
 print('Python uses pickles to serialize structures, and this can be read from pandas.')
 
 calories = {"day1": 420, "day2": 380, "day3": 390}
@@ -175,9 +202,10 @@ cal_frame = pd.Series(calories)
 
 cal_frame.to_pickle('data/frame.pickle')
 
-# Guardar datos intermedios.
+# Store intermediate information
 
 new_frame = pd.read_pickle('data/frame.pickle')
+print(new_frame)
 
 
 # %%  -----------------------------------------------------------------------------
@@ -198,7 +226,7 @@ results = pd.read_csv('data/sample1.csv')
 
 print('You can get an indicative matrix which returns true on the cell where the data is missing')
 
-# Isnull and notnull return a Panda Frame, not a boolean indicative matrix.
+# Isnull and notnull return a boolean Panda Frame
 results.isnull()
 results.notnull()
 
@@ -219,11 +247,12 @@ print('Handling missing data.')
 from numpy import nan as NA
 data = pd.Series([1, NA, 3.5, NA, 7])
 
-data.dropna()
+newdataframe = data.dropna()
+print(newdataframe)
 
 print('The same as')
 
-data[data.notnull()]
+print(data[data.notnull()])
 
 # %%  -----------------------------------------------------------------------------
 print('On 2D')
@@ -234,8 +263,9 @@ data.dropna(how='any', axis = 0)
 
 # %%  -----------------------------------------------------------------------------
 print('Now fillna can be used in the same way to fill in the data.')
+data = pd.DataFrame([[1., 6.5, 3.], [1., NA, NA], [NA, NA, NA], [NA, 6.5, 3.]])
 
-data.fillna(0)
+newframe = data.fillna(0)
 
 data.fillna({0: 0.5, 2:0})  # When NaN is found, for the row 0 put 0.5, for the row 2, put 0
 
@@ -244,30 +274,33 @@ data.fillna(method='ffill')
 
 data[np.abs(data) > 1.5] = np.sign(data) * 10
 
-# Show a resume of the data contained in data
-data.describe()
-
 # %%  -----------------------------------------------------------------------------
 print('None, the python Null marker, can also be considered as NA sentinel.')
 string_data = pd.Series(['aardvark', 'artichoke', np.nan, 'avocado'])
 
 string_data[0] = None
 
-string_data
+print(string_data)
 
 
 # %%  -----------------------------------------------------------------------------
 print('Removing duplicates')
 string_data = pd.Series(['Newark', 'Manchester', 'Halifax', 'Manchester'])
 
-string_data.drop_duplicates()
+newframe = string_data.drop_duplicates()
+
+print(string_data)
+
+print(newframe)
 
 # %% ----------------------------------------------------------------------------
 print('Replacing values')
-string_data.replace({'Newark': np.nan, 'Halifax': 'Ottawa'})
+newframe = string_data.replace({'Newark': np.nan, 'Halifax': 'Ottawa'})
+print(string_data)
 
+print(newframe)
 # %%  -----------------------------------------------------------------------------
-print('Pandas Series: data structure to handling sequential data.')
+print('Pandas Series can be used to handle sequential data.')
 
 import pandas as pd
 
@@ -311,6 +344,10 @@ series2 = pd.Series(a, index = ["y", "z", "r"])
 # WARNING !
 series3 = series1 + series2 
 
+print(series1)
+print(series2)
+print(series3)
+
 
 # %%  -----------------------------------------------------------------------------
 print('Dataframes are dynamics structures')
@@ -319,27 +356,67 @@ data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
             'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
 frame = pd.DataFrame(data)
 
+print(frame.state) 
 
-frame.state 
+# %%  -----------------------------------------------------------------------------
+print('Row can also have names (instead of index numbers)')
+data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
+            'year': [2000, 2001, 2002, 2001, 2002, 2003],
+            'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+
+print(frame)
 
 frame.index = ['one','two','three','four','five','six']
 
-frame['pop'] = 9.0              # References the column 'pop'
-frame.loc['three']              # References the row indexed 'three'
+print(frame)
 
 # %%  -----------------------------------------------------------------------------
-print('Assigning several values at the same time.')
+print('Entire rows or columns can be updated')
+data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
+            'year': [2000, 2001, 2002, 2001, 2002, 2003],
+            'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+
+print(frame)
+
+frame['pop'] = 9.0              # References the column 'pop'
+frame.loc['three']=9.0              # References the row indexed 'three'
+
+print(frame)
+
+# %%  -----------------------------------------------------------------------------
+print('Colums/Rows can be updated or easily created')
+data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
+            'year': [2000, 2001, 2002, 2001, 2002, 2003],
+            'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+
+print(frame)
+
 val = pd.Series([11, 12, 13], index=['two', 'four', 'five'])
 
 frame['pop'] = val              # This means that pop is REPLACED by val.
 
+print('Now pop has been replaced with a new series')
+print(frame)
 
+print('Now add a new column')
 frame['Casinos'] = frame.state == 'Nevada'
+
+print(frame)
 
 del frame['Casinos']            # Removes the column 'Casinos'
 
+print('And delete it later')
+
+print(frame)
+
 frame.columns.name = 'Variables'
 frame.index.name = 'Locations'
+
+print('Now we can add index names (name for the column and the row)')
+print(frame)
 
 # %%  -----------------------------------------------------------------------------
 print('Reindexing: mapping the values with new indexes.')
@@ -358,6 +435,7 @@ data = pd.DataFrame(np.arange(16).reshape((4, 4)),
 data.drop(['Colorado', 'Ohio'])
 
 data.drop('four', axis=1)               # inplace=True, mutate the object.
+print(data)
 # %%  -----------------------------------------------------------------------------
 
 print('Slicing, the end-point is inclusive')
@@ -448,7 +526,7 @@ grp = grp.reset_index()
 print(grp)
 
 # %%  -----------------------------------------------------------------------------
-
+print('Data frames can be easily be used for basic plotting.')
 df = pd.read_csv('data/laliga.csv',delimiter=';')
 
 df.plot(kind='scatter', x = 'MP', y = 'FA_GIVEN')
@@ -457,6 +535,7 @@ plt.show()
 
 
 # %%  -----------------------------------------------------------------------------
+print('Data frames can be easily be used for basic plotting.')
 
 df['GOAL'].plot(kind = 'hist')
 
