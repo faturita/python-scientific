@@ -69,7 +69,7 @@ for i in range(1,20):
     # Se calculan los descriptores de AKAZE.  Puntos de la imágen destacados que sirven para discriminar.
     detector = cv2.AKAZE_create()
     (kps, descs) = detector.detectAndCompute(gray, None)
-    print("keypoints: {}, descriptors: {}".format(len(kps), descs.shape))
+    #print("keypoints: {}, descriptors: {}".format(len(kps), descs.shape))
 
 
     # Se dibujan los puntos en la imagen.

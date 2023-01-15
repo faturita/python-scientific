@@ -143,7 +143,7 @@ print(report)
 
 # Use SVM but instead of guessing the class (0 or 1), configure it to output the
 # probability value to belong to each class (this is needed to calculate ROC curves)
-clf = svm.SVC(kernel='linear', C = 1.0, probability=True)
+clf = svm.SVC(kernel='poly', C = 1.0, probability=True)
 clf.fit(trainingdata,traininglabels)
 
 ns_probs = [0 for _ in range(len(testlabels))]

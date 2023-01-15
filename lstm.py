@@ -5,6 +5,9 @@ LSTM forecasting
 
 LSTM sample
 
+This model uses a time series of neurological data, trains a LSTM deep neural network to try to predict
+t+1 value based on t sample.  The dimension of the input and output is one.
+
 * https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/
 * https://arxiv.org/abs/1507.06947
 
@@ -18,6 +21,9 @@ import matplotlib.pyplot as plt
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', usecols=[2], names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 signals = signals.astype('float32')
 
+
+# %%
+print('The Lag plot can be used to understand the correlation between consecutive time points.')
 from matplotlib import pyplot
 from pandas.plotting import lag_plot
 lag_plot(signals)
@@ -73,11 +79,23 @@ testX = numpy.reshape(testX, (testX.shape[0], 1, testX.shape[1]))
 
 
 # %%
+print('This is a very basic deep neural network with input shape 1, 4 neurons on the first layer, and one output layer.')
+print('The fitness function is based on MSE, and the optimizer is Adam.')
 model = Sequential()
 model.add(LSTM(4, input_shape=(1, look_back)))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
-model.fit(trainX, trainY, epochs=10, batch_size=1, verbose=2)
+hist = model.fit(trainX, trainY, epochs=10, batch_size=1, verbose=2)
+
+
+# %%
+plt.plot(hist.history['loss'])
+plt.title('Model loss')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train'], loc='upper right')
+plt.show()
+
 
 # %%
 # make predictions

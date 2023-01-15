@@ -94,8 +94,8 @@ conda config --set channel_priority strict
 <details>
 <summary>🗄 What's on each file</summary>
 
-* [holamundo.py](holamundo.py): Basic Python Data Science sample.  Grab a dataset and visualize it.
-* [holamundonotebook.ipynb](holamundonotebook.ipynb): The same, as jupyter notebook.
+* [helloworld.py](helloworld.py): Basic Python Data Science sample.  Grab a dataset and visualize it.
+* [helloworldnotebook.ipynb](helloworldnotebook.ipynb): The same, as jupyter notebook.
 * [onepasspython.py](onepasspython.py): Basic python 3.x structures, sentences and control keywords.
 * [diveintopython3.py](diveintopython3.py): Some python stuff particular to python 3.
 * [numpies.py](tensors.py): Basic cookbook on how to deal with numpy tensors.
