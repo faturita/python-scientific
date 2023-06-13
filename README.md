@@ -172,6 +172,9 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * Awesome list of Python: https://github.com/vinta/awesome-python
 * Awesome list of Computer Vision https://github.com/jbhuang0604/awesome-computer-vision
 
+# Some cheatsheets
+* https://github.com/afshinea/stanford-cs-229-machine-learning
+
 
 # Excellent Online Courses
 * Extra courses https://github.com/dair-ai/ML-Course-Notes

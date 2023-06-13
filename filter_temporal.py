@@ -188,3 +188,14 @@ plt.ylim([-2000, 2000]);
 plt.xlim([0,len(avgeeg)])
 plt.savefig('images/boxcoxeeg.png')
 plt.show()
+
+
+
+# Get a gaussian kernel for smoothing.
+mu = 0
+sigma = 1
+x = np.linspace(-4,4,1000)
+gaussian = np.exp(-((x - mu)**2)/(2 * sigma**2) / ( np.sqrt(2 * np.pi) * sigma))
+
+gaussian_kernel = gaussian[[1,250,500,750,999]]
+
