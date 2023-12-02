@@ -110,7 +110,7 @@ conda config --set channel_priority strict
 * [InteractiveNotebook.ipynb](InteractiveNotebook.ipynb): Jupyter notebook sample for creating visualizing tools with Altair.
 * [baseline.py](baseline.py): Signal baseline removal sample.
 * [signalfeatures.py](signalfeatures.py): Basic set of feature extraction procedures for signals (time series).
-* [umbralizador.py](umbralizador.py): Otsu method to umbralize a one dimensional time series.
+* [thresholding.py](thresholding.py): Otsu method to umbralize a one dimensional time series.
 * [eventcounter.py](eventcounter.py): Signal peak counting sample.
 * [clustering.py](clustering.py): Clustering sample containing kmeans and dbscan.
 * [tsneclustering.py](ejemploclusteringtsne.py): tSNE dimensionality reduction sample on MNIST.
