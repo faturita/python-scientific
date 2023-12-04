@@ -35,15 +35,13 @@ import matplotlib.pyplot as plt
 import requests
 from io import StringIO
 
-# Frecuencia de sampleo 128 Hz
-
 print('Hello Python Scientific World')
 
 print('Objetivo: leer tensores y poder plotear sus valores...')
 
 online = False
 if (online == True):
-    url = requests.get('https://drive.google.com/file/d/117pqjcY15qMGY0HlFaEz195_7uuq6LBv/view?usp=sharing')
+    url = requests.get('https://raw.githubusercontent.com/faturita/python-scientific/master/data/blinking.dat')  
     csv_raw = StringIO(url.text)
     signals = pd.read_csv(csv_raw, delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 

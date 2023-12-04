@@ -9,6 +9,8 @@ Python has a built-in structure called list, which is very flexible to perform a
 Numpy has extended this structure to work with algebraic tensors by creating 
 one of the most powerful packages to perform mathematical processing and numerical operations.
 
+Paper numpy: https://www.nature.com/articles/s41586-020-2649-2
+
 Numpy arrays are the basic processing units in terms of ML/DL.
 
 @NOTE: These tensors are different form the Tensorflow Tensors which are inherently the same structures
@@ -36,9 +38,9 @@ print (z)
 a=  [1,2,3,4]
 aa = np.asarray([1,2,3,4])
 
-print (a+a)
+print (a+a)             # Concatenates the lists
 
-print (aa+aa)
+print (aa+aa)           # Sums the elements of the array
 
 
 
@@ -46,6 +48,7 @@ print (aa+aa)
 # Tensors works as algebraic vectors
 # Array are zero based, array 0 is row, 1 is column.
 # (r,c)
+y = np.array( ((11,12,13), (21,22,23), (31,32,33)) )
 print ('Element at 0, 1:')
 print  (y[0][1])
 
@@ -66,6 +69,7 @@ print (y[:,2])
 
 # %%
 # Numpy array are "strong" typed
+y = np.array( ((11,12,13), (21,22,23), (31,32,33)))
 print ('Type of an array:' + str(y.dtype))
 
 # %%
@@ -107,7 +111,7 @@ print (np.concatenate((x,y,z)))     # Each x,y,z is dim (2,2)
 
 # %%
 print ('Concatenate according to axis')
-z = np.concatenate((x,y),axis = 0)
+z = np.concatenate((x,y),axis = 0)          # axis is INDEX 
 print (z)
 
 # %%
@@ -198,9 +202,12 @@ print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
 import numpy as np
 
 a = np.array([1, 2, 3])     # Create a rank 1 array
-l = np.delete( 1 )          # Eliminate the element at the position 1
+#l = np.delete( 1 )          # Eliminate the element at the position 1
 s = a[a==1]                 # Filter the elements from the list that are equal to 1
 m = np.where( a==1 )        # Determine the position in a where the matching is true.
+
+print(s)
+print(m)
 
 
 # %%
@@ -277,7 +284,7 @@ a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
 # while using only slices yields an array of the same rank as the
 # original array:
 row_r1 = a[1, :]    # Rank 1 view of the second row of a
-row_r2 = a[1:2, :]  # Rank 2 view of the second row of a
+row_r2 = a[1:2, :]  # Rank 2 view of the second row of a, for the row is [1,2)
 print(row_r1, row_r1.shape)  # Prints "[5 6 7 8] (4,)"
 print(row_r2, row_r2.shape)  # Prints "[[5 6 7 8]] (1, 4)"
 

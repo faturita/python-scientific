@@ -53,7 +53,7 @@ def unpickle_keypoints(array):
     keypoints = []
     descriptors = []
     for point in array:
-        temp_feature = cv2.KeyPoint(x=point[0][0],y=point[0][1],size=point[1], angle=point[2], response=point[3], octave=point[4], class_id=point[5])
+        temp_feature = cv2.KeyPoint(x=point[0][0],y=point[0][1],_size=point[1], _angle=point[2], _response=point[3], _octave=point[4], _class_id=point[5])
         temp_descriptor = point[6]
         keypoints.append(temp_feature)
         descriptors.append(temp_descriptor)
@@ -194,9 +194,9 @@ lr_probs = logisticRegr.predict_proba(testdata)
 lr_probs = lr_probs[:, 1]
 
 # predict probabilities
-dr_probs = ldaf.predict_proba(testdata)
+lda_probs = ldaf.predict_proba(testdata)
 # keep probabilities for the positive outcome only
-dr_probs = dr_probs[:, 1]
+lda_probs = lda_probs[:, 1]
 
 # predict probabilities
 dt_probs = dt.predict_proba(testdata)
@@ -214,7 +214,7 @@ ns_auc = roc_auc_score(testlabels, ns_probs)
 sr_auc = roc_auc_score(testlabels, sr_probs)
 kr_auc = roc_auc_score(testlabels, kr_probs)
 lr_auc = roc_auc_score(testlabels, lr_probs)
-dr_auc = roc_auc_score(testlabels, dr_probs)
+lda_auc = roc_auc_score(testlabels, lda_probs)
 dt_auc = roc_auc_score(testlabels, dt_probs)
 rf_auc = roc_auc_score(testlabels, rf_probs)
 
@@ -223,7 +223,7 @@ print('Trivial: ROC AUC=%.3f' % (ns_auc))
 print('SVM: ROC AUC=%.3f' % (sr_auc))
 print('kNN: ROC AUC=%.3f' % (kr_auc))
 print('LogReg: ROC AUC=%.3f' % (lr_auc))
-print('LDA: ROC AUC=%.3f' % (dr_auc))
+print('LDA: ROC AUC=%.3f' % (lda_auc))
 print('Decision Tree: ROC AUC=%.3f' % (dt_auc))
 print('Random Forest: ROC AUC=%.3f' % (rf_auc))
 
@@ -232,7 +232,7 @@ ns_fpr, ns_tpr, _ = roc_curve(testlabels, ns_probs)
 sr_fpr, sr_tpr, _ = roc_curve(testlabels, sr_probs)
 kr_fpr, kr_tpr, _ = roc_curve(testlabels, kr_probs)
 lr_fpr, lr_tpr, _ = roc_curve(testlabels, lr_probs)
-dr_fpr, dr_tpr, _ = roc_curve(testlabels, dr_probs)
+lda_fpr, lda_tpr, _ = roc_curve(testlabels, lda_probs)
 dt_fpr, dt_tpr, _ = roc_curve(testlabels, dt_probs)
 rf_fpr, rf_tpr, _ = roc_curve(testlabels, rf_probs)
 
@@ -245,8 +245,9 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM', color='red')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -255,9 +256,10 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
-pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM', color='red')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN', color='green')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -266,10 +268,11 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
-pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
-pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM', color='red')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN', color='green')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg', color='blue')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -278,11 +281,12 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
-pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
-pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
-pyplot.plot(dr_fpr, dr_tpr, marker='.', label='LDA')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM', color='red')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN', color='green')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg', color='blue')
+pyplot.plot(lda_fpr, lda_tpr, marker='.', label='LDA', color='yellow')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -291,12 +295,13 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
-pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
-pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
-pyplot.plot(dt_fpr, dt_tpr, marker='.', label='LDA')
-pyplot.plot(dr_fpr, dr_tpr, marker='.', label='DecTree')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM',color='red')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN',color='green')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg',color='blue')
+pyplot.plot(lda_fpr, lda_tpr, marker='.', label='LDA',color='yellow')
+pyplot.plot(dt_fpr, dt_tpr, marker='.', label='DecTree', color='black')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -305,13 +310,14 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 pyplot.plot(ns_fpr, ns_tpr, linestyle='--', label='Trivial')
-pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM')
-pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN')
-pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg')
-pyplot.plot(dr_fpr, dr_tpr, marker='.', label='LDA')
-pyplot.plot(dt_fpr, dt_tpr, marker='.', label='DecTree')
-pyplot.plot(rf_fpr, rf_tpr, marker='.', label='RF')
+pyplot.plot(sr_fpr, sr_tpr, marker='.', label='SVM',color='red')
+pyplot.plot(kr_fpr, kr_tpr, marker='.', label='kNN',color='green')
+pyplot.plot(lr_fpr, lr_tpr, marker='.', label='LogReg',color='blue')
+pyplot.plot(lda_fpr, lda_tpr, marker='.', label='LDA', color='yellow')
+pyplot.plot(dt_fpr, dt_tpr, marker='.', label='DecTree', color='black')
+pyplot.plot(rf_fpr, rf_tpr, marker='.', label='RF', color='magenta')
 # plot the roc curve for the model
 # axis labels
 pyplot.xlabel('False Positive Rate')
@@ -320,6 +326,7 @@ pyplot.ylabel('True Positive Rate')
 pyplot.legend()
 # show the plot
 pyplot.show()
+pyplot.close()
 
 
 # Cross Validation ==========================

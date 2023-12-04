@@ -3,8 +3,10 @@
 Pandas - Data Wrangling in python
 =================================
 
-If you ever work as a fancy Data Scientists, it is very likely that 80% of your time will be spent doing data wrangling (I prefer the term Data Cooking).
-This will continue until you finally achieve a managerial postion and stop doing useful work, all of a sudden.
+If you ever work as a fancy Data Scientists, it is very likely that 80% of your
+ time will be spent doing data wrangling (I prefer the term Data Cooking).
+This will continue until you finally achieve a managerial position and stop 
+doing useful work, all of a sudden.
 
 
 Input data   -->   Data Cooking ---> Visualization   
@@ -21,7 +23,9 @@ DevOps
 DevSecOps
 ------>
 
-Software development, in any form, is a human endeavor: it requires to articulate people working together in teams.
+Software development, in any form, is a human endeavor: it requires to articulate 
+people working together in teams.
+
 TDSP: Team Data Science Process
 
 Input Data:
@@ -34,8 +38,9 @@ Data Cooking:
 Visualization
 ⏺   Basic Visualization
 
-This script contains several snippets, separtaed by '# %%' which is a special marker that allows Visual Studio Code
-to treat a python script as a jupyter console notebook.  
+This script contains several snippets, separtaed by '# %%' which is a special 
+marker that allows Visual Studio Code to treat a python script as a jupyter 
+console notebook.  
 
 References:
 - Wes McKinney, Python for Data Analysis, 2017
@@ -61,9 +66,9 @@ print('The whole picture, working in Data Science Project in corporate environme
 
 print('Hello Python Scientific World')
 
-online = False
+online = True
 if (online == True):
-    url = requests.get('https://drive.google.com/file/d/117pqjcY15qMGY0HlFaEz195_7uuq6LBv/view?usp=sharing')
+    url = requests.get('https://raw.githubusercontent.com/faturita/python-scientific/master/data/blinking.dat')
     csv_raw = StringIO(url.text)
     signals = pd.read_csv(csv_raw, delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
 else:
@@ -177,10 +182,11 @@ print(data.to_json())
 
 # %%  -----------------------------------------------------------------------------
 print('Python allows to crawl web pages and get HTML tables.')
-tables = pd.read_html('http://monostuff.logdown.com/')
+tables = pd.read_html('https://www.scimagojr.com/journalrank.php')   # @NOTE Fixed
 
 journals = tables[0]
 
+print("Journal rankings by SciMago")
 print(journals)
 
 # %%  -----------------------------------------------------------------------------
@@ -325,15 +331,15 @@ series = pd.Series(a, index = ["x", "y", "z"])
 
 print(series['x'])
 
-series[series > 1]
+print(series[series > 1])
 
-series * 2
+print(series * 2)
 
-np.exp(series)
+print(np.exp(series))
 
-'x' in series 
+print('x' in series) 
 
-'r' in series 
+print('r' in series) 
 # %%  -----------------------------------------------------------------------------
 print('Index are automatically used to operate on the data.')
 a = [1, 7, 2]
@@ -356,7 +362,10 @@ data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
             'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
 frame = pd.DataFrame(data)
 
+print(frame)
 print(frame.state) 
+print(frame['state'])
+print(frame.pop)
 
 # %%  -----------------------------------------------------------------------------
 print('Row can also have names (instead of index numbers)')
@@ -468,6 +477,8 @@ frame.apply(f)
 frame.apply(f, axis=1)
 frame.apply(f, axis='columns')
 # %%  -----------------------------------------------------------------------------
+frame = pd.DataFrame(np.random.randn(4,3), columns=list('bde'), 
+                    index=['Utah','Ohio','Texas','Oregon'])
 format = lambda x: '%.2f' % x 
 
 print(frame.applymap(format))
@@ -543,3 +554,5 @@ plt.show()
 
                                                 
 
+
+# %%
