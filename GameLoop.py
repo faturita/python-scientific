@@ -61,15 +61,6 @@ while True:
 
     #gray = frame;
 
-
-    # ESTA ES LA PARTE DONDE HACES EL PROCESAMIENTO PARA QUE TE RETORNE QUE CARTA ES PRIMERO, LUEGO
-    # SI LA CARTA ESTA O NO DEL LADO CORRECTO, LUEGO EL ANGULO CON LA INCLINACION Y FINALMENTE LA POSICION 
-    # X,Y EN LA PANTALLA DONDE ESTA
-
-    # YO ACA ESTOY OBTENIENDO DESCRIPTORES AKAZE SIMPLES, ME QUEDO CON EL PRIMERO Y ME FIJO EL X,Y  
-
-    # Pone adelante una carta en la pantalla y los va a agarrar e identificar.
-
     # Se calculan los descriptores de AKAZE.  Puntos de la imágen destacados que sirven para discriminar.
     detector = cv2.AKAZE_create()
     (kps, descs) = detector.detectAndCompute(gray, None)
