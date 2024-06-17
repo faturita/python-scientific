@@ -242,7 +242,7 @@ def fn(x):
 
 x = np.random.rand(10000,10000).astype(dtype='float32')
 
-%timeit -n5 fn(x)
+# %timeit -n5 fn(x)
 
 
 # %%
