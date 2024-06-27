@@ -31,9 +31,9 @@ If you don't know anything at all about python, and you want to know something t
 ## Procedure
 
 * Install Git Bash
-  https://git-scm.com/downloads
+  https://git-scm.com/downloads (for Windows only)
   
-* Install Anaconda
+* Install Anaconda (for those who may want to use Anaconda instead of pip)
 
   Download Anaconda 3.7 for your platform and install it.
   https://www.anaconda.com/distribution/
@@ -90,6 +90,12 @@ conda config --set channel_priority strict
  ```
 
  Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
+
+ * For Pip:
+
+ ```bash
+ pip install -r conf/requirements.txt
+ ```
 
 <details>
 <summary>🗄 What's on each file</summary>
