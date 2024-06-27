@@ -29,15 +29,13 @@ s3 = signal.sawtooth(2 * np.pi * time)  # Sawtooth, Signal 3
 
 # The first plot with all the signals, as it may be in reality.
 plt.figure(1)
-plt.title('Sinusoidal')
 plt.subplot(3,1,1)
 plt.plot(s1, color='red')
-plt.title('Squared')
 plt.subplot(3,1,2)
 plt.plot(s2, color='steelblue')
-plt.title('Sawtooth')
 plt.subplot(3,1,3)
 plt.plot(s3, color='orange')
+plt.show()
 
 
 # Put all the signals together in a multichannel arrangement
