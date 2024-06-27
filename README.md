@@ -94,7 +94,7 @@ conda config --set channel_priority strict
  * For Pip:
 
  ```bash
- pip install -r conf/requirements.txt
+ pip install -r config/requirements.txt
  ```
 
 <details>
