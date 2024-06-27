@@ -130,7 +130,7 @@ class OfflineHeadset:
     def __init__(self, subject,label,paradigm='Alfa'):
         # @TODO Need to parametrize this.
         # @NOTE Search for datasets on current "Data" directory
-        self.basefilename = 'Data/%s/%s/e.%d.l.%d.dat'
+        self.basefilename = 'data/%s/%s/e.%d.l.%d.dat'
         self.paradigm = paradigm
         self.readcounter = 0
         self.running = True
