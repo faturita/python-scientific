@@ -29,9 +29,7 @@ This Q table can be replaced by a neural network (as function approximator).
 
 import gym
 
-env = gym.make('Taxi-v3').env
-
-env.render()
+env = gym.make('Taxi-v3', render_mode="ansi").env
 
 env.reset()
 env.render()
@@ -59,14 +57,14 @@ done = False
 
 while not done:
     action = env.action_space.sample()
-    state, reward, done, info = env.step(action)
+    state, reward, done, info,ext = env.step(action)
 
     if reward == -10:
         penalties += 1
     
     # Put each rendered frame into dict for animation
     frames.append({
-        'frame': env.render(mode='ansi'),
+        'frame': env.render(),
         'state': state,
         'action': action,
         'reward': reward
@@ -126,7 +124,7 @@ for i in range(1, 100001):
         else:
             action = np.argmax(q_table[state]) # Exploit learned values
 
-        next_state, reward, done, info = env.step(action) 
+        next_state, reward, done, info, ext = env.step(action) 
         
         old_value = q_table[state, action]
         next_max = np.max(q_table[next_state])

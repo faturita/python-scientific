@@ -14,7 +14,6 @@ print(__doc__)
 import numpy as np
 from sklearn.datasets import load_digits
 from scipy.spatial.distance import pdist
-from sklearn.manifold.t_sne import _joint_probabilities
 from scipy import linalg
 from sklearn.metrics import pairwise_distances
 from scipy.spatial.distance import squareform
@@ -37,7 +36,7 @@ tsne = TSNE()
 X_embedded = tsne.fit_transform(X)
 
 # Plot with seaborn
-sns.scatterplot(X_embedded[:,0], X_embedded[:,1], hue=y, legend='full', palette=palette)
+sns.scatterplot(x=X_embedded[:,0], y=X_embedded[:,1], hue=y, legend='full', palette=palette)
 
 plt.show()
 
