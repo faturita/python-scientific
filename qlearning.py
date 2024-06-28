@@ -5,6 +5,7 @@ Q-Learning toy sample based on OpenAI Gym.
 
 Source: https://towardsdatascience.com/getting-started-with-reinforcement-learning-and-open-ai-gym-c289aca874f
 
+Gym: 0.26.2
 """
 
 
@@ -13,7 +14,7 @@ import gym
 import matplotlib.pyplot as plt
 
 # Import and initialize Mountain Car Environment
-env = gym.make('MountainCar-v0')
+env = gym.make('MountainCar-v0',render_mode='rgb_array')
 env.reset()
 
 # Define Q-learning function
@@ -41,6 +42,7 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
         done = False
         tot_reward, reward = 0,0
         state = env.reset()
+        state=state[0]
         
         # Discretize state
         state_adj = (state - env.observation_space.low)*np.array([10, 100])
@@ -58,7 +60,8 @@ def QLearning(env, learning, discount, epsilon, min_eps, episodes):
                 action = np.random.randint(0, env.action_space.n)
                 
             # Get next state and reward
-            state2, reward, done, info = env.step(action) 
+            a = env.step(action)
+            state2, reward, done, info, ext = env.step(action) 
             
             # Discretize state2
             state2_adj = (state2 - env.observation_space.low)*np.array([10, 100])

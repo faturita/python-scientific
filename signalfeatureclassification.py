@@ -3,8 +3,8 @@
 Signal Feature Classification
 ==========================================
 
-# Run with ann virtual environment
-# EPOC Emotiv file format https://www.researchgate.net/publication/332514530_EPOC_Emotiv_EEG_Basics
+# Run with a virtual environment with keras, sklearn, numpy and tensorflow installed.
+# EPOC Emotiv file format https://arxiv.org/pdf/2206.09051
 
 # OpemMP sometimes raises coredumps, try export KMP_DUPLICATE_LIB_OK=TRUE
 
@@ -38,6 +38,14 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 from scipy.signal import butter, lfilter
 
+from sklearn.linear_model import LogisticRegression
+
+from keras.models import Sequential
+from keras.layers import Dense
+
+import matplotlib.pyplot as plt
+
+
 def isartifact(window, threshold=80):
     # Window is EEG Matrix
 
@@ -45,10 +53,6 @@ def isartifact(window, threshold=80):
     ameans = np.asarray(  window   ).mean(0)
     signalaverage = ameans.tolist()
     athresholds = np.asarray([threshold]*len(signalaverage))
-
-    #print awindow
-    #print ameans
-    #print athresholds
 
     # FIXME
     for t in range(0,len(window)):
@@ -62,7 +66,7 @@ def isartifact(window, threshold=80):
 
     return False
 
-import matplotlib.pyplot as plt
+
 
 def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs
@@ -126,7 +130,7 @@ class OfflineHeadset:
     def __init__(self, subject,label,paradigm='Alfa'):
         # @TODO Need to parametrize this.
         # @NOTE Search for datasets on current "Data" directory
-        self.basefilename = 'Data/%s/%s/e.%d.l.%d.dat'
+        self.basefilename = 'data/%s/%s/e.%d.l.%d.dat'
         self.paradigm = paradigm
         self.readcounter = 0
         self.running = True
@@ -296,8 +300,6 @@ def classify(afeatures1, afeatures2, featuresize):
     report = classification_report(testlabels, predlabels, target_names=target_names)
     print(report)
 
-    from sklearn.linear_model import LogisticRegression
-
     # all parameters not specified are set to their defaults
     logisticRegr = LogisticRegression()
     logisticRegr.fit(trainingdata,traininglabels)
@@ -314,9 +316,6 @@ def classify(afeatures1, afeatures2, featuresize):
     target_names = ['Open', 'Closed']
     report = classification_report(testlabels, predlabels, target_names=target_names)
     print(report)
-
-    from keras.models import Sequential
-    from keras.layers import Dense
 
     model = Sequential([
         Dense(64, activation='tanh', input_shape=(trainingdata.shape[1],)),

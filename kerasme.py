@@ -76,10 +76,9 @@ from tensorflow.python.ops import math_ops
 from keras import backend as K
 
 def customLoss( y_true, y_pred):
-  diff = math_ops.squared_difference(tf.cast(y_pred, tf.float32), tf.cast(y_pred, tf.float32))  #squared difference
-  loss = K.mean(diff, axis=-1) #mean
-  loss = loss / 10.0
-  return loss
+    diff = math_ops.squared_difference(tf.cast(y_pred, tf.float32), tf.cast(y_pred, tf.float32))  #squared difference
+    loss = diff
+    return loss
 
 class new_callback(tf.keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs={}): 

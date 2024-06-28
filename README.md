@@ -91,10 +91,28 @@ conda config --set channel_priority strict
 
  Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
- * For Pip:
+### Installation with PIP
+
+Up to date, the scripts are compatible with python 3.11.4.  So you need to download this python version and install it somewhere (PYTHON@3.11.4@PATH).
+
+Then, you need to create a virtual envirnonment
 
  ```bash
- pip install -r conf/requirements.txt
+ python -m venv --python PYTHON@3.11.4@PATH ps
+ ```
+
+This will create the directory ''ps'' on current directory.  And then, activate the directory
+
+ ```bash
+ source ps/bin/activate
+ ```
+
+(or run **ps\bin\Activate on windows)
+
+Finally you can install all the minimal requirements for this python version:
+
+ ```bash
+ pip install -r config/requirements.txt
  ```
 
 <details>
