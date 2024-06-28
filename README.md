@@ -166,7 +166,42 @@ Finally you can install all the minimal requirements for this python version:
   
   If you have happened to modify a file, the previous command will trigger an automatic merge.  If the merge is successful it will open a VI console (just press ':' and 'x') to add a merging comment.
   If there is any conflict, check the modified files looking for any sign of conflict (you will clearly notice it).  After you fix the merging, mark it as resolved with 'git add filename' and finish the operation with 'git commit -m"Merge fixed"'
-  
+
+## How to update your own repository (if it is forked) with new changes from the original repository
+
+First, in the upper right corner of the [repository page](https://github.com/faturita/python-scientific), click on the "Fork" button. This will create a copy of the repository in your own github account. Then, go to your github profile, find the forked repository, and clone it to your local machine:
+
+```bash
+git clone https://github.com/your-username/python-scientific.git
+```
+
+**Optional:** Add your files and changes to your own repository:
+
+```bash
+git add .
+git commit -m "Just write down whatever comes to your mind here"
+git push origin master
+```
+
+Add a reference to the original repository, so you can sync changes in the future. This is known as adding an `upstream remote`:
+
+```bash
+git remote add upstream https://github.com/faturita/python-scientific.git
+```
+
+Fetch the latest changes from the original repository and merge them into your local master branch:
+
+```bash
+git fetch upstream
+git merge upstream/master
+```
+
+Finally, after merging the changes, you can update your forked repository on github to reflect the local changes:
+
+```bash
+git push origin master
+```
+
 # Python Roadmap
 
 Probably, there are TONS of online resource to learn python.  Those listed here are focused on '''Crash Courses''' that are handy for dealing with scientific data, time series, and some data science applications.
