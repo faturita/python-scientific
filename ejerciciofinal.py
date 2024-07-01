@@ -6,33 +6,24 @@ Final Assignment
 El largo de los registros es entre 10 y 11 minutos
 Fs = 512
 
-FECHA DE ENTREGA: 10/01/2023
-SEGUNDA FECHA DE ENTREGA: 10/02/2023
+FECHA DE ENTREGA: 31/07/2024
+SEGUNDA FECHA DE ENTREGA: 10/08/2024
 
 
 |---- BASELINE --------|
-|---- TOSER ------|
-|---- RESPIRAR FONDO ------- |
-|---- RESPIRAR RAPIDO ----|
-|---- CUENTA MENTAL --------|
-|---- COLORES VIOLETA ------|
-|---- COLORES ROJO --------|
-|---- SONREIR -----|
-|---- DESEGRADABLE -----| 
-|---- AGRADABLE --------|
-|---- PESTANEOS CODIGO ------ |
+|---- PESTANEO ------|
+|---- INHALAR ------- |
+|---- EXHALAR ----|
+|---- GOLPES (ESTIMULOS) --------|
+|---- MENTAL IMAGERY ------|
 
 * Baseline: esta parte la pueden utilizar para tener ejemplos negativos de cualquier cosa que deseen detectar.  Por 
 ejemplo si quieren detectar que algo cambia cuando hay "imaginación en colores violeta", extraen features de ese momento y de
 este e intentan armar un clasificador.
-* Toser: Probablemente queden registrados como picos, provocados por el propio movimiento de la cabeza.
-* Respirar fondo vs respirar rápido: quizás puede haber un cambio en alguna frecuencia.
-* Cuenta mental: Está reportado que esto genera cambios en las frecuencias altas gamma y beta, de entre 20-30 Hz.
-* Colores violeta / rojo:  de acá primero pueden intentar ver si hay cambio en relación a baseline en la frecuencia
-de 10 Hz porque para ambos casos cerré los ojos.  Luego pueden intentar ver si un clasificador les puede diferenciar las clases.
-* Sonreir: esto quizás genere algunos artefactos, picos en la señal debido al movimiento de la cara.
-* Agradable/Desagradable: aca no tengo idea, prueben contra baseline.  No hay nada reportado así.
-* Pestañeos:  En esta parte hay pestañeos que pueden intentar extraer.
+* Inhalar: Cambios en frecuencias bajas, donde se enfatice el movimiento del diafragma para inhalar.
+* Exhalar: Idem pero enfatizando el movimiento del diafragma para exhalar.
+* Golpes: Deberían aparecer algún evento con cierto pico en la señal.  Pueden intentar detectar estos picos y ver si hay algo.
+* Mental Imagery: Pueden aparecer frecuencias altas de 20-50 Hz.  Aumentos en la potencia de estas bandas entre este bloque y el baseline.
 
 
 Los datos, el registro de EEG y el video, están disponibles en el siguiente link:
@@ -44,9 +35,6 @@ o no supervisado, para intentar identificar que es lo que el sujeto está hacien
 intentar separar dos bloques entre sí, un bloque particular frente al BASELINE (esto es el momento cuando el sujeto
 no hace nada particular).  Pueden usar una parte de dos bloques para entrenar y luego intentar predecir las otras partes.
 Tienen que producir un PDF informe con gráficos/tablas breve y resumido.
-
-Fecha de entrega: 10 de Enero 2023
-Segunda fecha de entrega: 10 de Febrero 2023
 
 """
 
