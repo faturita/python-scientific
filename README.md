@@ -144,7 +144,7 @@ Finally you can install all the minimal requirements for this python version:
 * [taxilearning.py](taxilearning.py): This is a basic Gym scenario to verify RL optimization.
 * [choppersample.py](choppersample.py): A basic game that can be used to test different AI strategies to solve.
 * [easygame.py](easygame.py): Pygame engine that can be used as a template.
-
+* [transformers.py](transformers.py): Program to processes EEG data and trains a Transformer model to classify different mental states or activities.
 
 </details>
 
