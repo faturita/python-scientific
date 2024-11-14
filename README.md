@@ -30,13 +30,9 @@ If you don't know anything at all about python, and you want to know something t
 
 ## Procedure
 
-* Install Git Bash
-  https://git-scm.com/downloads (for Windows only)
-  
-* Install Anaconda (for those who may want to use Anaconda instead of pip)
+ * Install Git Bash
 
-  Download Anaconda 3.7 for your platform and install it.
-  https://www.anaconda.com/distribution/
+   https://git-scm.com/downloads (for Windows only)
  
  * Install Visual Studio Code
  
@@ -50,46 +46,8 @@ If you don't know anything at all about python, and you want to know something t
  git clone https://github.com/faturita/python-scientific.git
  ```
  
- * Run an Anaconda Prompt
+ * Run a Git Bash Prompt or Terminal
  * Move with "cd" to the directory that you just downloaded ("cd python-scientific")
- * Create the environment with:
- 
- ```bash 
- conda env update --name mne3 --file config/environmentw.yml
- ```
-
- (or this one if any error occurs
- 
- ```
- conda env update --prefix ./env --file config/environmentw.yml 
- ```
-
- )
- 
- * Activate the newly created environment
- ```bash
- conda activate mne3
- ```
-
-NOTE: if you receive an error about 'umap package missing' or similar, just ''edit'' your local file [environmentw.yaml](config/environmentw.yml) and erase the umap line from the file.  You can later install this package directly from an Anaconda prompt by doing:
-
- ```bash
-conda config --add channels conda-forge
-conda config --set channel_priority strict
- ```
-
- * Install umap (or any package that you want)
- ```bash
- conda install -n mne3 umap
- ```
-
-ó
-
- ```bash
- conda install -n mne3 umap-learn
- ```
-
- Conda Cheat sheet: https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
 ### Installation with PIP
 
