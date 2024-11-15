@@ -107,3 +107,6 @@ venv.bak/
 .DS_Store
 .vscode/*
 data/B001/video.avi
+cv/*
+ps/*
+tf/*
