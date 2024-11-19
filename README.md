@@ -183,7 +183,7 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * Roadmap for going deeper into [ML](docs/MachineLearning.md)
 * [Learning Python](docs/Python.md)
 * [Signal Processing](docs/Signals.md)
-* [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
+* [Aprendizaje Modo Maquina](https://faturita.github.io/posts/2024/01/modomaquina/)
 
 
 # Awesome Lists
