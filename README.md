@@ -164,6 +164,7 @@ git push origin master
 
 Probably, there are TONS of online resource to learn python.  Those listed here are focused on '''Crash Courses''' that are handy for dealing with scientific data, time series, and some data science applications.
 
+* You can follow this guide: https://www.youtube.com/playlist?list=PLJHMIS4ekxNQ5twHXAFlqYbYg564a-QP9
 * Really good online course: https://online-learning.harvard.edu/course/using-python-research
 * [Good book in Spanish](docs/IntroPython3.pdf)
 * [Python Books Roadmap](docs/Python.md)
@@ -182,7 +183,7 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * Roadmap for going deeper into [ML](docs/MachineLearning.md)
 * [Learning Python](docs/Python.md)
 * [Signal Processing](docs/Signals.md)
-* [Aprendizaje Modo Maquina](http://monostuff.logdown.com/posts/7835544-aprendizaje-modo-mquina)
+* [Aprendizaje Modo Maquina](https://faturita.github.io/posts/2024/01/modomaquina/)
 
 
 # Awesome Lists
