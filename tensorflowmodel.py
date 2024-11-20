@@ -14,4 +14,5 @@ out_a = model(in_a)
 with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         outs = sess.run([out_a], feed_dict={in_a: [1,0]})
+        print(outs)
         writer = tf.summary.FileWriter("example", sess.graph)

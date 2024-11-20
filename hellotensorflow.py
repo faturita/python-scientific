@@ -6,7 +6,6 @@ Run this code with ann3 environment.
 
 Tensorflow is fast, and allows automatic differentiation.
 
-
 # OpemMP sometimes raises coredumps, try export KMP_DUPLICATE_LIB_OK=TRUE
 
 Sources: 
@@ -16,8 +15,17 @@ Sources:
 
 '''
 # %%
-# Basic Tensorflow model.
+# Basic Tensorflow model 2.16.x
 import tensorflow as tf 
+
+# Check if GPU is available
+physical_devices = tf.config.list_physical_devices('GPU')
+
+if (len(physical_devices) > 0):
+    tf.config.set_visible_devices(physical_devices[0], 'GPU')
+else:
+    print("No GPU found")
+
 
 W = tf.Variable( tf.ones(shape=(2,2)), name="W")
 b = tf.Variable( tf.zeros( shape=(2)), name="b")
@@ -74,6 +82,7 @@ x = tf.random.normal( shape=(3,1), mean=0.,stddev=1.)
 print(x)
 
 x = tf.random.uniform( shape=(3,1), minval=0., maxval=1.)
+print(x)
 
 # %%
 # Assign values to Exisiting tf variables or subsets
@@ -81,7 +90,7 @@ x = tf.random.uniform( shape=(3,1), minval=0., maxval=1.)
 v = tf.Variable(initial_value=tf.random.normal(shape=(3, 1)))
 v.assign(tf.ones((3, 1)))
 
-v[0, 0].assign(3.)
+#v[0, 0].assign(3.)
 
 # %%
 # Automatic differentiation, wonder of tensorflow
@@ -92,6 +101,7 @@ with tf.GradientTape() as g:
     dydx=g.gradient(y,[x])          # So the derivative is 2*x
 
 print(dydx)                         # You will see a 10 here.
+
 
 # %%
 # Automatic differentiation, wonder of tensorflow
@@ -117,7 +127,6 @@ def simple_function(x):
     return 3*x
 
 print(tf.autograph.to_code(simple_nn.python_function, experimental_optional_features=None))
-
 
 # %%
 import numpy as np
@@ -178,9 +187,10 @@ for epoch in range(30):
           epoch+1, TRUE_W, model.W.numpy(), TRUE_b, model.b.numpy(), loss.numpy()))
     plot(epoch + 1)
 
+input("Press Enter to continue...")
+quit()
 
 # Logistic Regression
-
 
 # Parameters
 learning_rate = 0.001

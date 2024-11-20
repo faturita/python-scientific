@@ -3,8 +3,10 @@
 Q-Learning toy sample based on OpenAI Gym.
 ==========================================
 
-Source: https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
-        Sutton Book, "Reinforcement Learning"
+Source: 
+ * https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
+ * https://github.com/GaurangSharma18/Reinforcement-Learning-Open-AI-gym---Taxi
+ * Sutton Book, "Reinforcement Learning"
 
 In RL, QLearning, we want to learn a Q table, a function, for which given a 
 state we can check the all the different actions to determine which one has
@@ -68,7 +70,7 @@ frames = [] # for animation
 
 done = False
 
-while not done:
+while (not done) and (epochs<400):
     action = env.action_space.sample()
     #print(f"Action: {action}")
     state, reward, done, info,ext = env.step(action)
@@ -88,32 +90,27 @@ while not done:
     )
 
     epochs += 1
-    
-    
-print("Timesteps taken: {}".format(epochs))
-print("Penalties incurred: {}".format(penalties))
-
-
-
+     
 # Let's see what is happening..... this is 100% exploration without any learning.
-#from IPython.display import clear_output
 from time import sleep, time
 
 def print_frames(frames):
     for i, frame in enumerate(frames):
-        #clear_output(wait=True)
         print(frame['frame'])
         print(f"Timestep: {i + 1}")
         print(f"State: {frame['state']}")
         print(f"Action: {frame['action']}")
         print(f"Reward: {frame['reward']}")
         sleep(.1)
+        print(chr(27) + "[2J")
         
 print_frames(frames)
-quit()
+
+print("Timesteps taken: {}".format(epochs))
+print("Penalties incurred: {}".format(penalties))
 
 
-# QLEarning rule, Q(s,a) <- (1-𝛂) Q(s,a) + 𝛂 ( R + γ max_an Q(next state, an)
+# Q-Learning rule, Q(s,a) <- (1-𝛂) Q(s,a) + 𝛂 ( R + γ max_an Q(next state, an)
 # Alpha is the explotation-exploration tradeoff whle gamma is the greedy-longterm term (0 is greedy)
 env.reset()
 
@@ -189,7 +186,6 @@ print("Training finished.\n")
 
 
 
-
 """Evaluate agent's performance after Q-learning"""
 
 total_epochs, total_penalties = 0, 0
@@ -259,3 +255,22 @@ plt.xlabel('Episodes')
 plt.ylabel('Penalties')
 plt.title('Penalties vs Episodes')
 plt.show()
+
+done = False
+frames = [] # for animation
+env.reset()
+while not done:
+    action = np.argmax(q_table[state,:])
+    state, reward, done, info, ext = env.step(action)
+
+    frames.append({
+        'frame': env.render(),
+        'state': state,
+        'action': action,
+        'reward': reward
+        }
+    )
+
+    epochs += 1
+
+print_frames(frames)

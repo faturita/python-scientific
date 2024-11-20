@@ -22,7 +22,7 @@ OnePassClassifier
 
 Show how small tweaks on the architecture help to achieve better performance.
 
-Environment: advkeras
+Environment: ps
 
 '''
 # %%
