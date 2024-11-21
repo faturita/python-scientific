@@ -6,8 +6,6 @@ Signal Feature Classification
 # Run with a virtual environment with keras, sklearn, numpy and tensorflow installed.
 # EPOC Emotiv file format https://arxiv.org/pdf/2206.09051
 
-# OpemMP sometimes raises coredumps, try export KMP_DUPLICATE_LIB_OK=TRUE
-
 """
 print(__doc__)
 

@@ -5,6 +5,11 @@ Thresholding
 
 Otsu method: https://en.wikipedia.org/wiki/Otsu%27s_method
 
+Otsu method divides the signal into two classes, the background and the foreground.
+It is a very simple method, but it is very effective.  It is based on the histogram
+of the signal.  The method is based on the assumption that the signal contains two classes
+of values following bi-modal histogram (foreground and background).  The algorithm calculates
+the optimum threshold separating the two classes so that their intra-class variance is minimal.
 
 """
 print(__doc__)
@@ -39,7 +44,6 @@ plt.ylabel('eeg(t)');
 plt.title(r'EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
 plt.ylim([-2000, 2000]);
 plt.xlim([0,len(eeg)])
-plt.savefig('grafico.eps')
 plt.show()
 
 # Otsu method provides the umbralization vlaue
@@ -126,8 +130,6 @@ def otsu_intraclass_variance(image, threshold):
 	])
 	# NaNs only arise if the class is empty, in which case the contribution should be zero, which `nansum` accomplishes.
 
-# Random image for demonstration:
-
 
 otsu_threshold = min(
 		range( np.min(eeg)+1, np.max(eeg) ),
@@ -135,4 +137,14 @@ otsu_threshold = min(
 	)
 
 print( f'Otsu thresholding:{otsuvalue}')
+
+plt.plot(eeg,'r', label='EEG')
+plt.axhline(y=otsu_threshold, color='k', linestyle='--')
+plt.xlabel('t');
+plt.ylabel('eeg(t)');
+plt.title(r'EEG Signal')     # r'' representa un raw string que no tiene caracteres especiales
+plt.ylim([-500, 500]);
+plt.xlim([0,len(eeg)])
+plt.show()
+
 # %%

@@ -345,6 +345,9 @@ for train, test in kf.split(featuredata):
     # Reorder is a list of indices, from 0 to the length of the features
     testdata = featuredata[test]
     testlabels = featurelabels[test]
+    
+    if len(traininglabels[traininglabels==1])==0 or len(traininglabels[traininglabels==0])==0:
+        continue
 
     clf = svm.SVC(kernel='linear', C = 1.0)
     clf.fit(trainingdata,traininglabels)

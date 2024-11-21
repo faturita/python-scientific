@@ -22,6 +22,9 @@ import matplotlib.pyplot as plt
 import scipy.sparse as sparse
 from scipy.sparse.linalg  import spsolve
 
+from pybaselines import Baseline, utils
+
+
 print('Baseline Removal')
 
 signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','counter','eeg','attention','meditation','blinking'])
@@ -76,9 +79,6 @@ plt.xlim([0,len(eeg2)])
 plt.show()
 
 # %% PyBaseline routines
-import matplotlib.pyplot as plt
-import numpy as np
-from pybaselines import Baseline, utils
 
 x = np.linspace(1, 1000, 1000)
 # a measured signal containing several Gaussian peaks

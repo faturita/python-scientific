@@ -86,24 +86,29 @@ n_noise_ = list(labels).count(-1)
 # #############################################################################
 # Compute Kmeans
 lblsk2 = KMeans(n_clusters=2).fit_predict(X)
-print("Silhouette Coefficient (-1,1): %0.3f"
+print("KMeans 2 clusters: Silhouette Coefficient (-1,1): %0.3f"
       % metrics.silhouette_score(X, lblsk2))
 plotclusters(lblsk2)
 
 lblsk3 = KMeans(n_clusters=3).fit_predict(X)
-print("Silhouette Coefficient (-1,1): %0.3f"
+print("KMeans 3 clusters: Silhouette Coefficient (-1,1): %0.3f"
       % metrics.silhouette_score(X, lblsk3))
 plotclusters(lblsk3)
 
 lblsk4 = KMeans(n_clusters=4).fit_predict(X)
-print("Silhouette Coefficient (-1,1): %0.3f"
+print("KMeans 4 clusters: Silhouette Coefficient (-1,1): %0.3f"
       % metrics.silhouette_score(X, lblsk4))
 plotclusters(lblsk4)
 
+print("DBScan Silhouette Coefficient (-1,1): %0.3f"
+      % metrics.silhouette_score(X, labels))
 
-# These are metrics that can be calculated for clusters.  Silhouette is the most widespread.
+plotclusters(labels)
+
 print('Estimated number of clusters: %d' % n_clusters_)
 print('Estimated number of noise points: %d' % n_noise_)
+
+# These are metrics that can be calculated for clusters.  Silhouette is the most widespread.
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
 print("Completeness: %0.3f" % metrics.completeness_score(labels_true, labels))
 print("V-measure: %0.3f" % metrics.v_measure_score(labels_true, labels))
@@ -111,9 +116,5 @@ print("Adjusted Rand Index: %0.3f"
       % metrics.adjusted_rand_score(labels_true, labels))
 print("Adjusted Mutual Information: %0.3f"
       % metrics.adjusted_mutual_info_score(labels_true, labels))
-print("Silhouette Coefficient (-1,1): %0.3f"
-      % metrics.silhouette_score(X, labels))
-
-plotclusters(labels)
 
 print(__doc__)

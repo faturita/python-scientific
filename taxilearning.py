@@ -90,6 +90,7 @@ while (not done) and (epochs<400):
     )
 
     epochs += 1
+
      
 # Let's see what is happening..... this is 100% exploration without any learning.
 from time import sleep, time
@@ -105,6 +106,7 @@ def print_frames(frames):
         print(chr(27) + "[2J")
         
 print_frames(frames)
+
 
 print("Timesteps taken: {}".format(epochs))
 print("Penalties incurred: {}".format(penalties))
