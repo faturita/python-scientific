@@ -7,33 +7,36 @@ Todos los archivos están subidos a campus.
 El largo de los registros es entre 10 y 11 minutos
 Fs = 512
 
-FECHA DE ENTREGA: 31/07/2024
-SEGUNDA FECHA DE ENTREGA: 10/08/2024
+FECHA DE ENTREGA: 24/12/2025
+SEGUNDA FECHA DE ENTREGA: 10/01/2025
 
 
 |---- BASELINE --------|
 |---- PESTANEO ------|
-|---- INHALAR ------- |
-|---- EXHALAR ----|
-|---- GOLPES (ESTIMULOS) --------|
-|---- MENTAL IMAGERY ------|
-|---- CERRADOS --------|
+|---- RISA ------- |
+|---- TRUCO_DOS ----|
+|---- TRUCO_SIETE --------|
+|---- TRUCO_SECUENCIA ------|
+|---- DEATHMETAL --------|
+|---- BETHOVEN --------|
 
 * Baseline: esta parte la pueden utilizar para tener ejemplos negativos de cualquier cosa que deseen detectar.  Por 
 ejemplo si quieren detectar que algo cambia cuando hay "imaginación en colores violeta", extraen features de ese momento y de
 este e intentan armar un clasificador.
-* Inhalar: Cambios en frecuencias bajas, donde se enfatice el movimiento del diafragma para inhalar.
-* Exhalar: Idem pero enfatizando el movimiento del diafragma para exhalar.
-* Golpes: Deberían aparecer algún evento con cierto pico en la señal.  Pueden intentar detectar estos picos y ver si hay algo.
-* Mental Imagery: Pueden aparecer frecuencias altas de 20-50 Hz.  Aumentos en la potencia de estas bandas entre este bloque y el baseline.
-* Cerrados: Debería aparecer un aumento en la frecuencia particular de 10 Hz en relación al baseline.
+* Pestaneos: los pestaneos son eventos temporales que pueden ser detectados directamente en la señal.
+* Risa: pueden tratar de detectar eventos temporales (picos) en la señal que se correspondan con la risa.
+* Truco_dos: pueden tratar de detectar cambios que representen el movimiento de la cara de los besitos.
+* Truco_siete: pueden tratar de detectar cambios que representen el movimiento de la cara de las muecas.
+* Truco_secuencia: entrenando con los otros dos tienen que tratar de detectar aca la secuencia que genero Agustina.
+* Deathmetal: pueden tratar de detectar cambios ritmicos (espectrales) relacionados con la musica.
+* Bethoven: pueden tratar de detectar cambios ritmicos (espectrales) relacionados con la musica.
 
 Objetivo:
 El objetivo es dado este registro implementar un análisis de estos datos, exploratorio, superviado 
 o no supervisado, para intentar identificar que es lo que el sujeto está haciendo en cada bloque.  Pueden 
 intentar separar dos bloques entre sí, un bloque particular frente al BASELINE (esto es el momento cuando el sujeto
 no hace nada particular).  Pueden usar una parte de dos bloques para entrenar y luego intentar predecir las otras partes.
-Tienen que producir un PDF informe con gráficos/tablas breve y resumido.
+Tienen que producir un PDF informe con gráficos/tablas breve y resumido (no más de 4 páginas)
 
 """
 
