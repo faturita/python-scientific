@@ -187,7 +187,6 @@ plt.show()
 print("Training finished.\n")
 
 
-
 """Evaluate agent's performance after Q-learning"""
 
 total_epochs, total_penalties = 0, 0

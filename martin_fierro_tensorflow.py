@@ -1,23 +1,24 @@
 import tensorflow as tf
-from tensorflow.keras.layers.experimental import preprocessing
 
 import numpy as np
 import os
 import time
 # Descargar martin_fierro
-# !wget https://www.gutenberg.org/files/14765/14765-8.txt -O martin_fierro.txt
+# !wget https://www.gutenberg.org/cache/epub/14765/pg14765.txt -O martin_fierro.txt
 
 # Aca se genera el encoder y se arma el dataset
 # Leer el archivo y arma el vocabulario(todos los caracteres que aparecen)
-text = open("martin_fierro.txt", 'rb').read().decode(encoding='latin-1')
+text = open("data/martin_fierro.txt", 'rb').read().decode(encoding='latin-1')
 # Limpia para que solo quede el texto del martin fierro
 text = text[4945:70218]
 vocab = sorted(set(text))
 
+print(f'{len(vocab)} caracteres unicos')
+
 # Arma un lookup para traducir de string a un numero y viceversa
-ids_from_chars = preprocessing.StringLookup(
+ids_from_chars = tf.keras.layers.StringLookup(
     vocabulary=list(vocab), mask_token=None)
-chars_from_ids = tf.keras.layers.experimental.preprocessing.StringLookup(
+chars_from_ids = tf.keras.layers.StringLookup(
     vocabulary=ids_from_chars.get_vocabulary(), invert=True, mask_token=None)
 # Funcion helper para traducir un conjunto de ids a texto
 def text_from_ids(ids):
@@ -63,10 +64,9 @@ embedding_dim = 256
 rnn_units = 1024
 
 # Arma un modelo de tres capas
-
 class MyModel(tf.keras.Model):
   def __init__(self, vocab_size, embedding_dim, rnn_units):
-    super().__init__(self)
+    super(MyModel, self).__init__(name='my_model')
     # Transforma el id en un vector de tamaño fijo
     self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
     # Red neuronal recurrente
@@ -80,7 +80,7 @@ class MyModel(tf.keras.Model):
     x = inputs
     x = self.embedding(x, training=training)
     if states is None:
-      states = self.lstm.get_initial_state(x)
+      states = 1 #self.lstm.get_initial_state(x)
     x, final_state,carry_state = self.lstm(x, initial_state=states, training=training)
     x = self.dense(x, training=training)
 
@@ -102,7 +102,7 @@ model.compile(optimizer='adam', loss=loss)
 
 # Configuracion para guardar el modelo en un archivo
 checkpoint_dir = './training_checkpoints'
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
+checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}.weights.h5")
 checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_prefix,
     save_weights_only=True)
