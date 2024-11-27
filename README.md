@@ -51,12 +51,12 @@ If you don't know anything at all about python, and you want to know something t
 
 ### Installation with PIP
 
-Up to date, the scripts are compatible with python 3.11.4.  So you need to download this python version and install it somewhere (PYTHON@3.11.4@PATH).
+Up to date, the scripts are compatible with python 3.11.4.  So you need to download this python version and install it somewhere.
 
 Then, you need to create a virtual envirnonment
 
  ```bash
- python -m venv --python PYTHON@3.11.4@PATH ps
+ python -m venv ps
  ```
 
 This will create the directory ''ps'' on current directory.  And then, activate the directory
