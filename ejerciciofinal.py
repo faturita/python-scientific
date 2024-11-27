@@ -7,7 +7,7 @@ Todos los archivos están subidos a campus.
 El largo de los registros es entre 10 y 11 minutos
 Fs = 512
 
-FECHA DE ENTREGA: 24/12/2025
+FECHA DE ENTREGA: 24/12/2024
 SEGUNDA FECHA DE ENTREGA: 10/01/2025
 
 
