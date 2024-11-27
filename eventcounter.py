@@ -8,7 +8,7 @@ Easy blinking counter.
 Use me to find the peaks on the EEG signal obtained with Mindwave.
 They are marks that in general correspond to blinking events.
 
-= Pragmatic Signal Processing
+Pragmatic Signal Processing
 
 Analytical signal processing:  There is a richful set of techniques and tool that can be used
 to perform basic analysis of signals, trying to find peaks, troughs, valleys, and so on.  These

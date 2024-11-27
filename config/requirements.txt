@@ -11,7 +11,7 @@ opencv-python==4.10.0.84
 pybaselines==1.1.0
 gevent==24.2.1
 keras==3.4.1
-#tensorflow==2.16.1
-#tensorflow-io-gcs-filesystem==0.37.0
+tensorflow==2.16.1
+tensorflow-io-gcs-filesystem==0.37.0
 gym==0.26.2
 gym-notices==0.0.8
