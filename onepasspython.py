@@ -382,7 +382,16 @@ clean_strings(states, clean_ops)    # Functions are used as variables (first cla
 
 # In[1]:
 print('Objects')
-class Greeter(object):
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def honk(self, loud=False):
+        pass
+
+
+class Car(Vehicle):
 
     attribute = []
     # Constructor
@@ -391,17 +400,49 @@ class Greeter(object):
         self.attribute.append(name)
 
     # Instance method
-    def greet(self, loud=False):
+    def honk(self, loud=False):
         if loud:
-            print('HELLO, %s!' % self.name.upper())
+            print('HONK, %s!' % self.name.upper())
         else:
-            print('Hello, %s' % self.name)
+            print('Honk, %s' % self.name)
 
-g = Greeter('Fred')  # Construct an instance of the Greeter class
+g = Car('BMW')  # Construct an instance of the Car class
 print(g.attribute)
-g.greet()            # Call an instance method; prints "Hello, Fred"
-g.greet(loud=True)   # Call an instance method; prints "HELLO, FRED!"
+g.honk()            # Call an instance method; prints "Hello, Fred"
+g.honk(loud=True)   # Call an instance method; prints "HELLO, FRED!"
 
+# In[1]
+# Inherence of the behavior of the parent class
+class ElectricCar(Car):
+    def __init__(self, name, battery=100):
+        super().__init__(name)  # Idem to Car.__init__(self,name)
+        self.battery = battery
+        self.__speed = 0        # Double __ means the attribute is private and cannot be accessed from outside the class
+        
+g = ElectricCar('Tesla', 200)
+print(g.battery)
+g.honk()
+g.honk(loud=True)
+
+try:
+    print(g.__speed)
+except AttributeError:
+    print('Speed is private')
+    
+class Scooter(Vehicle):
+    def honk(self, loud=False):
+        if loud:
+            print('BEEP')
+        else:
+            print('Beep')
+         
+# Polymorphism, all the different classes have an concret implementation of the abstract honk method.   
+vehicles = [Car('BMW'), ElectricCar('Tesla', 200), Scooter()]
+
+for vehicle in vehicles:
+    vehicle.honk()
+        
+    
 # In[1]:
 print('Check python system configuration.')
 import sys

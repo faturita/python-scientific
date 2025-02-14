@@ -83,6 +83,7 @@ for i in range(1,2000):
 
 
 temp_array = []
+gray = None
 
 # Se repite el código anterior, pero ahora una sola vez, como si fuera una foto, se sacan los descriptores
 # y se guardan.
@@ -114,6 +115,8 @@ for i in range(1,2):
 print ('Done.')
 file = sys.argv[1]
 pickle.dump(temp_array, open(file, "wb"))
+
+cv2.imwrite(file + ".png", gray)
 
 #When everything done, release the capture
 cap.release()

@@ -176,6 +176,11 @@ from sklearn.ensemble import RandomForestRegressor
 frs = RandomForestClassifier(n_estimators=100, random_state=0)
 frs.fit(trainingdata, traininglabels)
 
+import joblib
+# save
+joblib.dump(frs, "data/model.joblib")
+
+
 # predict probabilities
 sr_probs = clf.predict_proba(testdata)
 # keep probabilities for the positive outcome only
