@@ -243,5 +243,6 @@ Probably, there are TONS of online resource to learn python.  Those listed here 
 * [Cross Entropy](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a)
 * [Visual Information Theory](http://colah.github.io/posts/2015-09-Visual-Information/)
 * [History of Artificial Intelligence](https://philippschmitt.com/blueprints-for-intelligence/)
+* https://centre-borelli.github.io/ruptures-docs/
 
 
