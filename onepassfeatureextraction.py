@@ -90,6 +90,10 @@ gray = None
 for i in range(1,2):
    # Capture frame-by-frame
    ret, frame = cap.read()
+   
+   # @NOTE: Here you can replace this line to load a file from a file instead of the camera.
+   #frame = cv2.imread('data/classone1.png')
+   
 
    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 

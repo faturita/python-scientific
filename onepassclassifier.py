@@ -5,8 +5,6 @@ OnePassClassifier
 
 This toy sample get two files of image descriptors (Akaze or whatever you want), build two classes with them and try to classify them with different methods.
 
-Enviroment: 'cv'
-
 """
 print(__doc__)
 
