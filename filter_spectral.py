@@ -136,7 +136,7 @@ y = 1*np.sin(10.0 * 2.0*np.pi*x) + 9*np.sin(20.0 * 2.0*np.pi*x)
 
 plt.plot(x, y)
 plt.grid()
-plt.title(r'Original Signal')
+plt.title(r'Longer Original Signal')
 plt.axis((0,N,-20,20))
 plt.show()
 
@@ -168,7 +168,7 @@ signals = pd.read_csv('data/blinking.dat', delimiter=' ', names = ['timestamp','
 data = signals.values
 eeg = data[:,2]
 
-Fs = 128.0
+Fs = 512.0
 
 normalized_signal = eeg
 
@@ -191,6 +191,18 @@ plt.ylabel('Amplitude')
 plt.xlabel('Frequency (Hertz)')
 plt.show()
 
+
+from scipy.signal import welch
+span, val = welch(eeg, Fs, nperseg=1024)
+
+plt.figure(figsize=(10,6))
+plt.semilogy(span, val, label='EEG', color='blue')
+plt.title('Spectra Density based on Welch Method')
+plt.xlabel('Frequency (Hz)')
+plt.ylabel('PSD   (uV2/Hz)' )
+plt.grid()
+plt.legend()
+plt.show()
 
 
 

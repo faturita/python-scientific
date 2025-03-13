@@ -150,4 +150,58 @@ for ii, (model, name) in enumerate(zip(models, names), 1):
         plt.plot(sig, color=color)
 
 plt.subplots_adjust(0.09, 0.04, 0.94, 0.94, 0.26, 0.46)
+
+
+
+import numpy as np
+from sklearn.decomposition import NMF
+import matplotlib.pyplot as plt
+
+def apply_nmf(data, n_components=None):
+    """Applies Nonnegative Matrix Factorization (NMF) to EEG data.
+
+    Args:
+        data (np.ndarray): EEG data (channels x time).
+        n_components (int, optional): Number of components to extract. If None,
+                                      defaults to the number of channels.
+
+    Returns:
+        tuple: (W, H), where W is the component matrix (channels x components)
+               and H is the activation matrix (components x time).
+    """
+    if n_components is None:
+        n_components = data.shape[0]  # Use number of channels by default
+
+    model = NMF(n_components=n_components, init='random', random_state=0, max_iter=1000) #increased max_iter
+    W = model.fit_transform(data) # component matrix
+    H = model.components_ # activation matrix
+
+    return W, H
+
+# Make data non-negative using absolute values
+S_non_negative = np.abs(S)
+
+n_components_nmf = 3
+
+if n_components_nmf > S_non_negative.shape[1]:
+    print(f"Warning: n_components_nmf ({n_components_nmf}) is greater than the number of signals ({S_non_negative.shape[1]}). Setting n_components_nmf to {S_non_negative.shape[1]}.")
+    n_components_nmf = S_non_negative.shape[1]
+
+W_nmf, H_nmf = apply_nmf(S_non_negative, n_components=n_components_nmf)
+
+
+# Reconstruction
+data_reconstructed_nmf = np.dot(W_nmf, H_nmf)
+
+plt.figure(7)
+plt.title('Reconstructed 1')
+plt.subplot(3,1,1)
+plt.plot(data_reconstructed_nmf[:,0], color='red')
+plt.title('Reconstructed 2')
+plt.subplot(3,1,2)
+plt.plot(data_reconstructed_nmf[:,1], color='steelblue')
+plt.title('Reconstructed 3')
+plt.subplot(3,1,3)
+plt.plot(data_reconstructed_nmf[:,2], color='orange')
+
 plt.show()

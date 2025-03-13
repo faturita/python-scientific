@@ -28,11 +28,15 @@ If you don't know anything at all about python, and you want to know something t
 * 🧠 Neurodata Processing
 
 
-## Procedure
+## Procedure for Windows
+
+ * Install Python for Windows https://www.python.org/downloads/windows/
+
+ Write down the location where you install python and add it to the PATH environment variable.
 
  * Install Git Bash
 
-   https://git-scm.com/downloads (for Windows only)
+   https://git-scm.com/downloads 
  
  * Install Visual Studio Code
  
@@ -49,7 +53,7 @@ If you don't know anything at all about python, and you want to know something t
  * Run a Git Bash Prompt or Terminal
  * Move with "cd" to the directory that you just downloaded ("cd python-scientific")
 
-### Installation with PIP
+### Create the virtual environment
 
 Up to date, the scripts are compatible with python 3.11.4.  So you need to download this python version and install it somewhere.
 

@@ -22,8 +22,8 @@ model.add(Dense(2, activation='softmax'))
 
 model.summary()
 
-img1 = cv2.imread('data/coca.1.png')
-img2 = cv2.imread('data/coca.2.png')
+img1 = cv2.imread('data/classone2.png')
+img2 = cv2.imread('data/classtwo2.png')
 
 img1 = cv2.resize(img1, (480, 640))
 img1 = img1.astype('float32')/255
