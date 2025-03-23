@@ -9,7 +9,7 @@ Python se puede correr desde 5 lugares
 2- X Terminal, de manera interactiva con 'python', 'import programa'
 3- X Terminal, con 'ipython', 'run 'holamundo''
 4- Jupyter Notebooks.
-5- Google Collab (u otros cloud providers).
+5- Google Colab (u otros cloud providers).
 
 
 
