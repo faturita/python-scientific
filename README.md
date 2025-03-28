@@ -69,7 +69,7 @@ This will create the directory ''ps'' on current directory.  And then, activate 
  source ps/bin/activate
  ```
 
-(or run **ps\bin\Activate on windows)
+(or run **.\ps\Scripts\Activate on windows)
 
 Finally you can install all the minimal requirements for this python version:
 
