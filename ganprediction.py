@@ -1,8 +1,5 @@
 '''
-
-
-
-
+Generates samples for training a GAN for signal processing.
 
 https://towardsdatascience.com/hands-on-generative-adversarial-networks-gan-for-signal-processing-with-python-ff5b8d78bd28
 '''
